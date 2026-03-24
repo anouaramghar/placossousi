@@ -5,6 +5,10 @@ import ServicesSection from '@/components/sections/ServicesSection'
 import BranchesSection from '@/components/sections/BranchesSection'
 import ContactSection from '@/components/sections/ContactSection'
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }, { locale: 'ar' }]
+}
+
 export default function HomePage() {
   return (
     <main>

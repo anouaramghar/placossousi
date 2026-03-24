@@ -1,7 +1,6 @@
 // components/sections/ServicesSection.tsx
 import { useTranslations } from 'next-intl'
-
-const ICONS = ['🏗️', '🎨', '🖌️', '💡']
+import servicesData from '@/data/services.json'
 
 export default function ServicesSection() {
   const t = useTranslations('services')
@@ -14,8 +13,8 @@ export default function ServicesSection() {
         <h2 className="text-white text-3xl md:text-4xl font-black mb-10">{t('title')}</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, i) => (
-            <div key={i} className="bg-brand-800 rounded-xl p-6 border border-brand-700">
-              <span className="text-3xl mb-4 block">{ICONS[i]}</span>
+            <div key={servicesData[i]?.id ?? i} className="bg-brand-800 rounded-xl p-6 border border-brand-700">
+              <span className="text-3xl mb-4 block">{servicesData[i]?.icon}</span>
               <p className="text-white font-semibold text-sm leading-relaxed">{item}</p>
             </div>
           ))}
