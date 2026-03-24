@@ -1,7 +1,21 @@
 // app/[locale]/products/page.tsx
+import type { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 import { getProducts } from '@/lib/products'
 import ProductGrid from '@/components/products/ProductGrid'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: locale === 'ar'
+      ? 'المنتجات — بلاكو سوسي'
+      : 'Produits — Placo Sousi',
+  }
+}
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'ar' }]
