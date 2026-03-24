@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "platre-ba13",
+    "name": "Plâtre BA13",
+    "nameAr": "جبص BA13",
+    "category": "platre",
+    "description": "Plaque de plâtre standard pour cloisons et faux-plafonds intérieurs.",
+    "descriptionAr": "لوح الجبص المعياري للحواجز والأسقف الداخلية.",
+    "image": "/images/products/ba13.jpg",
+    "featured": true
+  },
+  {
+    "slug": "peinture-interieure",
+    "name": "Peinture Intérieure",
+    "nameAr": "طلاء داخلي",
+    "category": "peinture",
+    "description": "Peinture acrylique haute qualité pour murs et plafonds intérieurs.",
+    "descriptionAr": "طلاء أكريليك عالي الجودة للجدران والأسقف الداخلية.",
+    "image": "/images/products/peinture.jpg",
+    "featured": true
+  },
+  {
+    "slug": "pasta-finition",
+    "name": "Pasta Finition",
+    "nameAr": "باستا التشطيب",
+    "category": "pasta",
+    "description": "Enduit de finition à base de pasta pour une surface lisse et résistante.",
+    "descriptionAr": "طلاء تشطيب بالباستا لسطح ناعم ومتين.",
+    "image": "/images/products/pasta.jpg",
+    "featured": true
+  },
+  {
+    "slug": "armstrong-faux-plafond",
+    "name": "Armstrong Faux-Plafond",
+    "nameAr": "أرمسترونغ أسقف مستعارة",
+    "category": "armstrong",
+    "description": "Dalles Armstrong originales pour faux-plafonds acoustiques et décoratifs.",
+    "descriptionAr": "بلاطات أرمسترونغ الأصلية للأسقف المستعارة الصوتية والزخرفية.",
+    "image": "/images/products/armstrong.jpg",
+    "featured": true
+  },
+  {
+    "slug": "led-profile",
+    "name": "Profil LED",
+    "nameAr": "ملف LED",
+    "category": "led",
+    "description": "Profilés aluminium pour intégration de rubans LED dans les faux-plafonds.",
+    "descriptionAr": "ملفات ألومنيوم لتركيب شرائط LED في الأسقف المستعارة.",
+    "image": "/images/products/led.jpg",
+    "featured": true
+  },
+  {
+    "slug": "ttpc-visserie",
+    "name": "Visserie TTPC",
+    "nameAr": "مسامير TTPC",
+    "category": "visserie",
+    "description": "Vis TTPC haute performance pour la fixation de plaques de plâtre.",
+    "descriptionAr": "مسامير TTPC عالية الأداء لتثبيت ألواح الجبص.",
+    "image": "/images/products/ttpc.jpg",
+    "featured": false
+  }
+]
