@@ -111,56 +111,31 @@ git commit -m "feat: initialize Next.js 14 project with TypeScript, Tailwind, ne
 
 ## Task 2: Tailwind Theme & Fonts
 
+> **Tailwind v4 note:** No `tailwind.config.ts` needed. Custom tokens go in `app/globals.css` using `@theme {}`. Classes like `bg-brand-900`, `text-brand-300` still work the same way in JSX.
+
 **Files:**
-- Modify: `tailwind.config.ts`
 - Modify: `app/globals.css`
 
-- [ ] **Step 1: Configure custom color palette and fonts**
-
-Replace `tailwind.config.ts` with:
-
-```typescript
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          900: '#060e1c',
-          800: '#0a1628',
-          700: '#0f1e36',
-          600: '#111e35',
-          500: '#1a2d4a',
-          400: '#1e4fa3',
-          300: '#7fa8e0',
-        },
-        whatsapp: '#25d366',
-      },
-      fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        arabic: ['var(--font-cairo)', 'sans-serif'],
-      },
-    },
-  },
-  plugins: [],
-}
-export default config
-```
-
-- [ ] **Step 2: Update globals.css**
-
-Replace `app/globals.css` with:
+- [ ] **Step 1: Replace app/globals.css with brand theme**
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Brand color palette */
+  --color-brand-900: #060e1c;
+  --color-brand-800: #0a1628;
+  --color-brand-700: #0f1e36;
+  --color-brand-600: #111e35;
+  --color-brand-500: #1a2d4a;
+  --color-brand-400: #1e4fa3;
+  --color-brand-300: #7fa8e0;
+  --color-whatsapp: #25d366;
+
+  /* Font families */
+  --font-family-sans: var(--font-inter), sans-serif;
+  --font-family-arabic: var(--font-cairo), sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
@@ -171,16 +146,16 @@ body {
   color: #ffffff;
 }
 
-/* RTL font override */
+/* RTL: switch to Arabic font */
 [dir="rtl"] body {
   font-family: var(--font-cairo), sans-serif;
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [ ] **Step 2: Commit**
 
 ```bash
-git add tailwind.config.ts app/globals.css
+git add app/globals.css
 git commit -m "feat: configure brand color palette and font tokens"
 ```
 
@@ -198,12 +173,16 @@ git commit -m "feat: configure brand color palette and font tokens"
 - [ ] **Step 1: Create i18n.ts**
 
 ```typescript
-// i18n.ts
+// i18n.ts — next-intl v4 API: use requestLocale, not locale
 import { getRequestConfig } from 'next-intl/server'
 
-export default getRequestConfig(async ({ locale }) => ({
-  messages: (await import(`./messages/${locale}.json`)).default
-}))
+export default getRequestConfig(async ({ requestLocale }) => {
+  const locale = await requestLocale
+  return {
+    locale,
+    messages: (await import(`./messages/${locale}.json`)).default
+  }
+})
 ```
 
 - [ ] **Step 2: Create middleware.ts**
@@ -222,16 +201,18 @@ export const config = {
 }
 ```
 
-- [ ] **Step 3: Update next.config.js**
+- [ ] **Step 3: Update next.config.ts** (not .js — scaffold generated TypeScript version)
 
-```javascript
-// next.config.js
-const withNextIntl = require('next-intl/plugin')('./i18n.ts')
+```typescript
+// next.config.ts — next-intl v4: ES module import
+import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+const withNextIntl = createNextIntlPlugin('./i18n.ts')
 
-module.exports = withNextIntl(nextConfig)
+const nextConfig: NextConfig = {}
+
+export default withNextIntl(nextConfig)
 ```
 
 - [ ] **Step 4: Create messages/fr.json**
