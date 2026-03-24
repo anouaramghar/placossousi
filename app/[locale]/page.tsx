@@ -3,6 +3,7 @@ import AboutSection from '@/components/sections/AboutSection'
 import ProductsSection from '@/components/sections/ProductsSection'
 import ServicesSection from '@/components/sections/ServicesSection'
 import BranchesSection from '@/components/sections/BranchesSection'
+import ContactSection from '@/components/sections/ContactSection'
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <ProductsSection />
       <ServicesSection />
       <BranchesSection />
+      <ContactSection />
     </main>
   )
 }
