@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "services": "Services",
+    "branches": "Nos Agences",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Plâtre · Peinture · Pasta",
+    "title": "Maîtres du Plâtre et de la Finition",
+    "subtitle": "Nador · Beni Ansar · Arrid",
+    "cta_products": "Nos Produits",
+    "cta_contact": "Nous contacter",
+    "stat_years": "Ans d'exp.",
+    "stat_cities": "Villes",
+    "stat_quality": "Qualité"
+  },
+  "about": {
+    "label": "À Propos",
+    "title": "Placo Sousi — Maîtres du Plâtre",
+    "description": "Société marocaine spécialisée dans le plâtre, la peinture et la décoration intérieure depuis plus de 10 ans. Fondée par Abdelghani Aganchich, Placo Sousi s'est imposée comme la référence régionale en matière de finition de qualité.",
+    "founder": "Abdelghani Aganchich",
+    "founder_title": "Fondateur de Placo Sousi"
+  },
+  "products": {
+    "label": "Nos Produits",
+    "title": "Gamme complète de matériaux",
+    "see_all": "Voir tout le catalogue →",
+    "categories": {
+      "all": "Tout",
+      "platre": "Plâtre",
+      "peinture": "Peinture",
+      "pasta": "Pasta",
+      "armstrong": "Armstrong",
+      "led": "Éclairage LED",
+      "visserie": "Visserie"
+    }
+  },
+  "services": {
+    "label": "Services",
+    "title": "Ce qu'on fait pour vous",
+    "items": [
+      "Pose & installation plâtre / BA13",
+      "Décoration marocaine & égyptienne",
+      "Peinture intérieure & extérieure",
+      "Conseil & accompagnement projet"
+    ]
+  },
+  "branches": {
+    "label": "Nos Agences",
+    "title": "Proches de chez vous",
+    "map_label": "Carte des agences"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Contactez-nous",
+    "phone_label": "Téléphone",
+    "whatsapp_label": "WhatsApp",
+    "form_name": "Nom complet",
+    "form_phone": "Numéro de téléphone",
+    "form_message": "Votre message",
+    "form_submit": "Envoyer le message",
+    "form_success": "Message envoyé ! Nous vous répondrons bientôt.",
+    "form_error": "Erreur d'envoi. Veuillez réessayer."
+  },
+  "footer": {
+    "tagline": "Plâtre · Peinture · Pasta",
+    "copyright": "© 2025 Placo Sousi. Tous droits réservés."
+  }
+}
