@@ -12,10 +12,26 @@ import '../globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const cairo = Cairo({ subsets: ['arabic'], variable: '--font-cairo' })
 
-export const metadata: Metadata = {
-  title: 'Placo Sousi — Maîtres du Plâtre et de la Finition',
-  description:
-    'Société marocaine spécialisée dans le plâtre, peinture et pasta. Nador, Beni Ansar, Arrid.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: locale === 'ar'
+      ? 'بلاكو سوسي — أسياد الجبص والتشطيب'
+      : 'Placo Sousi — Maîtres du Plâtre et de la Finition',
+    description: locale === 'ar'
+      ? 'شركة مغربية متخصصة في الجبص والطلاء والباستا. الناظور، بني أنصار، أريد.'
+      : 'Société marocaine spécialisée dans le plâtre, peinture et pasta. Nador, Beni Ansar, Arrid.',
+    alternates: {
+      languages: {
+        'fr': '/fr',
+        'ar': '/ar',
+      },
+    },
+  }
 }
 
 const locales = ['fr', 'ar']
