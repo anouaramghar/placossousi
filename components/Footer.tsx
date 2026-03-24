@@ -1,9 +1,8 @@
 // components/Footer.tsx
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 export default function Footer() {
   const t = useTranslations('footer')
-  const locale = useLocale()
 
   return (
     <footer className="bg-brand-900 border-t border-brand-700 py-8 px-4">
