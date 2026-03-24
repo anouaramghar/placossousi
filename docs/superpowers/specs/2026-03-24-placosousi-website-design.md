@@ -37,13 +37,24 @@ Single long-scroll page containing all main sections in order:
 | 3 | **About** | Company description, founding story, Abdelghani Aganchich as founder |
 | 4 | **Products** | 5 featured product cards (BA13, Peinture, Pasta, Armstrong, LED) + "Voir tout" link to catalog |
 | 5 | **Services** | 4 service items: pose/installation plâtre BA13, décoration marocaine & égyptienne, peinture intérieure & extérieure, conseil & accompagnement |
-| 6 | **Branches** | Google Maps embed + tagged list of cities (Nador, Beni Ansar, Arrid, Driouech, + others) |
-| 7 | **Contact** | Phone numbers (0665 652 991 / 0661 827 712), WhatsApp link, contact form (name, phone, message) |
+| 6 | **Branches** | Single Google Maps embed showing all branches + tagged list of cities below. Each city tag links to its individual `mapUrl` (opens Google Maps in new tab). |
+| 7 | **Contact** | Phone numbers (0665 652 991 / 0661 827 712), WhatsApp link, contact form (name, phone, message) — form submits via Formspree |
 | 8 | **Footer** | Brand name, tagline, social links (Instagram, Facebook), copyright |
 
 ### 3.2 Product Catalog — `/[locale]/products/`
 
 Grid of all products with category filtering. Each product card shows: image, name, category, short description.
+
+**Product categories (exhaustive list for v1):**
+
+| Slug | Label FR | Label AR |
+|---|---|---|
+| `platre` | Plâtre | الجبص |
+| `peinture` | Peinture | الطلاء |
+| `pasta` | Pasta | باستا |
+| `armstrong` | Armstrong | أرمسترونغ |
+| `led` | Éclairage LED | إضاءة LED |
+| `visserie` | Visserie & Accessoires | مسامير وملحقات |
 
 ### 3.3 Product Detail — `/[locale]/products/[slug]/`
 
@@ -161,7 +172,7 @@ All content is stored as static JSON files — no database required for v1.
 | Fonts | next/font (Google Fonts) | Optimized loading, no layout shift |
 | Images | next/image | Automatic optimization, lazy loading |
 | Maps | Google Maps Embed API | Free, no API key needed for embed |
-| Contact form | Client-side only (v1) | No backend needed — WhatsApp/phone as primary contact |
+| Contact form | **Formspree** (free tier) | No backend needed — form posts to Formspree endpoint, emails arrive at owner's inbox. WhatsApp/phone remain primary contact. |
 | Deployment | Vercel (recommended) | Native Next.js hosting |
 
 ---
