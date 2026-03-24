@@ -18,10 +18,11 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background-color: #0a1628;
+  background-color: var(--color-brand-800);
   color: #ffffff;
 }
 
