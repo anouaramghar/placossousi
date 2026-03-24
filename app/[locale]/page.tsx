@@ -1,8 +1,9 @@
-// app/[locale]/page.tsx
+import HeroSection from '@/components/sections/HeroSection'
+
 export default function HomePage() {
   return (
     <main>
-      <p>Placo Sousi — coming soon</p>
+      <HeroSection />
     </main>
   )
 }
