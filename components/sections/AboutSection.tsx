@@ -22,7 +22,7 @@ export default function AboutSection() {
         {/* Two-column editorial layout */}
         <div className="grid md:grid-cols-12 gap-16 lg:gap-24 items-center">
           {/* Left — description */}
-          <div className="md:col-span-7 reveal reveal-left delay-1">
+          <div className="md:col-span-7 reveal-left delay-1">
             <p className="font-sans text-brand-100/70 text-xl md:text-2xl leading-[1.75] font-light tracking-[-0.01em]">
               {t('description')}
             </p>

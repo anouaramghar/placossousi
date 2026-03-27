@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative z-10">
+    <main id="main-content" className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative z-10">
       {/* Decorative orb */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-400/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 

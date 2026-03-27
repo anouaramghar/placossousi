@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Navbar() {
   const t = useTranslations('nav')
@@ -59,7 +60,7 @@ export default function Navbar() {
           ))}
           <Link
             href={switchPath}
-            className="ml-3 font-sans text-brand-200/70 hover:text-white text-xs font-bold px-3.5 py-1.5 rounded-full border border-white/10 hover:border-white/25 bg-white/3 hover:bg-white/8 transition-all duration-200 tracking-[0.08em]"
+            className="ml-3 font-sans text-brand-200/70 hover:text-white text-xs font-bold px-4 py-2.5 min-h-[44px] rounded-full border border-white/10 hover:border-white/25 bg-white/3 hover:bg-white/8 transition-all duration-200 tracking-[0.08em]"
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -69,7 +70,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-3">
           <Link
             href={switchPath}
-            className="font-sans text-brand-200/70 text-xs font-bold px-3 py-1.5 rounded-full border border-white/10 bg-white/3 tracking-[0.08em]"
+            className="font-sans text-brand-200/70 text-xs font-bold px-4 py-2.5 min-h-[44px] rounded-full border border-white/10 bg-white/3 tracking-[0.08em]"
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -91,20 +92,29 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div id="mobile-nav" className="md:hidden bg-brand-900/95 backdrop-blur-3xl border-t border-white/5 px-6 py-5 flex flex-col gap-1 absolute w-full shadow-2xl">
-          {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-sans text-brand-200/70 hover:text-white font-medium text-sm py-3 px-4 rounded-xl hover:bg-white/5 transition-all duration-200 tracking-[-0.01em]"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            id="mobile-nav"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden bg-brand-900/95 backdrop-blur-3xl border-t border-white/5 px-6 py-5 flex flex-col gap-1 absolute w-full shadow-2xl"
+          >
+            {links.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="font-sans text-brand-200/70 hover:text-white font-medium text-sm py-3 px-4 rounded-xl hover:bg-white/5 transition-all duration-200 tracking-[-0.01em]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

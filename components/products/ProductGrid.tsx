@@ -23,7 +23,8 @@ export default function ProductGrid({ products }: Props) {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${active === cat
+            aria-pressed={active === cat}
+            className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${active === cat
                 ? 'bg-brand-400 text-white shadow-[0_4px_20px_rgba(30,79,163,0.5)] scale-105 border border-transparent'
                 : 'bg-white/[0.03] text-brand-300 hover:text-white hover:bg-white/[0.08] border border-white/10 hover:border-brand-400/40 backdrop-blur-md'
               }`}

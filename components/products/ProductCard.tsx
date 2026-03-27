@@ -21,6 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
           src={product.image}
           alt={name}
           fill
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
           className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />
         {/* Overlay on hover */}

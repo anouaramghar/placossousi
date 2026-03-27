@@ -13,6 +13,8 @@
   --color-brand-200: #bfdbfe;
   --color-brand-100: #dbeafe;
   --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #128c7e;
+  --color-text-base: #e2e8f0;
 
   /* ── Typography ─────────────────────────────── */
   --font-family-sans:    var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -62,9 +64,10 @@
     50%       { transform: translateY(-22px) rotate(1.5deg); }
   }
   @keyframes aurora {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0%   { transform: translate(0%, 0%) scale(1); }
+    33%  { transform: translate(3%, -2%) scale(1.02); }
+    66%  { transform: translate(-2%, 3%) scale(0.98); }
+    100% { transform: translate(0%, 0%) scale(1); }
   }
   @keyframes pulse-slow {
     0%   { opacity: 0.25; transform: scale(1);   }
@@ -113,7 +116,7 @@ html {
 
 body {
   background-color: var(--color-brand-900);
-  color: #e2e8f0;
+  color: var(--color-text-base);
   overflow-x: hidden;
   font-family: var(--font-family-sans);
   font-size: 16px;
@@ -140,25 +143,12 @@ body::before {
   height: 200%;
   z-index: -2;
   background:
-    radial-gradient(ellipse 80% 50% at 100% 0%,  rgba(37, 99, 235, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 0%  100%, rgba(124,58,237, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 100% 0%,  rgba(37, 99, 235, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 0%  100%, rgba(124,58,237, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 60% at 50% 50%,  rgba(3,7,18,1) 0%, transparent 100%);
-  animation: aurora 25s linear infinite;
+  animation: aurora 40s linear infinite;
+  transform-origin: center;
   pointer-events: none;
-}
-
-/* Precision dot-grid texture */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none;
-  opacity: 0.35;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
 
 /* ════════════════════════════════════════════════════
@@ -194,7 +184,7 @@ body::after {
     0 -1px 0 0 rgba(0,0,0,0.3) inset,
     0 8px 32px -4px rgba(0,0,0,0.45);
   transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, box-shadow, border-color;
+  will-change: transform;
 }
 
 .glass-card:hover {
