@@ -38,7 +38,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3 className="font-sans text-white/90 font-semibold text-base mb-1.5 group-hover:text-white transition-colors duration-200 tracking-[-0.01em] leading-snug">
           {name}
         </h3>
-        <p className="font-sans text-brand-200/40 text-xs leading-relaxed line-clamp-2 flex-grow group-hover:text-brand-200/60 transition-colors duration-200">
+        <p className="font-sans text-brand-200/60 text-xs leading-relaxed line-clamp-2 flex-grow group-hover:text-brand-200/80 transition-colors duration-200">
           {description}
         </p>
         {/* CTA */}

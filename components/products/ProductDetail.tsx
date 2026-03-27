@@ -11,7 +11,7 @@ export default function ProductDetail({ product }: { product: Product }) {
   const description = locale === 'ar' ? product.descriptionAr : product.description
 
   return (
-    <main className="min-h-screen relative pt-32 pb-24 px-4 overflow-hidden z-10">
+    <main id="main-content" className="min-h-screen relative pt-32 pb-24 px-4 overflow-hidden z-10">
       {/* Decorative Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-400/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-300/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>

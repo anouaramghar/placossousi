@@ -75,8 +75,10 @@ export default function Navbar() {
           </Link>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-brand-200/70 hover:text-white p-1.5 transition-colors"
-            aria-label="Menu"
+            className="text-brand-200/70 hover:text-white p-3 transition-colors rounded-lg hover:bg-white/5"
+            aria-label={t('menu_toggle')}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {menuOpen
@@ -90,7 +92,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-brand-900/95 backdrop-blur-3xl border-t border-white/5 px-6 py-5 flex flex-col gap-1 absolute w-full shadow-2xl">
+        <div id="mobile-nav" className="md:hidden bg-brand-900/95 backdrop-blur-3xl border-t border-white/5 px-6 py-5 flex flex-col gap-1 absolute w-full shadow-2xl">
           {links.map(link => (
             <a
               key={link.href}

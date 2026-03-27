@@ -51,7 +51,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Text */}
-                <p className="font-sans text-brand-100/80 text-xl md:text-2xl lg:text-3xl font-light group-hover:text-white transition-colors duration-300 relative z-10 leading-tight tracking-[-0.02em] flex-1">
+                <p className="font-sans text-brand-100/80 text-xl md:text-2xl lg:text-3xl font-light group-hover:text-white transition-colors duration-300 relative z-10 leading-tight tracking-[-0.02em] flex-1 min-w-0">
                   {item}
                 </p>
 

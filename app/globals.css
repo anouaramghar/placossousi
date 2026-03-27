@@ -459,3 +459,75 @@ body::after {
 ══════════════════════════════════════════════════════ */
 [dir="rtl"] body { font-family: var(--font-family-arabic); }
 [dir="rtl"] .section-label::before { background: linear-gradient(to left, var(--color-brand-400), transparent); }
+
+/* ════════════════════════════════════════════════════
+   FOCUS VISIBLE — keyboard navigation
+══════════════════════════════════════════════════════ */
+:focus-visible {
+  outline: 2px solid var(--color-brand-400);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible,
+.btn-magic:focus-visible {
+  outline: 2px solid var(--color-brand-300);
+  outline-offset: 4px;
+}
+
+/* Inputs use custom border/shadow focus — no outline needed */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+/* ════════════════════════════════════════════════════
+   SKIP TO CONTENT
+══════════════════════════════════════════════════════ */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+  z-index: 9999;
+  background: var(--color-brand-400);
+  color: #fff;
+  font-family: var(--font-family-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 12px 12px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; }
+
+/* ════════════════════════════════════════════════════
+   REDUCED MOTION — vestibular safety
+══════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  /* Reveal elements are invisible until JS adds .visible — make them
+     immediately visible so content is never hidden for these users */
+  .reveal,
+  .reveal-left,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

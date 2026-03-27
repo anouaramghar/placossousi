@@ -120,12 +120,12 @@ export default function ContactSection() {
               </button>
 
               {status === 'success' && (
-                <div className="bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-semibold p-4 rounded-xl flex items-center justify-center animate-fade-in-up relative z-10">
+                <div role="status" aria-live="polite" aria-atomic="true" className="bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-semibold p-4 rounded-xl flex items-center justify-center animate-fade-in-up relative z-10">
                   {t('form_success')}
                 </div>
               )}
               {status === 'error' && (
-                <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold p-4 rounded-xl flex items-center justify-center animate-fade-in-up relative z-10">
+                <div role="alert" aria-atomic="true" className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold p-4 rounded-xl flex items-center justify-center animate-fade-in-up relative z-10">
                   {t('form_error')}
                 </div>
               )}

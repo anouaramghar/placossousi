@@ -4,7 +4,8 @@
     "products": "Produits",
     "services": "Services",
     "branches": "Nos Agences",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu_toggle": "Ouvrir le menu"
   },
   "hero": {
     "tagline": "Plâtre · Peinture · Pasta",
