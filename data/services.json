@@ -1,22 +1,22 @@
 [
   {
     "id": "pose-platre",
-    "icon": "🏗️",
+    "icon": "Hammer",
     "titleKey": "services.items.0"
   },
   {
     "id": "decoration",
-    "icon": "🎨",
+    "icon": "Palette",
     "titleKey": "services.items.1"
   },
   {
     "id": "peinture",
-    "icon": "🖌️",
+    "icon": "Paintbrush",
     "titleKey": "services.items.2"
   },
   {
     "id": "conseil",
-    "icon": "💡",
+    "icon": "Lightbulb",
     "titleKey": "services.items.3"
   }
 ]

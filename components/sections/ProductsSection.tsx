@@ -10,23 +10,41 @@ export default function ProductsSection() {
   const featured = getFeaturedProducts()
 
   return (
-    <section id="products" className="bg-brand-800 py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-brand-300 text-xs tracking-[0.3em] uppercase mb-2">{t('label')}</p>
-        <div className="flex items-end justify-between mb-8">
-          <h2 className="text-white text-3xl md:text-4xl font-black">{t('title')}</h2>
+    <section id="products" className="relative py-36 z-10 overflow-hidden">
+      {/* Header — contained */}
+      <div className="max-w-6xl mx-auto px-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between reveal">
+          <div>
+            <span className="section-label">{t('label')}</span>
+            <h2 className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-brand-200/50 text-[clamp(2.5rem,6vw,4.5rem)] tracking-[-0.04em] leading-[1.04] mt-4 text-glow-soft">
+              {t('title')}
+            </h2>
+          </div>
           <Link
             href={`/${locale}/products`}
-            className="text-brand-400 hover:text-white text-sm font-semibold transition-colors"
+            className="group link-underline font-sans mt-6 md:mt-0 md:mb-2 inline-flex items-center gap-2.5 text-brand-300/70 hover:text-brand-200 text-sm font-medium tracking-[0.04em] transition-colors duration-300"
           >
             {t('see_all')}
+            <span className="group-hover:translate-x-1.5 transition-transform duration-300 text-base">→</span>
           </Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {featured.map(product => (
-            <ProductCard key={product.slug} product={product} />
+      </div>
+
+      {/* Horizontal scroll showcase — breaks out of container */}
+      <div className="relative">
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 md:px-[max(1.5rem,calc((100vw-72rem)/2))] snap-x snap-mandatory scrollbar-hide">
+          {featured.map((product, i) => (
+            <div
+              key={product.slug}
+              className={`snap-start flex-shrink-0 w-[270px] md:w-[310px] reveal delay-${Math.min(i + 1, 6)} h-full`}
+            >
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
+        {/* Edge gradients */}
+        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-brand-900 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-brand-900 to-transparent pointer-events-none z-10"></div>
       </div>
     </section>
   )
