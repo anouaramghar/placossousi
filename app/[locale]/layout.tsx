@@ -3,7 +3,7 @@ import { Inter, DM_Serif_Display } from 'next/font/google'
 import { Tajawal } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
@@ -63,6 +63,8 @@ export default async function LocaleLayout({
 
   if (!locales.includes(locale)) notFound()
 
+  setRequestLocale(locale)
+
   const messages = await getMessages()
 
   return (
@@ -73,6 +75,9 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
+          <a href="#main-content" className="skip-link">
+            {locale === 'ar' ? 'انتقل إلى المحتوى' : 'Aller au contenu'}
+          </a>
           <ScrollReveal />
           <Navbar />
           {children}

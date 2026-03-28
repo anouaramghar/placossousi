@@ -1,24 +1,22 @@
 {
   "nav": {
-    "home": "Accueil",
+    "home": "À Propos",
     "products": "Produits",
     "services": "Services",
     "branches": "Nos Agences",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu_toggle": "Ouvrir le menu"
   },
   "hero": {
-    "tagline": "Plâtre · Peinture · Pasta",
+    "tagline": "Région Orientale · Matériaux Premium",
     "title": "Maîtres du Plâtre et de la Finition",
-    "subtitle": "Nador · Beni Ansar · Arrid",
+    "subtitle": "Qualité professionnelle · Conseil expert · Livraison sur chantier",
     "cta_products": "Nos Produits",
-    "cta_contact": "Nous contacter",
-    "stat_years": "Ans d'exp.",
-    "stat_cities": "Villes",
-    "stat_quality": "Qualité"
+    "cta_contact": "Nous contacter"
   },
   "about": {
     "label": "À Propos",
-    "title": "Placo Sousi — Maîtres du Plâtre",
+    "title": "Votre partenaire régional depuis plus de 10 ans",
     "description": "Société marocaine spécialisée dans le plâtre, la peinture et la décoration intérieure depuis plus de 10 ans. Fondée par Abdelghani Aganchich, Placo Sousi s'est imposée comme la référence régionale en matière de finition de qualité.",
     "founder": "Abdelghani Aganchich",
     "founder_title": "Fondateur de Placo Sousi",
@@ -28,7 +26,7 @@
   "products": {
     "label": "Nos Produits",
     "title": "Gamme complète de matériaux",
-    "see_all": "Voir tout le catalogue →",
+    "see_all": "Voir tout le catalogue",
     "view_product": "Voir le produit",
     "categories": {
       "all": "Tout",
@@ -57,7 +55,7 @@
   },
   "contact": {
     "label": "Contact",
-    "title": "Contactez-nous",
+    "title": "Parlons de votre projet",
     "phone_label": "Téléphone",
     "whatsapp_label": "WhatsApp",
     "form_name": "Nom complet",
@@ -65,7 +63,7 @@
     "form_message": "Votre message",
     "form_submit": "Envoyer le message",
     "form_success": "Message envoyé ! Nous vous répondrons bientôt.",
-    "form_error": "Erreur d'envoi. Veuillez réessayer."
+    "form_error": "Erreur d'envoi — contactez-nous directement sur WhatsApp"
   },
   "footer": {
     "tagline": "Plâtre · Peinture · Pasta",

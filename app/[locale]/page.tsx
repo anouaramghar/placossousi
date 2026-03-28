@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutSection from '@/components/sections/AboutSection'
 import ProductsSection from '@/components/sections/ProductsSection'
@@ -9,9 +10,15 @@ export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'ar' }]
 }
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
   return (
-    <main>
+    <main id="main-content">
       <HeroSection />
       <AboutSection />
       <ProductsSection />

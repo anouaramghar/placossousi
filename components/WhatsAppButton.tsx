@@ -1,12 +1,16 @@
 // components/WhatsAppButton.tsx
+import { useLocale } from 'next-intl'
+
 export default function WhatsAppButton() {
+  const locale = useLocale()
+
   return (
     <a
       href="https://wa.me/212665652991"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 end-6 z-50 bg-gradient-to-br from-[#25d366] to-[#128c7e] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 group border border-white/20"
-      aria-label="WhatsApp"
+      className="fixed bottom-6 end-6 z-50 bg-gradient-to-br from-whatsapp to-whatsapp-dark text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 group border border-white/20"
+      aria-label={locale === 'ar' ? 'تواصل معنا عبر واتساب' : 'Contactez-nous sur WhatsApp'}
     >
       <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
       <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white drop-shadow-md relative z-10 transition-transform group-hover:scale-110 group-hover:rotate-6">

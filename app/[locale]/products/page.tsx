@@ -1,6 +1,6 @@
 // app/[locale]/products/page.tsx
 import type { Metadata } from 'next'
-import { useTranslations } from 'next-intl'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getProducts } from '@/lib/products'
 import ProductGrid from '@/components/products/ProductGrid'
 
@@ -21,12 +21,18 @@ export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'ar' }]
 }
 
-export default function ProductsPage() {
-  const t = useTranslations('products')
+export default async function ProductsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('products')
   const products = getProducts()
 
   return (
-    <main className="min-h-screen relative pt-32 pb-24 px-4 overflow-hidden z-10">
+    <main id="main-content" className="min-h-screen relative pt-32 pb-24 px-4 overflow-hidden z-10">
       {/* Decorative Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-400/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-300/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
