@@ -1,34 +1,50 @@
 [
   {
-    "city": "Nador",
-    "cityAr": "الناظور",
-    "address": "Quartier Al Mouhit, Route d'Arrid, Nador",
-    "addressAr": "حي المحيط، طريق أريد، الناظور",
+    "city": "Siège Nador",
+    "cityAr": "المقر الرئيسي بالناظور",
+    "address": "Quartier Al Mouhit, Rue 100, Nador",
+    "addressAr": "حي المحيط، شارع 100، الناظور",
     "phone": "0665 652 991",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Quartier+Al+Mouhit+Nador+Maroc"
+    "mapUrl": "https://www.google.com/maps/place/Placo+sousi,+arrid,+Quartier+al+mouhit,+Rue+100%D8%8C+Nador+62000"
   },
   {
     "city": "Beni Ansar",
     "cityAr": "بني أنصار",
-    "address": "Avenue Principale, Beni Ansar, Nador",
-    "addressAr": "الشارع الرئيسي، بني أنصار، الناظور",
-    "phone": "0661 827 712",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Beni+Ansar+Nador+Maroc"
+    "address": "Beni Ansar",
+    "addressAr": "بني أنصار",
+    "phone": "0665 652 991",
+    "mapUrl": "https://google.com/maps/place/35.244121,-2.935034"
   },
   {
-    "city": "Driouech",
-    "cityAr": "الدريوش",
-    "address": "Centre ville, Driouech, Nador",
-    "addressAr": "وسط المدينة، الدريوش، الناظور",
+    "city": "Salouane Alomrane",
+    "cityAr": "سلوان العمران",
+    "address": "Al Omrane, Salouane",
+    "addressAr": "العمران، سلوان",
     "phone": "0665 652 991",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Driouech+Nador+Maroc"
+    "mapUrl": "https://www.google.com/maps?q=35.0585562,-2.9106099&z=17&hl=en"
   },
   {
-    "city": "Ras El Ma",
-    "cityAr": "راس الماء",
-    "address": "Zone industrielle, Ras El Ma, Berkane",
-    "addressAr": "المنطقة الصناعية، راس الماء، بركان",
+    "city": "Al Hoceima Ajdir",
+    "cityAr": "الحسيمة أجدير",
+    "address": "Bientôt disponible",
+    "addressAr": "قريباً",
+    "phone": "-",
+    "mapUrl": "#"
+  },
+  {
+    "city": "Berrechid",
+    "cityAr": "برشيد",
+    "address": "Pachalik de Deroua, Berrechid",
+    "addressAr": "باشوية الدروة، برشيد",
     "phone": "0665 652 991",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ras+El+Ma+Berkane+Maroc"
+    "mapUrl": "https://www.google.com/maps/place/P3+MILTU+TRAV,+Deroua+pachalik+de+deroua,+Deroua+26202"
+  },
+  {
+    "city": "Deroua Casablanca",
+    "cityAr": "الدروة الدار البيضاء",
+    "address": "P3 MILTU TRAV, Deroua",
+    "addressAr": "الدروة، الدار البيضاء",
+    "phone": "0665 652 991",
+    "mapUrl": "https://www.google.com/maps/place/P3+MILTU+TRAV,+Deroua+pachalik+de+deroua,+Deroua+26202"
   }
 ]

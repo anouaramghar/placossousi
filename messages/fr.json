@@ -17,7 +17,7 @@
   "about": {
     "label": "À Propos",
     "title": "Votre partenaire régional depuis plus de 10 ans",
-    "description": "Société marocaine spécialisée dans le plâtre, la peinture et la décoration intérieure depuis plus de 10 ans. Fondée par Abdelghani Aganchich, Placo Sousi s'est imposée comme la référence régionale en matière de finition de qualité.",
+    "description": "Société marocaine spécialisée dans le plâtre, la peinture et la décoration intérieure depuis <highlight>plus de 10 ans</highlight>. Fondée par Abdelghani Aganchich, Placo Sousi s'est imposée comme <highlight>la référence régionale</highlight> en matière de finition de qualité.",
     "founder": "Abdelghani Aganchich",
     "founder_title": "Fondateur de Placo Sousi",
     "stat_years": "Ans d'expérience",
@@ -46,12 +46,18 @@
       "Décoration marocaine & égyptienne",
       "Peinture intérieure & extérieure",
       "Conseil & accompagnement projet"
+    ],
+    "descriptions": [
+      "Nos artisans maîtrisent la pose de plâtre traditionnel et de plaques BA13 avec une finition lisse impeccable et une solidité garantie pour tous vos espaces intérieurs.",
+      "Transformez vos murs et plafonds avec nos créations décoratives sur mesure, alliant l'artisanat purement marocain et les touches néo-égyptiennes modernes.",
+      "Nous sélectionnons et appliquons des peintures haut de gamme, mates, satinées ou brillantes, adaptées aux façades extérieures robustes comme aux murs intérieurs délicats.",
+      "Un projet en tête ? Notre fondateur et nos experts vous accompagnent, de la sélection des matériaux premium jusqu'à la livraison et la touche de finition finale sur chantier."
     ]
   },
   "branches": {
     "label": "Nos Agences",
     "title": "Proches de chez vous",
-    "map_label": "Carte des agences"
+    "region": "Région Orientale"
   },
   "contact": {
     "label": "Contact",

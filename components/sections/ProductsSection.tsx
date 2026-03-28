@@ -10,13 +10,13 @@ export default function ProductsSection() {
   const featured = getFeaturedProducts()
 
   return (
-    <section id="products" className="relative py-36 z-10 overflow-hidden">
+    <section id="products" className="relative py-16 md:py-24 z-10 overflow-hidden">
       {/* Header — contained */}
-      <div className="max-w-6xl mx-auto px-6 mb-14">
+      <div className="max-w-6xl mx-auto px-6 mb-10 lg:mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between reveal">
           <div>
             <span className="section-label">{t('label')}</span>
-            <h2 className="font-display text-white text-[clamp(2.5rem,6vw,4.5rem)] tracking-[-0.04em] leading-[1.04] mt-4 text-glow-soft">
+            <h2 className="font-display text-white text-[clamp(2.5rem,6vw,4.5rem)] tracking-normal leading-[1.1] mt-4 text-glow-soft">
               {t('title')}
             </h2>
           </div>
@@ -34,7 +34,7 @@ export default function ProductsSection() {
 
       {/* Horizontal scroll showcase — breaks out of container */}
       <div className="relative">
-        <div className="flex gap-5 overflow-x-auto pb-6 px-6 md:px-[max(1.5rem,calc((100vw-72rem)/2))] snap-x snap-mandatory scrollbar-hide">
+        <div className="flex gap-5 overflow-x-auto pb-6 px-6 md:px-[max(1.5rem,calc((100vw-72rem)/2))] snap-x snap-mandatory scrollbar-hide cursor-[url('/drag-cursor.svg')_30_30,_ew-resize]">
           {featured.map((product, i) => (
             <div
               key={product.slug}

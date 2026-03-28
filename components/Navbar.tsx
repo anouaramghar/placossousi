@@ -60,7 +60,7 @@ export default function Navbar() {
           ))}
           <Link
             href={switchPath}
-            className="ml-3 font-sans text-brand-200/70 hover:text-white text-xs font-bold px-4 py-2.5 min-h-[44px] rounded-full border border-white/10 hover:border-white/25 bg-white/3 hover:bg-white/8 transition-all duration-200 tracking-[0.08em]"
+            className="ml-3 font-sans text-brand-200/70 hover:text-white text-sm font-medium px-4 py-2.5 min-h-[44px] rounded-full border border-transparent bg-white/5 hover:bg-white/10 transition-all duration-200 tracking-[0.08em]"
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-3">
           <Link
             href={switchPath}
-            className="font-sans text-brand-200/70 text-xs font-bold px-4 py-2.5 min-h-[44px] rounded-full border border-white/10 bg-white/3 tracking-[0.08em]"
+            className="font-sans text-brand-200/70 text-sm font-medium px-4 py-2.5 min-h-[44px] rounded-full border border-transparent bg-white/5 tracking-[0.08em]"
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -100,14 +100,14 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-brand-900/95 backdrop-blur-3xl border-t border-white/5 px-6 py-5 flex flex-col gap-1 absolute w-full shadow-2xl"
+            className="md:hidden bg-brand-900/85 backdrop-blur-3xl border border-white/10 px-4 py-4 flex flex-col gap-1 absolute left-4 right-4 top-[72px] rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.5)]"
           >
             {links.map(link => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-sans text-brand-200/70 hover:text-white font-medium text-sm py-3 px-4 rounded-xl hover:bg-white/5 transition-all duration-200 tracking-[-0.01em]"
+                className="font-sans text-brand-200/80 hover:text-white font-medium text-base py-3.5 px-4 rounded-xl hover:bg-white/5 transition-all duration-200 tracking-[-0.01em]"
               >
                 {link.label}
               </a>
