@@ -14,6 +14,7 @@
   --color-brand-100: #dbeafe;
   --color-whatsapp: #25d366;
   --color-whatsapp-dark: #128c7e;
+  --color-whatsapp-bg: #0a1f11;
   --color-text-base: #e2e8f0;
 
   /* ── Typography ─────────────────────────────── */
@@ -28,10 +29,9 @@
   --animate-blur-in:      blur-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-glow:         glow 3s ease-in-out infinite alternate;
   --animate-float:        float 8s ease-in-out infinite;
-  --animate-aurora:       aurora 25s linear infinite;
+  --animate-aurora:       aurora 40s linear infinite;
   --animate-shimmer:      shimmer 1.8s infinite linear;
   --animate-pulse-slow:   pulse-slow 4s ease-in-out infinite alternate;
-  --animate-rotate:       rotate 4s linear infinite;
   --animate-reveal:       reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) both;
 
   /* ── Keyframes ──────────────────────────────── */
@@ -80,25 +80,11 @@
     from { clip-path: inset(0 100% 0 0); opacity: 0; }
     to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
   }
-  @keyframes line-grow {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
-  }
-  @keyframes count-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes border-spin {
-    100% { transform: rotate(360deg); }
-  }
   @keyframes underline-reveal {
     from { transform: scaleX(0); transform-origin: left; }
     to   { transform: scaleX(1); transform-origin: left; }
   }
-  @keyframes bg-pan {
-    0%   { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-  }
+
 }
 
 /* ════════════════════════════════════════════════════
@@ -138,15 +124,15 @@ h1, h2 {
 body::before {
   content: '';
   position: fixed;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
   z-index: -2;
   background:
     radial-gradient(ellipse 80% 50% at 100% 0%,  rgba(37, 99, 235, 0.10) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 0%  100%, rgba(124,58,237, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 60% at 50% 50%,  rgba(3,7,18,1) 0%, transparent 100%);
-  animation: aurora 40s linear infinite;
+  animation: var(--animate-aurora);
   transform-origin: center;
   pointer-events: none;
 }
@@ -176,8 +162,8 @@ body::before {
     rgba(255,255,255,0.042) 0%,
     rgba(255,255,255,0.008) 100%
   );
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow:
     0 1px 0 0 rgba(255,255,255,0.06) inset,
@@ -196,6 +182,12 @@ body::before {
     0 24px 48px -8px rgba(0,0,0,0.6),
     0 0 40px -10px rgba(37,99,235,0.18);
 }
+@media (max-width: 767px) {
+  .glass-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
 
 /* ════════════════════════════════════════════════════
    TYPOGRAPHY UTILITIES
@@ -211,14 +203,6 @@ body::before {
 }
 
 /* ════════════════════════════════════════════════════
-   ANIMATED GRADIENT TEXT
-══════════════════════════════════════════════════════ */
-.gradient-animate {
-  background-size: 200% 200%;
-  animation: bg-pan 4s linear infinite;
-}
-
-/* ════════════════════════════════════════════════════
    MICRO-ANIMATION: SCROLL REVEAL
    Add the JS observer via a client component
 ══════════════════════════════════════════════════════ */
@@ -228,7 +212,6 @@ body::before {
   transition:
     opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 .reveal.visible {
   opacity: 1;
@@ -448,7 +431,10 @@ body::before {
    RTL
 ══════════════════════════════════════════════════════ */
 [dir="rtl"] body { font-family: var(--font-family-arabic); }
-[dir="rtl"] .section-label::before { background: linear-gradient(to left, var(--color-brand-400), transparent); }
+[dir="rtl"] .section-label::before {
+  background: linear-gradient(to left, var(--color-brand-400), transparent);
+  transform-origin: right;
+}
 
 /* ════════════════════════════════════════════════════
    FOCUS VISIBLE — keyboard navigation

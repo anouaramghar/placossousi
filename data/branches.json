@@ -2,33 +2,33 @@
   {
     "city": "Nador",
     "cityAr": "الناظور",
-    "address": "Quartier Al Mouhit, Arrid",
-    "addressAr": "حي المحيط، أريد",
-    "phone": "0665652991",
-    "mapUrl": "https://maps.google.com/?q=Nador+Maroc"
+    "address": "Quartier Al Mouhit, Route d'Arrid, Nador",
+    "addressAr": "حي المحيط، طريق أريد، الناظور",
+    "phone": "0665 652 991",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Quartier+Al+Mouhit+Nador+Maroc"
   },
   {
     "city": "Beni Ansar",
     "cityAr": "بني أنصار",
-    "address": "Beni Ansar, Nador",
-    "addressAr": "بني أنصار، الناظور",
-    "phone": "0661827712",
-    "mapUrl": "https://maps.google.com/?q=Beni+Ansar+Maroc"
+    "address": "Avenue Principale, Beni Ansar, Nador",
+    "addressAr": "الشارع الرئيسي، بني أنصار، الناظور",
+    "phone": "0661 827 712",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Beni+Ansar+Nador+Maroc"
   },
   {
     "city": "Driouech",
     "cityAr": "الدريوش",
-    "address": "Driouech",
-    "addressAr": "الدريوش",
-    "phone": "0665652991",
-    "mapUrl": "https://maps.google.com/?q=Driouech+Maroc"
+    "address": "Centre ville, Driouech, Nador",
+    "addressAr": "وسط المدينة، الدريوش، الناظور",
+    "phone": "0665 652 991",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Driouech+Nador+Maroc"
   },
   {
     "city": "Ras El Ma",
     "cityAr": "راس الماء",
-    "address": "Ras El Ma, Berkane",
-    "addressAr": "راس الماء، بركان",
-    "phone": "0665652991",
-    "mapUrl": "https://maps.google.com/?q=Ras+El+Ma+Maroc"
+    "address": "Zone industrielle, Ras El Ma, Berkane",
+    "addressAr": "المنطقة الصناعية، راس الماء، بركان",
+    "phone": "0665 652 991",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ras+El+Ma+Berkane+Maroc"
   }
 ]

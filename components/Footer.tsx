@@ -5,7 +5,7 @@ export default function Footer() {
   const t = useTranslations('footer')
 
   return (
-    <footer className="relative bg-[#02060f] border-t border-white/5 pt-20 pb-10 px-6 overflow-hidden z-10">
+    <footer className="relative bg-brand-900 border-t border-white/5 pt-20 pb-10 px-6 overflow-hidden z-10">
       {/* Top accent line */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-400/25 to-transparent"></div>
       {/* Subtle ambient */}
@@ -17,15 +17,15 @@ export default function Footer() {
           <div className="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(37,99,235,0.25)] group-hover:shadow-[0_0_35px_rgba(37,99,235,0.45)] transition-shadow duration-500">
             <span className="font-sans text-white font-black text-sm tracking-widest">PS</span>
           </div>
-          <p className="font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-300/70 text-2xl md:text-3xl tracking-[-0.03em] mb-2">
+          <p className="font-display text-white text-2xl md:text-3xl tracking-[-0.03em] mb-2">
             {t('copyright').split('©')[0].trim()} Placo Sousi
           </p>
-          <p className="font-sans text-brand-300/60 text-xs tracking-[0.25em] uppercase font-semibold">{t('tagline')}</p>
+          <p className="font-sans text-brand-300/70 text-xs tracking-[0.25em] uppercase font-semibold">{t('tagline')}</p>
         </div>
 
         {/* Bottom bar */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-5 pt-8 border-t border-white/4">
-          <p className="font-sans text-brand-300/50 text-xs font-medium tracking-wider order-2 md:order-1">{t('copyright')}</p>
+          <p className="font-sans text-brand-300/70 text-xs font-medium tracking-wider order-2 md:order-1">{t('copyright').replace('2025', new Date().getFullYear().toString())}</p>
 
           <div className="flex items-center gap-2 order-1 md:order-2">
             <a

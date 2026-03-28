@@ -11,9 +11,9 @@ export default function BranchesSection() {
     <section id="branches" className="relative py-36 px-6 z-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16 reveal">
+        <div className="mb-20 reveal">
           <span className="section-label">{t('label')}</span>
-          <h2 className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-brand-200/50 text-[clamp(2.5rem,6vw,4.5rem)] tracking-[-0.04em] leading-[1.04] mt-4 text-glow-soft">{t('title')}</h2>
+          <h2 className="font-display text-white text-[clamp(2.5rem,6vw,4.5rem)] tracking-[-0.04em] leading-[1.04] mt-4 text-glow-soft">{t('title')}</h2>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
@@ -42,7 +42,7 @@ export default function BranchesSection() {
                     </h3>
                     
                     <div className="pl-12 space-y-2">
-                       <p className="font-sans text-brand-100/60 text-sm md:text-base font-light flex items-start gap-2 max-w-[95%] tracking-wide leading-relaxed">
+                       <p className="font-sans text-brand-100/80 text-sm md:text-base font-light flex items-start gap-2 max-w-[95%] tracking-wide leading-relaxed">
                          {locale === 'ar' ? branch.addressAr : branch.address}
                        </p>
                        <p className="font-sans text-brand-300/90 text-sm font-semibold tracking-widest flex items-center gap-2.5">
@@ -62,11 +62,11 @@ export default function BranchesSection() {
           </div>
 
           {/* Right Column: Interactive Map */}
-          <div className="lg:col-span-7 h-[450px] lg:h-auto lg:min-h-[600px] rounded-[2.5rem] overflow-hidden border border-brand-400/20 shadow-[0_15px_50px_rgba(0,0,0,0.5)] relative group lg:sticky lg:top-28 reveal delay-3">
+          <div className="lg:col-span-7 h-[50vh] min-h-[350px] lg:h-auto lg:min-h-[600px] rounded-[2.5rem] overflow-hidden border border-brand-400/20 shadow-[0_15px_50px_rgba(0,0,0,0.5)] relative group lg:sticky lg:top-28 reveal delay-3">
             <div className="absolute inset-0 border-2 border-brand-400/5 rounded-[2.5rem] pointer-events-none z-10 transition-colors group-hover:border-brand-400/20"></div>
             <iframe
               title={t('map_label')}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100000!2d-2.9335!3d35.1740!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7510b29c47e80b%3A0x4a09e93d52b11e5a!2sNador!5e0!3m2!1sfr!2sma!4v1710000000000"
+              src="https://maps.google.com/maps?q=Oriental+Maroc&z=9&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'contrast(1.1) saturate(1.2)' }}

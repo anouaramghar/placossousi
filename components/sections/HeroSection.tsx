@@ -14,7 +14,6 @@ export default function HeroSection() {
       {/* Atmospheric orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-brand-400/15 rounded-[100%] blur-[140px] animate-pulse-slow pointer-events-none -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[700px] h-[700px] bg-purple-700/10 rounded-full blur-[160px] animate-float pointer-events-none -z-10"></div>
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-brand-400/8 rounded-full blur-[120px] animate-float pointer-events-none -z-10" style={{ animationDelay: '3s' }}></div>
 
       <div className="max-w-5xl mx-auto px-6 w-full relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
@@ -27,7 +26,7 @@ export default function HeroSection() {
 
         {/* Display heading — DM Serif */}
         <h1
-          className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-[clamp(3rem,10vw,7.5rem)] leading-[1.02] tracking-[-0.04em] mb-7 animate-fade-in-up text-glow"
+          className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-[clamp(3rem,10vw,7.5rem)] leading-[1.02] tracking-[-0.04em] mb-7 animate-fade-in-up text-glow text-balance"
           style={{ animationDelay: '0.12s' }}
         >
           {t('title')}
@@ -43,7 +42,7 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-28 animate-fade-in-up"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 animate-fade-in-up"
           style={{ animationDelay: '0.36s' }}
         >
           <Link
@@ -60,28 +59,7 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        {/* Stats ticker — no cards, just numbers */}
-        <div
-          className="flex items-baseline justify-center gap-12 md:gap-20 lg:gap-28 flex-wrap animate-fade-in-up"
-          style={{ animationDelay: '0.48s' }}
-        >
-          {[
-            { value: '10+', key: 'stat_years' },
-            { value: '6', key: 'stat_cities' },
-            { value: '100%', key: 'stat_quality' },
-          ].map((stat) => (
-            <div key={stat.key} className="text-center group cursor-default">
-              <p className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-brand-300/70 text-[clamp(3rem,7vw,5.5rem)] leading-none tracking-[-0.04em] group-hover:scale-110 transition-transform duration-500 origin-bottom">
-                {stat.value}
-              </p>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <p className="font-sans text-brand-400/70 text-[0.65rem] uppercase tracking-[0.2em] font-bold mt-2">{t(stat.key as any)}</p>
-            </div>
-          ))}
-        </div>
 
-        {/* Divider */}
-        <div className="mt-12 w-full max-w-md h-px bg-gradient-to-r from-transparent via-brand-400/20 to-transparent animate-fade-in-up" style={{ animationDelay: '0.56s' }}></div>
       </div>
     </section>
   )

@@ -23,7 +23,7 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { href: `/${locale}#hero`,     label: t('home') },
+    { href: `/${locale}#about`,     label: t('home') },
     { href: `/${locale}#products`, label: t('products') },
     { href: `/${locale}#services`, label: t('services') },
     { href: `/${locale}#branches`, label: t('branches') },
@@ -53,7 +53,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="font-sans link-underline text-brand-200/60 hover:text-white text-sm font-medium tracking-[-0.01em] transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-white/4"
+              className="font-sans link-underline text-brand-200/60 hover:text-white text-sm font-medium tracking-[-0.01em] transition-colors duration-200 px-4 py-3 rounded-lg hover:bg-white/4"
             >
               {link.label}
             </a>
