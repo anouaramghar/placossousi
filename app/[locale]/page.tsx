@@ -4,6 +4,7 @@ import AboutSection from '@/components/sections/AboutSection'
 import ProductsSection from '@/components/sections/ProductsSection'
 import ServicesSection from '@/components/sections/ServicesSection'
 import BranchesSection from '@/components/sections/BranchesSection'
+import TeamSection from '@/components/sections/TeamSection'
 import ContactSection from '@/components/sections/ContactSection'
 
 export function generateStaticParams() {
@@ -23,6 +24,7 @@ export default async function HomePage({
       <AboutSection />
       <ProductsSection />
       <ServicesSection />
+      <TeamSection />
       <BranchesSection />
       <ContactSection />
     </main>

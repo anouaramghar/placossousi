@@ -4,6 +4,7 @@
     "products": "Produits",
     "services": "Services",
     "branches": "Nos Agences",
+    "team": "Équipe",
     "contact": "Contact",
     "menu_toggle": "Ouvrir le menu"
   },
@@ -21,7 +22,7 @@
     "founder": "Abdelghani Aganchich",
     "founder_title": "Fondateur de Placo Sousi",
     "stat_years": "Ans d'expérience",
-    "stat_cities": "Villes couvertes"
+    "stat_cities": "Points de vente"
   },
   "products": {
     "label": "Nos Produits",
@@ -74,5 +75,14 @@
   "footer": {
     "tagline": "Plâtre · Peinture · Pasta",
     "copyright": "© 2025 Placo Sousi. Tous droits réservés."
+  },
+  "team": {
+    "label": "Notre Équipe",
+    "title": "Les experts derrière notre succès",
+    "roles": {
+      "responsable_administratif": "Responsable Administratif",
+      "commercial": "Commercial",
+      "caissiere": "Caissière"
+    }
   }
 }

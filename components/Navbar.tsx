@@ -1,6 +1,7 @@
 // components/Navbar.tsx
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
@@ -27,6 +28,7 @@ export default function Navbar() {
     { href: `/${locale}#products`, label: t('products') },
     { href: `/${locale}#services`, label: t('services') },
     { href: `/${locale}#branches`, label: t('branches') },
+    { href: `/${locale}#team`,     label: t('team') },
     { href: `/${locale}#contact`,  label: t('contact') },
   ]
 
@@ -39,8 +41,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-3 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-brand-400 to-brand-600 rounded-xl flex items-center justify-center shadow-[0_2px_12px_rgba(37,99,235,0.35)] group-hover:shadow-[0_4px_20px_rgba(37,99,235,0.5)] transition-shadow duration-300">
-            <span className="font-sans text-white font-black text-[11px] tracking-wider">PS</span>
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden shadow-[0_2px_12px_rgba(37,99,235,0.35)] group-hover:shadow-[0_4px_20px_rgba(37,99,235,0.5)] transition-shadow duration-300 flex-shrink-0">
+            <Image
+              src="/images/logo.png"
+              alt="Placo Sousi Logo"
+              fill
+              className="object-cover"
+              sizes="32px"
+            />
           </div>
           <span className="font-sans text-white/90 font-bold text-sm tracking-[0.12em] uppercase group-hover:text-white transition-colors duration-200">
             Placo Sousi

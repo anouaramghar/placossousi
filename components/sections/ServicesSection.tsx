@@ -208,6 +208,7 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
                alt={item}
                fill
                className="object-cover opacity-50 mix-blend-screen scale-110"
+               sizes="(max-width: 768px) 0vw, 280px"
                onError={(e) => {
                  (e.target as HTMLImageElement).style.opacity = '0';
                }}

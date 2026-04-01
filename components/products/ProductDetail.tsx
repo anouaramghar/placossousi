@@ -32,6 +32,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                 src={product.image}
                 alt={name}
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
               />
             </div>

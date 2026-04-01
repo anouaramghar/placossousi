@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useInView, animate } from 'framer-motion'
 import { useRef, useEffect } from 'react'
+import founderImg from '@/public/images/founder.png'
 
 function AnimatedCounter({ from = 0, to, duration = 2.5 }: { from?: number, to: number, duration?: number }) {
   const count = useMotionValue(from)
@@ -120,17 +121,18 @@ export default function AboutSection() {
               {/* Outer decorative ring WITH PARALLAX */}
               <motion.div style={{ y: y1 }} className="absolute -inset-6 border border-brand-400/15 rounded-[2.5rem] rotate-3 transition-colors duration-700 group-hover:border-brand-400/30"></motion.div>
               <motion.div style={{ y: y2 }} className="absolute -inset-8 border border-white/5 rounded-[3rem] -rotate-3 transition-colors duration-700 group-hover:border-brand-300/20"></motion.div>
-              
+
               {/* Glow blob */}
               <div className="absolute inset-0 bg-brand-400/20 rounded-3xl blur-2xl scale-110 animate-pulse-slow"></div>
-              
+
               {/* Avatar with 3D MOUSE PARALLAX */}
               <Image3DCard className="relative w-full h-full rounded-3xl z-10">
                 <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.35)] bg-white">
                   <Image
-                    src="/images/founder.png"
+                    src={founderImg}
                     alt={t('founder')}
                     fill
+                    placeholder="blur"
                     className="object-cover object-top"
                     sizes="288px"
                   />
@@ -142,7 +144,7 @@ export default function AboutSection() {
 
             <p className="font-display text-white text-3xl md:text-4xl tracking-normal mb-1">{t('founder')}</p>
             <p className="font-sans text-brand-300/70 text-xs tracking-[0.25em] uppercase font-semibold mb-3">{t('founder_title')}</p>
-            
+
             {/* Signature Element */}
             <div className="font-display italic text-brand-400/50 text-[2.5rem] leading-none opacity-80 -rotate-3 select-none tracking-[-0.02em] mt-2">
               A. Aganchich

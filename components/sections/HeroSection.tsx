@@ -1,7 +1,9 @@
 // components/sections/HeroSection.tsx
 import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import MagneticButton from '@/components/MagneticButton'
+import heroBg from '@/public/images/hero_bg_wide.png'
 
 export default function HeroSection() {
   const t = useTranslations('hero')
@@ -12,6 +14,22 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20"
     >
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-20 bg-brand-900">
+        {/* Extremely soft gradient just to ensure the white text pops slightly, and to transition smoothly down */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-10 pointer-events-none"></div>
+        {/* Extra steep fade at the very bottom strictly to eliminate any hard lines for the next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brand-900 to-transparent z-20 pointer-events-none"></div>
+        <Image
+          src={heroBg}
+          alt="Hero Background"
+          fill
+          priority
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover scale-105 animate-pulse-slow"
+        />
+      </div>
       {/* Atmospheric orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-brand-400/15 rounded-[100%] blur-[140px] animate-pulse-slow pointer-events-none -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[700px] h-[700px] bg-purple-700/10 rounded-full blur-[160px] animate-float pointer-events-none -z-10"></div>

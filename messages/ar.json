@@ -4,6 +4,7 @@
     "products": "المنتجات",
     "services": "الخدمات",
     "branches": "فروعنا",
+    "team": "فريقنا",
     "contact": "اتصل بنا",
     "menu_toggle": "فتح القائمة"
   },
@@ -21,7 +22,7 @@
     "founder": "عبد الغني أكانشيش",
     "founder_title": "مؤسس بلاكو سوسي",
     "stat_years": "سنوات خبرة",
-    "stat_cities": "مدن مغطاة"
+    "stat_cities": "نقاط البيع"
   },
   "products": {
     "label": "منتجاتنا",
@@ -74,5 +75,14 @@
   "footer": {
     "tagline": "جبص · طلاء · باستا",
     "copyright": "© 2025 بلاكو سوسي. جميع الحقوق محفوظة."
+  },
+  "team": {
+    "label": "فريقنا",
+    "title": "الخبراء وراء نجاحنا",
+    "roles": {
+      "responsable_administratif": "مسؤول إداري",
+      "commercial": "تجاري",
+      "caissiere": "أمينة صندوق"
+    }
   }
 }

@@ -1,5 +1,6 @@
 // components/Footer.tsx
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -14,8 +15,14 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Logo & brand */}
         <div className="mb-12 text-center group cursor-default">
-          <div className="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(37,99,235,0.25)] group-hover:shadow-[0_0_35px_rgba(37,99,235,0.45)] transition-shadow duration-500">
-            <span className="font-sans text-white font-black text-sm tracking-widest">PS</span>
+          <div className="relative w-14 h-14 rounded-2xl overflow-hidden mx-auto mb-5 shadow-[0_0_20px_rgba(37,99,235,0.25)] group-hover:shadow-[0_0_35px_rgba(37,99,235,0.45)] transition-shadow duration-500">
+            <Image
+              src="/images/logo.png"
+              alt="Placo Sousi Logo"
+              fill
+              className="object-cover"
+              sizes="56px"
+            />
           </div>
           <p className="font-display text-white text-2xl md:text-3xl tracking-[-0.03em] mb-2">
             {t('copyright').split('©')[0].trim()} Placo Sousi

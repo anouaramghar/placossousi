@@ -112,6 +112,30 @@ export default function ContactSection() {
                 <p className="text-white font-bold text-[1.3rem] tracking-tight">0665 652 991</p>
               </div>
             </motion.a>
+
+            {/* Instagram Card */}
+            <motion.a
+              variants={itemVariants}
+              href="https://www.instagram.com/placosousi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card flex items-center gap-6 rounded-3xl p-6 border border-pink-500/20 hover:border-pink-500/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(236,72,153,0.15)] transition-all duration-300 group bg-gradient-to-r from-pink-500/[0.03] to-transparent relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl -z-10 pointer-events-none"></div>
+
+              <div className="w-16 h-16 rounded-2xl bg-brand-900/80 flex items-center justify-center flex-shrink-0 transition-colors relative pointer-events-none border border-white/5 group-hover:border-pink-500/30">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 opacity-0 group-hover:opacity-20 blur-md transition-opacity"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-pink-400 drop-shadow-[0_0_10px_rgba(236,72,153,0.3)] relative z-10 transition-transform group-hover:scale-110">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <div>
+                <p className="text-pink-400/80 text-xs md:text-sm mb-1 uppercase tracking-widest font-semibold">Instagram</p>
+                <p className="text-white font-bold text-[1.2rem] tracking-tight">@placosousi</p>
+              </div>
+            </motion.a>
           </div>
 
           {/* Form - take 3 cols */}
