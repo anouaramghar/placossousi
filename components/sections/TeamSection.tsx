@@ -10,6 +10,11 @@ const teamMembers = [
     image: '/images/team/amghar.png', // Changed to PNG to support transparent cutout
   },
   {
+    name: 'AGUENCHICH Abd errazzak',
+    roleKey: 'responsable_commercial',
+    image: '/images/team/abdrazak.png',
+  },
+  {
     name: 'AMECHTAL Said',
     roleKey: 'commercial',
     image: '', // /images/team/amechtal.png
@@ -83,8 +88,8 @@ function TeamMemberCard({ member, idx, t, isTop = false }: { member: any, idx: n
 
 export default function TeamSection() {
   const t = useTranslations('team')
-  const leader = teamMembers[0]
-  const team = teamMembers.slice(1)
+  const leaders = teamMembers.slice(0, 2)
+  const team = teamMembers.slice(2)
 
   return (
     <section id="team" className="relative py-16 md:py-24 px-6 z-10 overflow-hidden">
@@ -102,9 +107,11 @@ export default function TeamSection() {
 
         {/* Hierarchical Team grid */}
         <div className="flex flex-col items-center relative w-full">
-          {/* Top Level - Leader */}
-          <div className="relative mb-14 md:mb-20 flex justify-center w-full z-20">
-            <TeamMemberCard member={leader} idx={0} t={t} isTop={true} />
+          {/* Top Level - Leaders */}
+          <div className="relative mb-14 md:mb-20 flex justify-center gap-10 md:gap-14 w-full z-20">
+            {leaders.map((leader, idx) => (
+              <TeamMemberCard key={leader.name} member={leader} idx={idx} t={t} isTop={true} />
+            ))}
             
             {/* Visual connector line dropping down */}
             <div className="absolute top-[calc(100%-8px)] left-1/2 w-px h-16 md:h-24 bg-gradient-to-b from-brand-400/40 to-transparent -translate-x-1/2 hidden md:block -z-10"></div>

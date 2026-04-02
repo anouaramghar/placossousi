@@ -81,6 +81,7 @@
     "title": "Les experts derrière notre succès",
     "roles": {
       "responsable_administratif": "Responsable Administratif",
+      "responsable_commercial": "Responsable Commercial",
       "commercial": "Commercial",
       "caissiere": "Caissière"
     }
