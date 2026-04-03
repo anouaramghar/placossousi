@@ -173,7 +173,7 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-8 px-6 md:px-6 ltr:pl-[6.5rem] rtl:pr-[6.5rem] md:ltr:pl-[14rem] md:rtl:pr-[14rem]">
+            <div className="pb-8 px-6 md:px-6 ltr:pl-[6.5rem] rtl:pr-[6.5rem]">
               <div className="p-6 md:p-8 rounded-2xl bg-brand-900/40 border border-brand-400/10 shadow-[inset_0_2px_15px_rgba(0,0,0,0.5)]">
                 <p className="font-sans text-brand-100/70 text-base md:text-lg leading-relaxed md:leading-[1.8]">
                   {description}

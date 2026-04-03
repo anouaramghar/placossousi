@@ -45,11 +45,11 @@ function TeamMemberCard({ member, idx, t, isTop = false }: { member: any, idx: n
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={`group flex flex-col items-center text-center shrink-0 ${isTop ? 'w-[220px] sm:w-[260px] md:w-[300px]' : 'w-[170px] md:w-[220px]'
+      className={`group flex flex-col items-center text-center shrink-0 ${isTop ? 'w-[260px] md:w-[300px]' : 'w-[170px] md:w-[220px]'
         }`}
     >
       <div className={`relative mb-5 transition-colors duration-500 ${isTop
-        ? 'w-[200px] h-[265px] sm:w-[240px] sm:h-[320px] md:w-[280px] md:h-[380px]' // Larger portrait sizing for leader
+        ? 'w-[240px] h-[320px] md:w-[280px] md:h-[380px]' // Larger portrait sizing for leader
         : 'w-[155px] h-[205px] md:w-[200px] md:h-[260px]' // Standard portrait sizing for team
         }`}>
         <div className={`relative w-full h-full overflow-hidden flex items-center justify-center ${!member.image ? 'bg-brand-900/30 border border-white/5 rounded-2xl group-hover:border-brand-400/20' : ''}`}>
@@ -59,7 +59,7 @@ function TeamMemberCard({ member, idx, t, isTop = false }: { member: any, idx: n
               alt={member.name}
               fill
               className={`transform ${member.imageClass || 'group-hover:scale-105'} transition-transform duration-700 object-contain object-bottom drop-shadow-[0_10px_20px_rgba(37,99,235,0.15)]`}
-              sizes={isTop ? "(max-width: 640px) 200px, (max-width: 768px) 240px, 280px" : "(max-width: 768px) 155px, 200px"}
+              sizes={isTop ? "(max-width: 768px) 240px, 280px" : "(max-width: 768px) 155px, 200px"}
             />
           ) : (
             <span className="font-display text-[5rem] text-brand-400/10 group-hover:text-brand-400/20 transition-colors duration-500 select-none">
@@ -101,7 +101,7 @@ export default function TeamSection() {
         {/* Hierarchical Team grid */}
         <div className="flex flex-col items-center relative w-full">
           {/* Top Level - Leaders */}
-          <div className="relative mb-10 sm:mb-14 md:mb-20 flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-10 md:gap-14 w-full z-20">
+          <div className="relative mb-10 md:mb-20 flex justify-center items-center gap-10 md:gap-14 w-full z-20">
             {leaders.map((leader, idx) => (
               <TeamMemberCard key={leader.name} member={leader} idx={idx} t={t} isTop={true} />
             ))}
