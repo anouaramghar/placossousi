@@ -8,7 +8,7 @@ export default function ContactSection() {
   const t = useTranslations('contact')
   const locale = useLocale()
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-  
+
   // Spotlight state
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
@@ -29,7 +29,7 @@ export default function ContactSection() {
       body: formData,
       headers: { Accept: 'application/json' },
     })
-    
+
     if (res.ok) {
       setStatus('success')
       e.currentTarget.reset()
@@ -43,7 +43,7 @@ export default function ContactSection() {
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
@@ -59,7 +59,7 @@ export default function ContactSection() {
       {/* Decorative Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-400/8 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -72,7 +72,7 @@ export default function ContactSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-10 lg:gap-12 items-start">
-          
+
           {/* Contact info - take 2 cols */}
           <div className="md:col-span-2 space-y-6">
             <motion.a
@@ -101,7 +101,7 @@ export default function ContactSection() {
               <div className="w-16 h-16 rounded-2xl bg-whatsapp-bg/80 flex items-center justify-center flex-shrink-0 group-hover:bg-whatsapp-bg transition-colors relative pointer-events-none">
                 <div className="absolute inset-0 rounded-2xl border-[3px] border-whatsapp/50 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
                 <div className="absolute inset-0 rounded-2xl bg-whatsapp opacity-0 group-hover:opacity-20 blur-md transition-opacity"></div>
-                
+
                 <svg viewBox="0 0 24 24" className="w-7 h-7 fill-whatsapp drop-shadow-[0_0_10px_rgba(37,211,102,0.5)] relative z-10 transition-transform group-hover:scale-110">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                   <path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.107 1.523 5.832L.057 23.143a.75.75 0 00.913.913l5.34-1.47A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.682-.524-5.205-1.434l-.372-.22-3.862 1.063 1.062-3.844-.228-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
@@ -133,16 +133,16 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-pink-400/80 text-xs md:text-sm mb-1 uppercase tracking-widest font-semibold">Instagram</p>
-                <p className="text-white font-bold text-[1.2rem] tracking-tight">@placosousi</p>
+                <p className="text-white font-bold text-[1.2rem] tracking-tight">placosousi</p>
               </div>
             </motion.a>
           </div>
 
           {/* Form - take 3 cols */}
           <motion.div variants={itemVariants} className="md:col-span-3 mt-8 md:mt-0">
-            <form 
+            <form
               ref={formRef}
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
               onMouseMove={handleMouseMove}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -171,8 +171,8 @@ export default function ContactSection() {
                     placeholder=" "
                     className="peer w-full bg-white/[0.03] border border-white/[0.1] rounded-2xl px-5 pt-7 pb-3 text-white text-base focus:outline-none focus:border-brand-400/60 focus:bg-white/[0.05] focus:shadow-[inset_0_2px_10px_rgba(0,0,0,0.3),_0_0_15px_rgba(30,79,163,0.3)] transition-all font-medium backdrop-blur-sm"
                   />
-                  <label 
-                    htmlFor="contact-name" 
+                  <label
+                    htmlFor="contact-name"
                     className={`absolute ltr:left-5 rtl:right-5 top-5 text-brand-200/50 text-base font-medium tracking-wide transition-all pointer-events-none 
                                 peer-focus:text-brand-400 peer-focus:text-[11px] peer-focus:top-2.5 peer-focus:font-semibold peer-focus:tracking-widest peer-focus:uppercase
                                 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-brand-200/70 peer-[:not(:placeholder-shown)]:tracking-widest peer-[:not(:placeholder-shown)]:uppercase`}
@@ -180,7 +180,7 @@ export default function ContactSection() {
                     {t('form_name')}
                   </label>
                 </div>
-                
+
                 <div className="relative group/input">
                   <input
                     id="contact-phone"
@@ -190,8 +190,8 @@ export default function ContactSection() {
                     placeholder=" "
                     className="peer w-full bg-white/[0.03] border border-white/[0.1] rounded-2xl px-5 pt-7 pb-3 text-white text-base focus:outline-none focus:border-brand-400/60 focus:bg-white/[0.05] focus:shadow-[inset_0_2px_10px_rgba(0,0,0,0.3),_0_0_15px_rgba(30,79,163,0.3)] transition-all font-medium backdrop-blur-sm"
                   />
-                  <label 
-                    htmlFor="contact-phone" 
+                  <label
+                    htmlFor="contact-phone"
                     className={`absolute ltr:left-5 rtl:right-5 top-5 text-brand-200/50 text-base font-medium tracking-wide transition-all pointer-events-none 
                                 peer-focus:text-brand-400 peer-focus:text-[11px] peer-focus:top-2.5 peer-focus:font-semibold peer-focus:tracking-widest peer-focus:uppercase
                                 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-brand-200/70 peer-[:not(:placeholder-shown)]:tracking-widest peer-[:not(:placeholder-shown)]:uppercase`}
@@ -200,7 +200,7 @@ export default function ContactSection() {
                   </label>
                 </div>
               </div>
-              
+
               <div className="relative z-10 group/input">
                 <textarea
                   id="contact-message"
@@ -210,8 +210,8 @@ export default function ContactSection() {
                   placeholder=" "
                   className="peer w-full bg-white/[0.03] border border-white/[0.1] rounded-2xl px-5 pt-7 pb-3 text-white text-base focus:outline-none focus:border-brand-400/60 focus:bg-white/[0.05] focus:shadow-[inset_0_2px_10px_rgba(0,0,0,0.3),_0_0_15px_rgba(30,79,163,0.3)] transition-all font-medium resize-none backdrop-blur-sm"
                 />
-                <label 
-                  htmlFor="contact-message" 
+                <label
+                  htmlFor="contact-message"
                   className={`absolute ltr:left-5 rtl:right-5 top-5 text-brand-200/50 text-base font-medium tracking-wide transition-all pointer-events-none 
                               peer-focus:text-brand-400 peer-focus:text-[11px] peer-focus:top-3 peer-focus:font-semibold peer-focus:tracking-widest peer-focus:uppercase
                               peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-brand-200/70 peer-[:not(:placeholder-shown)]:tracking-widest peer-[:not(:placeholder-shown)]:uppercase`}
@@ -261,11 +261,11 @@ export default function ContactSection() {
 
               {/* Only show error externally now because success is built into the button */}
               {status === 'error' && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  role="alert" 
-                  aria-atomic="true" 
+                  role="alert"
+                  aria-atomic="true"
                   className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold p-4 rounded-xl flex flex-col items-center gap-3 relative z-10"
                 >
                   <span>{t('form_error')}</span>

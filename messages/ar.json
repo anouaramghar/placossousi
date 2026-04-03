@@ -82,8 +82,8 @@
     "roles": {
       "responsable_administratif": "مسؤول إداري",
       "responsable_commercial": "مسؤول تجاري",
-      "commercial": "تجاري",
-      "caissiere": "أمينة صندوق"
+      "chef_chantier": "رئيس ورشة",
+      "commercial": "تجاري"
     }
   }
 }

@@ -3,5 +3,6 @@
     "allow": [
       "Bash(git -C D:/PS log --oneline -5)"
     ]
-  }
+  },
+  "outputStyle": "Explanatory"
 }
