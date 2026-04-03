@@ -37,8 +37,15 @@ const teamMembers = [
   },
 ]
 
+interface TeamMember {
+  name: string
+  roleKey: string
+  image: string
+  imageClass?: string
+}
+
 // Helper component to dry up the code and allow different styling for the top leader
-function TeamMemberCard({ member, idx, t, isTop = false }: { member: any, idx: number, t: any, isTop?: boolean }) {
+function TeamMemberCard({ member, idx, t, isTop = false }: { member: TeamMember, idx: number, t: any, isTop?: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}

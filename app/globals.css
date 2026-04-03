@@ -354,21 +354,6 @@ body::before {
 }
 
 /* ════════════════════════════════════════════════════
-   SERVICE-ROW HOVER LINE
-══════════════════════════════════════════════════════ */
-.service-row::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(96,165,250,0.4), transparent);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-}
-.service-row:hover::after { transform: scaleX(1); }
-
-/* ════════════════════════════════════════════════════
    SHIMMER SKELETON
 ══════════════════════════════════════════════════════ */
 .shimmer {

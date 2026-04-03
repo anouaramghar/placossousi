@@ -25,7 +25,7 @@ export default function Footer() {
             />
           </div>
           <p className="font-display text-white text-2xl md:text-3xl tracking-[-0.03em] mb-2">
-            {t('copyright').split('©')[0].trim()} Placo Sousi
+            {t('brand_name')}
           </p>
           <p className="font-sans text-brand-300/70 text-xs tracking-[0.25em] uppercase font-semibold">{t('tagline')}</p>
         </div>

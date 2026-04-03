@@ -58,13 +58,13 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-1">
           {links.map(link => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="font-sans link-underline text-brand-200/60 hover:text-white text-sm font-medium tracking-[-0.01em] transition-colors duration-200 px-4 py-3 rounded-lg hover:bg-white/4"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <Link
             href={switchPath}
@@ -111,14 +111,14 @@ export default function Navbar() {
             className="md:hidden bg-brand-900/85 backdrop-blur-3xl border border-white/10 px-4 py-4 flex flex-col gap-1 absolute left-4 right-4 top-[72px] rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.5)]"
           >
             {links.map(link => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className="font-sans text-brand-200/80 hover:text-white font-medium text-base py-3.5 px-4 rounded-xl hover:bg-white/5 transition-all duration-200 tracking-[-0.01em]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </motion.div>
         )}

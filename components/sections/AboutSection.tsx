@@ -147,7 +147,7 @@ export default function AboutSection() {
 
             {/* Signature Element */}
             <div className="font-display italic text-brand-400/50 text-[2.5rem] leading-none opacity-80 -rotate-3 select-none tracking-[-0.02em] mt-2">
-              A. Aganchich
+              {t('founder_signature')}
             </div>
           </div>
         </div>

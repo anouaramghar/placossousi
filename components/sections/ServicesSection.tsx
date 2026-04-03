@@ -27,6 +27,7 @@ export default function ServicesSection() {
   try {
     descriptions = t.raw('descriptions') as string[]
   } catch(e) {
+    if (process.env.NODE_ENV === 'development') console.error('[ServicesSection] Missing descriptions key:', e)
     descriptions = items.map(() => "Description non disponible.")
   }
 

@@ -24,7 +24,14 @@ export default function ContactSection() {
     e.preventDefault()
     setStatus('sending')
     const formData = new FormData(e.currentTarget)
-    const res = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID
+    if (!formspreeId) {
+      if (process.env.NODE_ENV === 'development') console.error('[ContactSection] NEXT_PUBLIC_FORMSPREE_ID is not set.')
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 5000)
+      return
+    }
+    const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
       method: 'POST',
       body: formData,
       headers: { Accept: 'application/json' },
@@ -37,6 +44,8 @@ export default function ContactSection() {
       setTimeout(() => setStatus('idle'), 3000)
     } else {
       setStatus('error')
+      // Also reset error state after 5s so user isn't stuck
+      setTimeout(() => setStatus('idle'), 5000)
     }
   }
 

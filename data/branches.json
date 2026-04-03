@@ -5,6 +5,7 @@
     "address": "Quartier Al Mouhit, Rue 100, Nador",
     "addressAr": "حي المحيط، شارع 100، الناظور",
     "phone": "0665 652 991",
+    "region": "oriental",
     "mapUrl": "https://www.google.com/maps/place/Placo+sousi,+arrid,+Quartier+al+mouhit,+Rue+100%D8%8C+Nador+62000"
   },
   {
@@ -13,6 +14,7 @@
     "address": "Beni Ansar",
     "addressAr": "بني أنصار",
     "phone": "0665 652 991",
+    "region": "oriental",
     "mapUrl": "https://google.com/maps/place/35.244121,-2.935034"
   },
   {
@@ -21,6 +23,7 @@
     "address": "Al Omrane, Salouane",
     "addressAr": "العمران، سلوان",
     "phone": "0665 652 991",
+    "region": "oriental",
     "mapUrl": "https://www.google.com/maps?q=35.0585562,-2.9106099&z=17&hl=en"
   },
   {
@@ -29,6 +32,7 @@
     "address": "Bientôt disponible",
     "addressAr": "قريباً",
     "phone": "-",
+    "region": "oriental",
     "mapUrl": "#"
   },
   {
@@ -37,6 +41,7 @@
     "address": "Pachalik de Deroua, Berrechid",
     "addressAr": "باشوية الدروة، برشيد",
     "phone": "0665 652 991",
+    "region": "casablanca",
     "mapUrl": "https://www.google.com/maps/place/P3+MILTU+TRAV,+Deroua+pachalik+de+deroua,+Deroua+26202"
   },
   {
@@ -45,6 +50,7 @@
     "address": "P3 MILTU TRAV, Deroua",
     "addressAr": "الدروة، الدار البيضاء",
     "phone": "0665 652 991",
+    "region": "casablanca",
     "mapUrl": "https://www.google.com/maps/place/P3+MILTU+TRAV,+Deroua+pachalik+de+deroua,+Deroua+26202"
   }
 ]

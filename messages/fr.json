@@ -20,6 +20,7 @@
     "title": "Votre partenaire régional depuis plus de 10 ans",
     "description": "Société marocaine spécialisée dans le plâtre, la peinture et la décoration intérieure depuis <highlight>plus de 10 ans</highlight>. Fondée par Abdelghani Aganchich, Placo Sousi s'est imposée comme <highlight>la référence régionale</highlight> en matière de finition de qualité.",
     "founder": "Abdelghani Aganchich",
+    "founder_signature": "A. Aganchich",
     "founder_title": "Fondateur de Placo Sousi",
     "stat_years": "Ans d'expérience",
     "stat_cities": "Points de vente"
@@ -73,6 +74,7 @@
     "form_error": "Erreur d'envoi — contactez-nous directement sur WhatsApp"
   },
   "footer": {
+    "brand_name": "Placo Sousi",
     "tagline": "Plâtre · Peinture · Pasta",
     "copyright": "© 2025 Placo Sousi. Tous droits réservés."
   },

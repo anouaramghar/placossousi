@@ -17,20 +17,12 @@ export default function BranchesSection() {
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
-  // Group branches by region logically based on index
-  // 0-3: Oriental, 4-5: Casablanca-Settat
-  const regions = [
-    {
-      title: locale === 'ar' ? 'جهة الشرق' : "Région de l'Oriental",
-      startIndex: 0,
-      endIndex: 3
-    },
-    {
-      title: locale === 'ar' ? 'جهة الدار البيضاء سطات' : "Région Casablanca-Settat",
-      startIndex: 4,
-      endIndex: 5
-    }
-  ]
+  // Derive unique regions in order of first appearance
+  const regionOrder = Array.from(new Set(branches.map(b => b.region)))
+  const regionLabels: Record<string, { fr: string; ar: string }> = {
+    oriental:    { fr: "Région de l'Oriental",       ar: 'جهة الشرق' },
+    casablanca:  { fr: 'Région Casablanca-Settat',   ar: 'جهة الدار البيضاء سطات' },
+  }
 
   return (
     <section id="branches" className="relative py-16 md:py-24 px-6 z-10" ref={ref}>
@@ -71,17 +63,22 @@ export default function BranchesSection() {
             const cityName = locale === 'ar' ? branch.cityAr : branch.city
             const address  = locale === 'ar' ? branch.addressAr : branch.address
             const isSoon = branch.mapUrl === '#'
-            const region = regions.find(r => r.startIndex === i)
+            // Show region header when this branch is the first of its region
+            const isFirstInRegion = branches.findIndex(b => b.region === branch.region) === i
+            const regionLabel = regionLabels[branch.region]
+            const regionTitle = regionLabel
+              ? (locale === 'ar' ? regionLabel.ar : regionLabel.fr)
+              : branch.region
 
             return (
               <div key={branch.city}>
                 {/* Region Marker */}
-                {region && (
+                {isFirstInRegion && (
                   <div className="reveal relative flex justify-start md:justify-center mb-8 mt-4 z-10 ltr:pl-10 rtl:pr-10 md:px-0">
                     <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-brand-400/20 bg-brand-900/60 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
                       <div className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
                       <span className="font-sans text-brand-100/90 text-sm tracking-widest uppercase font-semibold">
-                        {region.title}
+                        {regionTitle}
                       </span>
                     </div>
                   </div>
