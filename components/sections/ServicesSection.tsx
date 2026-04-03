@@ -1,6 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import { Hammer, Palette, Paintbrush, Lightbulb, ArrowUpRight, ChevronDown } from 'lucide-react'
+import { Hammer, Palette, Paintbrush, Lightbulb, ArrowUpRight } from 'lucide-react'
 import servicesData from '@/data/services.json'
 import { motion, useInView, useSpring, useMotionValue, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
@@ -143,21 +143,13 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
             {/* The actual text */}
             <span className="relative z-10">{item}</span>
             {/* The liquid overlay */}
-            <span
+            <span 
               className="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-brand-300 via-white to-brand-300 w-0 group-hover:w-full transition-all duration-[800ms] ease-out truncate z-20 pointer-events-none drop-shadow-[0_0_15px_rgba(37,99,235,0.8)]"
               style={{ backgroundSize: '150% auto' }}
             >
               {item}
             </span>
           </h3>
-          {/* Mobile-only expand chevron */}
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden flex-shrink-0 me-2"
-          >
-            <ChevronDown className={`w-5 h-5 transition-colors duration-300 ${isOpen ? 'text-brand-400' : 'text-brand-300/40'}`} strokeWidth={1.5} />
-          </motion.div>
         </div>
 
         {/* Arrow Reveal */}
@@ -181,7 +173,7 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-8 px-4 ltr:pl-14 rtl:pr-14 md:ltr:pl-[14rem] md:rtl:pr-[14rem]">
+            <div className="pb-8 px-6 md:px-6 ltr:pl-[6.5rem] rtl:pr-[6.5rem] md:ltr:pl-[14rem] md:rtl:pr-[14rem]">
               <div className="p-6 md:p-8 rounded-2xl bg-brand-900/40 border border-brand-400/10 shadow-[inset_0_2px_15px_rgba(0,0,0,0.5)]">
                 <p className="font-sans text-brand-100/70 text-base md:text-lg leading-relaxed md:leading-[1.8]">
                   {description}
