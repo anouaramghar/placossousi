@@ -119,7 +119,7 @@ export default function TeamSection() {
           </div>
 
           {/* Bottom Level - Team Members */}
-          <div className="flex flex-wrap justify-center gap-10 md:gap-14 w-full relative z-20 pt-6 md:pt-0 border-t border-brand-400/10 md:border-t-0">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-14 w-full relative z-20 pt-6 md:pt-0 border-t border-brand-400/10 md:border-t-0">
             {team.map((member, idx) => (
               <TeamMemberCard key={member.name} member={member} idx={idx + 1} t={t} />
             ))}

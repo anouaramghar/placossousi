@@ -45,7 +45,7 @@ export default function HeroSection() {
 
         {/* Display heading — DM Serif */}
         <h1
-          className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-[clamp(2.5rem,10vw,7.5rem)] leading-[1.1] tracking-normal mb-7 animate-fade-in-up text-glow text-balance"
+          className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-[clamp(2rem,8vw,7.5rem)] leading-[1.1] tracking-normal mb-7 animate-fade-in-up text-glow text-balance"
           style={{ animationDelay: '0.12s' }}
         >
           {t('title')}

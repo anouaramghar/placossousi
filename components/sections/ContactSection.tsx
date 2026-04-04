@@ -128,7 +128,7 @@ export default function ContactSection() {
               href="https://www.instagram.com/placosousi"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card flex items-center gap-6 rounded-3xl p-6 border border-pink-500/20 hover:border-pink-500/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(236,72,153,0.15)] transition-all duration-300 group bg-gradient-to-r from-pink-500/[0.03] to-transparent relative overflow-hidden"
+              className="glass-card flex items-center gap-4 md:gap-6 rounded-3xl p-4 md:p-6 border border-pink-500/20 hover:border-pink-500/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(236,72,153,0.15)] transition-all duration-300 group bg-gradient-to-r from-pink-500/[0.03] to-transparent relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl -z-10 pointer-events-none"></div>
 
@@ -155,7 +155,7 @@ export default function ContactSection() {
               onMouseMove={handleMouseMove}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="glass-card rounded-3xl p-8 md:p-10 border border-white/10 space-y-6 relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] bg-[#030712]/40 backdrop-blur-xl"
+              className="glass-card rounded-3xl p-6 md:p-10 border border-white/10 space-y-4 md:space-y-6 relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] bg-[#030712]/40 backdrop-blur-xl"
             >
               {/* Inner Mouse Spotlight */}
               {isHovered && (

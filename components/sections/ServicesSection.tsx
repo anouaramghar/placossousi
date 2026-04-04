@@ -121,7 +121,7 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
       {/* Hover glow fill */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-400/[0.04] via-brand-400/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0"></div>
 
-      <div className="relative z-10 flex flex-col md:flex-row md:items-center py-8 md:py-10 cursor-pointer">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center py-6 md:py-10 cursor-pointer">
         {/* Left side: Icon + Title */}
         <div className="flex items-center gap-6 md:gap-10 flex-1 px-4 md:px-6">
           {/* Index number */}

@@ -88,7 +88,7 @@ export default function AboutSection() {
         </div>
 
         {/* Two-column editorial layout */}
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
           {/* Left — description */}
           <div className="reveal-left delay-1 relative z-20">
             <p className="font-sans text-brand-100/70 text-xl md:text-2xl leading-[1.75] font-light tracking-[-0.01em]">
@@ -117,7 +117,7 @@ export default function AboutSection() {
           {/* Right — founder  */}
           <div className="flex flex-col items-center text-center reveal delay-2">
             {/* Floating avatar with ring */}
-            <div className="relative mb-14 group w-72 h-[22rem] perspective-[1000px]">
+            <div className="relative mb-10 md:mb-14 group w-64 h-[20rem] sm:w-72 sm:h-[22rem] perspective-[1000px]">
               {/* Outer decorative ring WITH PARALLAX */}
               <motion.div style={{ y: y1 }} className="absolute -inset-6 border border-brand-400/15 rounded-[2.5rem] rotate-3 transition-colors duration-700 group-hover:border-brand-400/30"></motion.div>
               <motion.div style={{ y: y2 }} className="absolute -inset-8 border border-white/5 rounded-[3rem] -rotate-3 transition-colors duration-700 group-hover:border-brand-300/20"></motion.div>

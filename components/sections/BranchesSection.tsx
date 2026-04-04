@@ -156,7 +156,7 @@ function CardWrapper({ isSoon, branch, children }: { isSoon?: boolean, branch?: 
     setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const baseClasses = `group p-6 md:p-8 rounded-2xl transition-all duration-500 relative overflow-hidden ` +
+  const baseClasses = `group p-5 md:p-8 rounded-2xl transition-all duration-500 relative overflow-hidden ` +
     (isSoon 
       ? `border-2 border-dashed border-white/10 bg-white/[0.015] opacity-80 cursor-default` 
       : `border border-white/6 bg-white/[0.025] hover:border-brand-400/25 hover:bg-white/[0.04] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(37,99,235,0.08),inset_0_0_28px_rgba(37,99,235,0.03)] block w-full text-left cursor-pointer`);
