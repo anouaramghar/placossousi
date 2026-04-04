@@ -174,7 +174,8 @@ export default function BranchesSection() {
 
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start center', 'end center'] })
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+  // scaleY (0→1) instead of height (0%→100%) — transform is GPU-composited, height is not
+  const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
   const regionOrder = Array.from(new Set(branches.map(b => b.region)))
 
@@ -207,10 +208,10 @@ export default function BranchesSection() {
             aria-hidden="true"
             className="absolute ltr:left-1/2 rtl:right-auto left-1/2 -translate-x-1/2 top-1 bottom-1 w-px pointer-events-none bg-white/5"
           />
-          {/* Animated fill line */}
+          {/* Animated fill line — scaleY grows from top, GPU-composited */}
           <motion.div
-            style={{ height: lineHeight }}
-            className="absolute ltr:left-1/2 rtl:right-auto left-1/2 -translate-x-1/2 top-1 w-px pointer-events-none bg-gradient-to-b from-brand-400 via-brand-500 to-brand-300 shadow-[0_0_15px_rgba(37,99,235,0.8)] z-0"
+            style={{ scaleY: lineScaleY, transformOrigin: 'top' }}
+            className="absolute ltr:left-1/2 rtl:right-auto left-1/2 -translate-x-1/2 top-1 bottom-1 w-px pointer-events-none bg-gradient-to-b from-brand-400 via-brand-500 to-brand-300 shadow-[0_0_15px_rgba(37,99,235,0.8)] z-0"
           />
 
           {branches.map((branch, i) => {
