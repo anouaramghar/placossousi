@@ -18,5 +18,10 @@
     "id": "conseil",
     "icon": "Lightbulb",
     "titleKey": "services.items.3"
+  },
+  {
+    "id": "facade",
+    "icon": "Layers",
+    "titleKey": "services.items.4"
   }
 ]
