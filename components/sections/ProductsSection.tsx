@@ -22,16 +22,6 @@ export default function ProductsSection() {
               {t('title')}
             </h2>
           </div>
-          {/* "See all" link — visible in header on mobile/tablet */}
-          <Link
-            href={`/${locale}/products`}
-            className="group link-underline font-sans mt-6 md:mt-0 md:mb-2 lg:hidden inline-flex items-center gap-2.5 text-brand-300/70 hover:text-brand-200 text-sm font-medium tracking-[0.04em] transition-colors duration-300"
-          >
-            {t('see_all')}
-            <span className={`transition-transform duration-300 text-base ${isAr ? 'group-hover:-translate-x-1.5' : 'group-hover:translate-x-1.5'}`}>
-              {isAr ? '←' : '→'}
-            </span>
-          </Link>
         </div>
       </div>
 
