@@ -174,7 +174,24 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-8 px-6 md:px-6 ltr:pl-[6.5rem] rtl:pr-[6.5rem]">
+            <div className="pb-8 px-4 md:px-6 ltr:md:pl-[6.5rem] rtl:md:pr-[6.5rem]">
+              {/* Service image */}
+              <div className="relative w-full h-52 md:h-64 rounded-2xl overflow-hidden mb-4 border border-white/5">
+                <Image
+                  src={imagePath}
+                  alt={item}
+                  fill
+                  className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 700px"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none'
+                  }}
+                />
+                {/* Gradient overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/20 to-transparent" />
+              </div>
+
+              {/* Description */}
               <div className="p-6 md:p-8 rounded-2xl bg-brand-900/40 border border-brand-400/10 shadow-[inset_0_2px_15px_rgba(0,0,0,0.5)]">
                 <p className="font-sans text-brand-100/70 text-base md:text-lg leading-relaxed md:leading-[1.8]">
                   {description}
