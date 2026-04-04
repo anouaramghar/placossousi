@@ -120,42 +120,44 @@ function MobileBranches({ locale }: { locale: string }) {
                   </button>
 
                   {/* Expandable detail */}
-                  <AnimatePresence initial={false}>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
+                  <div
+                    className="overflow-hidden"
+                    style={{
+                      display: 'grid',
+                      gridTemplateRows: isExpanded ? '1fr' : '0fr',
+                      transition: 'grid-template-rows 0.28s cubic-bezier(0.16,1,0.3,1)',
+                    }}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div
+                        className="pb-5 ps-[18px] space-y-3"
+                        style={{ opacity: isExpanded ? 1 : 0, transition: 'opacity 0.2s ease' }}
                       >
-                        <div className="pb-5 ps-[18px] space-y-3">
-                          {/* Address */}
-                          <div className="flex items-start gap-2.5">
-                            <MapPin className="w-3.5 h-3.5 text-brand-400/45 mt-0.5 flex-shrink-0" strokeWidth={2} />
-                            <p className="font-sans text-sm text-brand-100/40 leading-relaxed">{address}</p>
-                          </div>
-                          {/* Phone */}
-                          <div className="flex items-center gap-2.5">
-                            <Phone className="w-3.5 h-3.5 text-brand-400/45 flex-shrink-0" strokeWidth={2} />
-                            <span className="font-sans text-sm text-brand-300/65 font-semibold tracking-widest">{branch.phone}</span>
-                          </div>
-                          {/* Maps CTA */}
-                          <div className="pt-1">
-                            <a
-                              href={branch.mapUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.12em] uppercase text-brand-400 border border-brand-400/20 rounded-full px-4 py-2 hover:bg-brand-400/10 transition-colors duration-200"
-                            >
-                              <ExternalLink className="w-3 h-3" strokeWidth={2.5} />
-                              {locale === 'ar' ? 'فتح في الخريطة' : 'Voir sur Maps'}
-                            </a>
-                          </div>
+                        {/* Address */}
+                        <div className="flex items-start gap-2.5">
+                          <MapPin className="w-3.5 h-3.5 text-brand-400/45 mt-0.5 flex-shrink-0" strokeWidth={2} />
+                          <p className="font-sans text-sm text-brand-100/40 leading-relaxed">{address}</p>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        {/* Phone */}
+                        <div className="flex items-center gap-2.5">
+                          <Phone className="w-3.5 h-3.5 text-brand-400/45 flex-shrink-0" strokeWidth={2} />
+                          <span className="font-sans text-sm text-brand-300/65 font-semibold tracking-widest">{branch.phone}</span>
+                        </div>
+                        {/* Maps CTA */}
+                        <div className="pt-1">
+                          <a
+                            href={branch.mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.12em] uppercase text-brand-400 border border-brand-400/20 rounded-full px-4 py-2 hover:bg-brand-400/10 transition-colors duration-200"
+                          >
+                            <ExternalLink className="w-3 h-3" strokeWidth={2.5} />
+                            {locale === 'ar' ? 'فتح في الخريطة' : 'Voir sur Maps'}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )
             })}

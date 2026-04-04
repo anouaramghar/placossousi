@@ -258,19 +258,20 @@ function MobileContact({
       </button>
 
       {/* ── Collapsible form ── */}
-      <AnimatePresence initial={false}>
-        {formOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
+      <div
+        className="overflow-hidden"
+        style={{
+          display: 'grid',
+          gridTemplateRows: formOpen ? '1fr' : '0fr',
+          transition: 'grid-template-rows 0.38s cubic-bezier(0.16,1,0.3,1)',
+        }}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div style={{ opacity: formOpen ? 1 : 0, transition: 'opacity 0.25s ease' }}>
             <ContactForm t={t} locale={locale} status={status} onSubmit={onSubmit} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

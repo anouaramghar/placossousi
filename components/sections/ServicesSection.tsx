@@ -165,16 +165,19 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
       </div>
 
       {/* Expandable Accordion */}
-      <AnimatePresence>
-        {isOpen && description && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="pb-8 px-4 md:px-6 ltr:md:pl-[6.5rem] rtl:md:pr-[6.5rem]">
+      <div
+        className="overflow-hidden"
+        style={{
+          display: 'grid',
+          gridTemplateRows: (isOpen && description) ? '1fr' : '0fr',
+          transition: 'grid-template-rows 0.38s cubic-bezier(0.16,1,0.3,1)',
+        }}
+      >
+        <div className="min-h-0 overflow-hidden">
+            <div
+              className="pb-8 px-4 md:px-6 ltr:md:pl-[6.5rem] rtl:md:pr-[6.5rem]"
+              style={{ opacity: (isOpen && description) ? 1 : 0, transition: 'opacity 0.25s ease' }}
+            >
               {/* Service image */}
               <div className="relative w-full h-52 md:h-64 rounded-2xl overflow-hidden mb-4 border border-white/5">
                 <Image
@@ -198,9 +201,8 @@ function ServiceRow({ item, description, index, iconName, imagePath }: { item: s
                 </p>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      </div>
 
       {/* Floating Mouse Image (Awwwards Style) */}
       <AnimatePresence>
