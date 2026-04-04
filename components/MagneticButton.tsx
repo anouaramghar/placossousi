@@ -1,10 +1,15 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 export default function MagneticButton({ children, className }: { children: React.ReactNode, className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [isTouch, setIsTouch] = useState(true)
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(hover: none)').matches)
+  }, [])
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e
@@ -14,8 +19,10 @@ export default function MagneticButton({ children, className }: { children: Reac
     setPosition({ x: middleX * 0.2, y: middleY * 0.2 })
   }
 
-  const reset = () => {
-    setPosition({ x: 0, y: 0 })
+  const reset = () => setPosition({ x: 0, y: 0 })
+
+  if (isTouch) {
+    return <div className={className || "inline-block"}>{children}</div>
   }
 
   return (

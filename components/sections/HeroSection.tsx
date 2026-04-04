@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16 md:pt-24 md:pb-20"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16 md:pt-24 md:pb-20"
     >
       {/* Background Image */}
       <div className="absolute inset-0 -z-20 bg-brand-900">
