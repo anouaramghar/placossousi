@@ -15,7 +15,7 @@
     "addressAr": "بني أنصار",
     "phone": "0665 652 991",
     "region": "oriental",
-    "mapUrl": "https://google.com/maps/place/35.244121,-2.935034"
+    "mapUrl": "https://www.google.com/maps?q=35.244121,-2.935034"
   },
   {
     "city": "Salouane Alomrane",
@@ -42,7 +42,7 @@
     "addressAr": "باشوية الدروة، برشيد",
     "phone": "0665 652 991",
     "region": "casablanca",
-    "mapUrl": "https://www.google.com/maps/place/P3+MILTU+TRAV,+Deroua+pachalik+de+deroua,+Deroua+26202"
+    "mapUrl": "https://www.google.com/maps/search/Pachalik+de+Deroua,+Berrechid"
   },
   {
     "city": "Deroua Casablanca",

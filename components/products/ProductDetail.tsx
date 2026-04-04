@@ -21,7 +21,9 @@ export default function ProductDetail({ product }: { product: Product }) {
           href={`/${locale}/products`}
           className="inline-flex items-center gap-2 text-brand-300 hover:text-white text-sm md:text-base font-semibold transition-colors mb-12 animate-fade-in-up group"
         >
-          <span className="group-hover:-translate-x-2 transition-transform duration-300">←</span>
+          <span className={`transition-transform duration-300 ${locale === 'ar' ? 'group-hover:translate-x-2' : 'group-hover:-translate-x-2'}`}>
+            {locale === 'ar' ? '→' : '←'}
+          </span>
           {t('products.label')}
         </Link>
 

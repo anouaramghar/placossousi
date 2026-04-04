@@ -32,7 +32,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-5 pt-8 border-t border-white/4">
-          <p className="font-sans text-brand-300/70 text-xs font-medium tracking-wider order-2 md:order-1">{t('copyright').replace('2025', new Date().getFullYear().toString())}</p>
+          <p className="font-sans text-brand-300/70 text-xs font-medium tracking-wider order-2 md:order-1">{t('copyright')}</p>
 
           <div className="flex items-center gap-2 order-1 md:order-2">
             <a

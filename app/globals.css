@@ -436,6 +436,12 @@ body::before {
   background: linear-gradient(to left, var(--color-brand-400), transparent);
   transform-origin: right;
 }
+[dir="rtl"] .reveal-left {
+  transform: translateX(32px);
+}
+[dir="rtl"] .reveal-left.visible {
+  transform: translateX(0);
+}
 
 /* ════════════════════════════════════════════════════
    FOCUS VISIBLE — keyboard navigation

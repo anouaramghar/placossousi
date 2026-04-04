@@ -294,8 +294,9 @@ export default function ContactSection() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
     setStatus('sending')
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(form)
     const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID
     if (!formspreeId) {
       if (process.env.NODE_ENV === 'development') console.error('[ContactSection] NEXT_PUBLIC_FORMSPREE_ID is not set.')
@@ -310,7 +311,7 @@ export default function ContactSection() {
     })
     if (res.ok) {
       setStatus('success')
-      e.currentTarget.reset()
+      form.reset()
       setTimeout(() => setStatus('idle'), 3000)
     } else {
       setStatus('error')
