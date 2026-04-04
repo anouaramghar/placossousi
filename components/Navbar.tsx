@@ -18,9 +18,13 @@ export default function Navbar() {
   const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32)
+    let rafId: number
+    const onScroll = () => {
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => setScrolled(window.scrollY > 32))
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(rafId) }
   }, [])
 
   const links = [
@@ -35,7 +39,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled
-        ? 'bg-brand-900/75 backdrop-blur-2xl border-b border-white/6 shadow-[0_4px_24px_rgba(0,0,0,0.4)]'
+        ? 'bg-brand-900/80 md:bg-brand-900/75 md:backdrop-blur-2xl border-b border-white/6 shadow-[0_4px_24px_rgba(0,0,0,0.4)]'
         : 'bg-transparent border-b border-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -108,7 +112,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-brand-900/85 backdrop-blur-3xl border border-white/10 px-4 py-4 flex flex-col gap-1 absolute left-4 right-4 top-[72px] rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.5)]"
+            className="md:hidden bg-brand-900/95 border border-white/10 px-4 py-4 flex flex-col gap-1 absolute left-4 right-4 top-[72px] rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.5)]"
           >
             {links.map(link => (
               <Link

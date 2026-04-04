@@ -6,8 +6,7 @@ export default function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-4 end-4 md:bottom-6 md:end-6 z-50 group scale-90 md:scale-100 origin-bottom-right">
-      <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-[ping_3s_ease-in-out_infinite]"></div>
-      <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 animate-[ping_4s_ease-in-out_infinite] blur-md"></div>
+      <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-[ping_3s_ease-in-out_infinite]"></div>
       <a
         href="https://wa.me/212665652991"
         target="_blank"

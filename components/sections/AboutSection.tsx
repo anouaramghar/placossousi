@@ -2,7 +2,7 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useInView, animate } from 'framer-motion'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import founderImg from '@/public/images/founder.png'
 
 function AnimatedCounter({ from = 0, to, duration = 2.5 }: { from?: number, to: number, duration?: number }) {
@@ -64,14 +64,25 @@ function Image3DCard({ children, className }: { children: React.ReactNode, class
 export default function AboutSection() {
   const t = useTranslations('about')
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check, { passive: true })
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   })
 
-  // Slower parallax for rings
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 80])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -60])
+  // Slower parallax for rings — disabled on mobile
+  const y1Raw = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const y2Raw = useTransform(scrollYProgress, [0, 1], [0, -60])
+  const y1 = isMobile ? 0 : y1Raw
+  const y2 = isMobile ? 0 : y2Raw
 
   return (
     <section id="about" className="relative py-10 md:py-24 px-6 z-10 overflow-hidden" ref={sectionRef}>
