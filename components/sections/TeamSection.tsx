@@ -76,11 +76,11 @@ function TeamMemberCard({ member, idx, t, isTop = false }: { member: TeamMember,
           )}
         </div>
       </div>
-      <h3 className={`font-display text-white tracking-normal leading-snug mb-1 group-hover:text-brand-300 transition-colors duration-300 w-full ${isTop ? 'text-2xl md:text-3xl' : 'text-lg md:text-xl'
+      <h3 className={`font-display text-white tracking-normal leading-snug mb-1 group-hover:text-brand-300 transition-colors duration-300 w-full ${isTop ? 'text-[1.15rem] sm:text-2xl md:text-3xl' : 'text-lg md:text-xl'
         }`}>
         {member.name}
       </h3>
-      <p className="font-sans text-brand-300/70 text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-semibold">
+      <p className="font-sans text-brand-300/70 text-[8.5px] sm:text-[10px] md:text-[11px] tracking-[0.05em] sm:tracking-[0.2em] uppercase font-semibold whitespace-nowrap">
         {t(`roles.${member.roleKey}`)}
       </p>
     </motion.div>
