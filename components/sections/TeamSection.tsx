@@ -119,10 +119,17 @@ export default function TeamSection() {
           </div>
 
           {/* Bottom Level - Team Members */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-14 w-full relative z-20 pt-6 md:pt-0 border-t border-brand-400/10 md:border-t-0">
-            {team.map((member, idx) => (
-              <TeamMemberCard key={member.name} member={member} idx={idx + 1} t={t} />
-            ))}
+          <div className="w-full relative z-20 pt-6 md:pt-0 border-t border-brand-400/10 md:border-t-0">
+            <div className="-mx-6 px-6 md:mx-0 md:px-0 flex overflow-x-auto md:flex-wrap justify-start md:justify-center gap-6 md:gap-14 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide md:overflow-visible">
+              {team.map((member, idx) => (
+                <div key={member.name} className="snap-start shrink-0">
+                  <TeamMemberCard member={member} idx={idx + 1} t={t} />
+                </div>
+              ))}
+            </div>
+            {/* Scroll gradients for mobile */}
+            <div className="absolute top-0 -left-6 w-12 h-full bg-gradient-to-r from-brand-900 to-transparent pointer-events-none z-10 md:hidden"></div>
+            <div className="absolute top-0 -right-6 w-12 h-full bg-gradient-to-l from-brand-900 to-transparent pointer-events-none z-10 md:hidden"></div>
           </div>
         </div>
       </div>

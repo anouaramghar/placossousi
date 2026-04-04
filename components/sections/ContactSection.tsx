@@ -83,11 +83,12 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-5 gap-10 lg:gap-12 items-start">
 
           {/* Contact info - take 2 cols */}
-          <div className="md:col-span-2 space-y-6">
+          <div className="md:col-span-2 relative">
+            <div className="-mx-6 px-6 md:mx-0 md:px-0 flex overflow-x-auto md:flex-col gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide md:overflow-visible">
             <motion.a
               variants={itemVariants}
               href="tel:0665652991"
-              className="glass-card flex items-center gap-6 rounded-3xl p-6 border border-white/5 hover:border-brand-400/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(30,79,163,0.2)] transition-all duration-300 group bg-gradient-to-r from-white/[0.02] to-transparent relative overflow-hidden"
+              className="glass-card flex items-center gap-4 md:gap-6 rounded-3xl p-4 md:p-6 border border-white/5 hover:border-brand-400/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(30,79,163,0.2)] transition-all duration-300 group bg-gradient-to-r from-white/[0.02] to-transparent relative overflow-hidden shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-start"
             >
               <div className="w-16 h-16 rounded-2xl bg-brand-800/80 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-400/20 transition-colors pointer-events-none">
                 <Phone className="w-7 h-7 text-brand-300 drop-shadow-md group-hover:scale-110 transition-transform" strokeWidth={1.5} />
@@ -128,7 +129,7 @@ export default function ContactSection() {
               href="https://www.instagram.com/placosousi"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card flex items-center gap-4 md:gap-6 rounded-3xl p-4 md:p-6 border border-pink-500/20 hover:border-pink-500/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(236,72,153,0.15)] transition-all duration-300 group bg-gradient-to-r from-pink-500/[0.03] to-transparent relative overflow-hidden"
+              className="glass-card flex items-center gap-4 md:gap-6 rounded-3xl p-4 md:p-6 border border-pink-500/20 hover:border-pink-500/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(236,72,153,0.15)] transition-all duration-300 group bg-gradient-to-r from-pink-500/[0.03] to-transparent relative overflow-hidden shrink-0 w-[85vw] sm:w-[320px] md:w-auto snap-start"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl -z-10 pointer-events-none"></div>
 
@@ -145,6 +146,10 @@ export default function ContactSection() {
                 <p className="text-white font-bold text-[1.2rem] tracking-tight">placosousi</p>
               </div>
             </motion.a>
+            </div>
+            {/* Scroll gradients for mobile */}
+            <div className="absolute top-0 -left-6 w-10 h-full bg-gradient-to-r from-brand-900 to-transparent pointer-events-none z-10 md:hidden"></div>
+            <div className="absolute top-0 -right-6 w-10 h-full bg-gradient-to-l from-brand-900 to-transparent pointer-events-none z-10 md:hidden"></div>
           </div>
 
           {/* Form - take 3 cols */}
