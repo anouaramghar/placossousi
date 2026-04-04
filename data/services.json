@@ -15,8 +15,8 @@
     "titleKey": "services.items.2"
   },
   {
-    "id": "facade",
-    "icon": "Layers",
+    "id": "vente",
+    "icon": "Package",
     "titleKey": "services.items.3"
   }
 ]

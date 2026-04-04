@@ -1,13 +1,13 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import { Hammer, Palette, Paintbrush, Lightbulb, Layers, ArrowUpRight } from 'lucide-react'
+import { Hammer, Palette, Paintbrush, Package, ArrowUpRight } from 'lucide-react'
 import servicesData from '@/data/services.json'
 import { motion, useInView, useSpring, useMotionValue, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 
 const ICONS: Record<string, React.ElementType> = {
-  Hammer, Palette, Paintbrush, Lightbulb, Layers
+  Hammer, Palette, Paintbrush, Package
 }
 
 // Premium generated service photography
