@@ -74,7 +74,7 @@ export default function AboutSection() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -60])
 
   return (
-    <section id="about" className="relative py-16 md:py-24 px-6 z-10 overflow-hidden" ref={sectionRef}>
+    <section id="about" className="relative py-10 md:py-24 px-6 z-10 overflow-hidden" ref={sectionRef}>
       {/* Subtle ambient light */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-400/4 to-transparent pointer-events-none -z-10"></div>
 

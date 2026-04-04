@@ -1,6 +1,7 @@
 // app/[locale]/products/[slug]/page.tsx
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { setRequestLocale } from 'next-intl/server'
 import { getProductBySlug, getProducts } from '@/lib/products'
 import ProductDetail from '@/components/products/ProductDetail'
 
@@ -30,7 +31,8 @@ export default async function ProductPage({
 }: {
   params: Promise<{ locale: string; slug: string }>
 }) {
-  const { slug } = await params
+  const { locale, slug } = await params
+  setRequestLocale(locale)
   const product = getProductBySlug(slug)
   if (!product) notFound()
   return <ProductDetail product={product} />

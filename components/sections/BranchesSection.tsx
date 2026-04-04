@@ -25,13 +25,13 @@ export default function BranchesSection() {
   }
 
   return (
-    <section id="branches" className="relative py-16 md:py-24 px-6 z-10" ref={ref}>
+    <section id="branches" className="relative py-10 md:py-24 px-6 z-10" ref={ref}>
       {/* Ambient glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-400/3 to-transparent pointer-events-none -z-10" />
 
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="mb-12 md:mb-16 reveal flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div className="mb-8 md:mb-16 reveal flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
             <span className="section-label">{t('label')}</span>
             <h2 className="font-display text-white text-[clamp(2.5rem,6vw,4.5rem)] tracking-normal leading-[1.1] mt-4 text-glow-soft">

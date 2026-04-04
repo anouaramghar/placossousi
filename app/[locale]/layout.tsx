@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, DM_Serif_Display } from 'next/font/google'
 import { Tajawal } from 'next/font/google'
 import { notFound } from 'next/navigation'
@@ -13,6 +13,13 @@ import '../globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const dmSerif = DM_Serif_Display({ subsets: ['latin'], weight: ['400'], style: ['normal', 'italic'], variable: '--font-dm-serif' })
 const tajawal = Tajawal({ subsets: ['arabic'], weight: ['300', '400', '500', '700', '800'], variable: '--font-tajawal' })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#03060f',
+}
 
 export async function generateMetadata({
   params,
@@ -29,6 +36,12 @@ export async function generateMetadata({
   return {
     title,
     description,
+    manifest: '/manifest.webmanifest',
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'default',
+      title: title,
+    },
     openGraph: {
       title,
       description,

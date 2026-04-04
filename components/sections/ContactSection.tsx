@@ -64,7 +64,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-16 md:py-24 px-6 z-10 overflow-hidden">
+    <section id="contact" className="relative py-10 md:py-24 px-6 z-10 overflow-hidden">
       {/* Decorative Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-400/8 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
@@ -75,7 +75,7 @@ export default function ContactSection() {
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-6xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="mb-12 md:mb-16">
+        <motion.div variants={itemVariants} className="mb-8 md:mb-16">
           <span className="section-label">{t('label')}</span>
           <h2 className="font-display text-white text-[clamp(2.5rem,6vw,5.5rem)] tracking-normal leading-[1.1] mt-5 text-glow-soft">{t('title')}</h2>
         </motion.div>

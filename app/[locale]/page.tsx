@@ -1,11 +1,14 @@
 import { setRequestLocale } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutSection from '@/components/sections/AboutSection'
 import ProductsSection from '@/components/sections/ProductsSection'
-import ServicesSection from '@/components/sections/ServicesSection'
-import BranchesSection from '@/components/sections/BranchesSection'
-import TeamSection from '@/components/sections/TeamSection'
-import ContactSection from '@/components/sections/ContactSection'
+
+// Dynamically load heavy client components below the fold
+const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'))
+const BranchesSection = dynamic(() => import('@/components/sections/BranchesSection'))
+const TeamSection = dynamic(() => import('@/components/sections/TeamSection'))
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection'))
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'ar' }]
@@ -19,7 +22,7 @@ export default async function HomePage({
   const { locale } = await params
   setRequestLocale(locale)
   return (
-    <main id="main-content">
+    <main id="main-content" className="relative">
       <HeroSection />
       <AboutSection />
       <ProductsSection />

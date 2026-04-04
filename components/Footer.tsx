@@ -6,7 +6,7 @@ export default function Footer() {
   const t = useTranslations('footer')
 
   return (
-    <footer className="relative bg-brand-900 border-t border-white/5 pt-20 pb-10 px-6 overflow-hidden z-10">
+    <footer className="relative bg-brand-900 border-t border-white/5 pt-12 md:pt-20 pb-8 md:pb-10 px-6 overflow-hidden z-10">
       {/* Top accent line */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-400/25 to-transparent"></div>
       {/* Subtle ambient */}
@@ -14,7 +14,7 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Logo & brand */}
-        <div className="mb-12 text-center group cursor-default">
+        <div className="mb-8 md:mb-12 text-center group cursor-default">
           <div className="relative w-14 h-14 rounded-2xl overflow-hidden mx-auto mb-5 shadow-[0_0_20px_rgba(37,99,235,0.25)] group-hover:shadow-[0_0_35px_rgba(37,99,235,0.45)] transition-shadow duration-500">
             <Image
               src="/images/logo.png"

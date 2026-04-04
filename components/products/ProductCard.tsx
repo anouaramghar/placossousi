@@ -1,5 +1,4 @@
 // components/products/ProductCard.tsx
-'use client'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'

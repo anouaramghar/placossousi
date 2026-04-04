@@ -65,6 +65,7 @@ function TeamMemberCard({ member, idx, t, isTop = false }: { member: TeamMember,
               src={member.image}
               alt={member.name}
               fill
+              priority
               className={`transform ${member.imageClass || 'group-hover:scale-105'} transition-transform duration-700 object-contain object-bottom drop-shadow-[0_10px_20px_rgba(37,99,235,0.15)]`}
               sizes={isTop ? "(max-width: 768px) 240px, 280px" : "(max-width: 768px) 155px, 200px"}
             />
@@ -92,13 +93,13 @@ export default function TeamSection() {
   const team = teamMembers.slice(2)
 
   return (
-    <section id="team" className="relative py-16 md:py-24 px-6 z-10 overflow-hidden">
+    <section id="team" className="relative py-10 md:py-24 px-6 z-10 overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <span className="section-label inline-block">{t('label')}</span>
           <h2 className="font-display text-white text-[clamp(2rem,5vw,4rem)] tracking-normal leading-[1.1] mt-5 max-w-3xl mx-auto text-glow-soft">
             {t('title')}

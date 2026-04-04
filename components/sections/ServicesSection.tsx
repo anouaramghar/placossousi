@@ -32,12 +32,12 @@ export default function ServicesSection() {
   }
 
   return (
-    <section id="services" className="relative py-16 md:py-24 z-10 overflow-hidden">
+    <section id="services" className="relative py-10 md:py-24 z-10 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-400/3 to-transparent pointer-events-none -z-10"></div>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Section header */}
-        <div className="reveal mb-12 md:mb-14">
+        <div className="reveal mb-8 md:mb-14">
           <span className="section-label">{t('label')}</span>
           <div className="flex flex-col md:flex-row md:items-end justify-between mt-5">
             <h2 className="font-display text-white text-[clamp(2.5rem,6vw,5.5rem)] tracking-normal leading-[1.1] text-glow-soft">

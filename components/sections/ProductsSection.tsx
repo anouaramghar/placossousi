@@ -1,5 +1,4 @@
 // components/sections/ProductsSection.tsx
-'use client'
 import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import ProductCard from '@/components/products/ProductCard'
@@ -11,7 +10,7 @@ export default function ProductsSection() {
   const featured = getFeaturedProducts()
 
   return (
-    <section id="products" className="relative py-16 md:py-24 z-10 overflow-hidden">
+    <section id="products" className="relative py-10 md:py-24 z-10 overflow-hidden">
       {/* Header — contained */}
       <div className="max-w-6xl mx-auto px-6 mb-10 lg:mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between reveal">
