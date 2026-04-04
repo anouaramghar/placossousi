@@ -28,7 +28,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const title = locale === 'ar'
-    ? 'بلاكو سوسي — أسياد الجبص والتشطيب'
+    ? 'بلاكو سوسي — خبراء الجبص والديكور'
     : 'Placo Sousi — Maîtres du Plâtre et de la Finition'
   const description = locale === 'ar'
     ? 'شركة مغربية متخصصة في الجبص والطلاء والباستا. الناظور، بني أنصار، أريد.'
