@@ -56,6 +56,39 @@
       "Matériaux disponibles en gros pour les professionnels et au détail pour les particuliers, livrés sur chantier selon vos quantités et délais."
     ]
   },
+  "guide": {
+    "label": "Le Savoir Placo",
+    "title": "Quel plâtre pour votre projet ?",
+    "subtitle": "Pas sûr de ce qu'il vous faut ? On vous explique.",
+    "cta": "Demandez conseil",
+    "items": [
+      {
+        "name": "Plâtre traditionnel",
+        "tag": "Plafonds & murs intérieurs",
+        "description": "La base. Finition lisse et nette pour plafonds et cloisons. Classique, fiable, économique."
+      },
+      {
+        "name": "Décor en plâtre",
+        "tag": "Corniches · Rosaces · Niches",
+        "description": "Pour ceux qui veulent du style. Corniches, rosaces, niches sur mesure — ça transforme une pièce ordinaire en espace de luxe."
+      },
+      {
+        "name": "Plâtre hydrofuge",
+        "tag": "Cuisine · Salle de bain",
+        "description": "Spécialement traité contre l'humidité. Idéal pour les pièces humides où un plâtre ordinaire ne tient pas."
+      },
+      {
+        "name": "Spots & LED intégrés",
+        "tag": "Éclairage encastré",
+        "description": "Plâtre et lumière travaillent ensemble. Résultat : un design moderne, propre et équilibré."
+      },
+      {
+        "name": "Armstrong",
+        "tag": "Plafond suspendu",
+        "description": "Dalle acoustique suspendue. Parfaite pour bureaux, commerces et tout espace qui demande isolation et praticité."
+      }
+    ]
+  },
   "branches": {
     "label": "Nos Agences",
     "title": "Proches de chez vous",
