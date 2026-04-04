@@ -15,7 +15,7 @@ const SERVICE_IMAGES = [
   "/images/services/service_platre.png",
   "/images/services/service_decoration.png",
   "/images/services/service_peinture.png",
-  "/images/services/service_conseil.png"
+  "/images/services/service_vente.png",
 ]
 
 export default function ServicesSection() {
