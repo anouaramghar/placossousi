@@ -109,7 +109,7 @@ export default function TeamSection() {
         {/* Hierarchical Team grid */}
         <div className="flex flex-col items-center relative w-full">
           {/* Top Level - Leaders */}
-          <div className="relative mb-10 md:mb-20 flex justify-center items-center gap-10 md:gap-14 w-full z-20">
+          <div className="relative mb-10 md:mb-20 flex flex-col md:flex-row justify-center items-center gap-10 md:gap-14 w-full z-20">
             {leaders.map((leader, idx) => (
               <TeamMemberCard key={leader.name} member={leader} idx={idx} t={t} isTop={true} />
             ))}
