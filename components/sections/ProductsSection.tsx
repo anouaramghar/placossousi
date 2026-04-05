@@ -22,6 +22,15 @@ export default function ProductsSection() {
               {t('title')}
             </h2>
           </div>
+          <Link
+            href={`/${locale}/products`}
+            className={`group hidden md:inline-flex items-center gap-2 mb-2 font-sans text-brand-300/60 hover:text-brand-300 text-sm font-semibold tracking-[0.08em] uppercase transition-colors duration-200`}
+          >
+            {t('see_all')}
+            <span className={`transition-transform duration-200 ${isAr ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`}>
+              {isAr ? '←' : '→'}
+            </span>
+          </Link>
         </div>
       </div>
 
