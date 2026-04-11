@@ -10,6 +10,7 @@ export interface Product {
   descriptionAr: string
   image: string
   featured: boolean
+  specs?: Record<string, string>
 }
 
 export function getProducts(): Product[] {

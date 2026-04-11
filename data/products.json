@@ -7,7 +7,11 @@
     "description": "Plaque de plâtre standard pour cloisons et faux-plafonds intérieurs.",
     "descriptionAr": "لوح الجبص المعياري للحواجز والأسقف الداخلية.",
     "image": "/images/products/ba13.jpg",
-    "featured": true
+    "featured": true,
+    "specs": {
+      "epaisseur": "12.5 mm",
+      "format": "1200 × 2500 mm"
+    }
   },
   {
     "slug": "peinture-interieure",
@@ -17,7 +21,11 @@
     "description": "Peinture acrylique haute qualité pour murs et plafonds intérieurs.",
     "descriptionAr": "طلاء أكريليك عالي الجودة للجدران والأسقف الداخلية.",
     "image": "/images/products/peinture.jpg",
-    "featured": true
+    "featured": true,
+    "specs": {
+      "finition": "Mate / Satinée",
+      "rendement": "10 m²/L"
+    }
   },
   {
     "slug": "pasta-finition",
@@ -27,7 +35,11 @@
     "description": "Enduit de finition à base de pasta pour une surface lisse et résistante.",
     "descriptionAr": "طلاء تشطيب بالباستا لسطح ناعم ومتين.",
     "image": "/images/products/pasta.jpg",
-    "featured": true
+    "featured": true,
+    "specs": {
+      "granulometrie": "Fine",
+      "application": "Intérieur"
+    }
   },
   {
     "slug": "armstrong-faux-plafond",
@@ -37,7 +49,11 @@
     "description": "Dalles Armstrong originales pour faux-plafonds acoustiques et décoratifs.",
     "descriptionAr": "بلاطات أرمسترونغ الأصلية للأسقف المستعارة الصوتية والزخرفية.",
     "image": "/images/products/armstrong.jpg",
-    "featured": true
+    "featured": true,
+    "specs": {
+      "format": "600 × 600 mm",
+      "NRC": "0.55"
+    }
   },
   {
     "slug": "led-profile",
@@ -47,7 +63,11 @@
     "description": "Profilés aluminium pour intégration de rubans LED dans les faux-plafonds.",
     "descriptionAr": "ملفات ألومنيوم لتركيب شرائط LED في الأسقف المستعارة.",
     "image": "/images/products/led.jpg",
-    "featured": true
+    "featured": true,
+    "specs": {
+      "matiere": "Aluminium anodisé",
+      "compatible": "Ruban 8–12 mm"
+    }
   },
   {
     "slug": "ttpc-visserie",
@@ -57,6 +77,10 @@
     "description": "Vis TTPC haute performance pour la fixation de plaques de plâtre.",
     "descriptionAr": "مسامير TTPC عالية الأداء لتثبيت ألواح الجبص.",
     "image": "/images/products/ttpc.jpg",
-    "featured": false
+    "featured": false,
+    "specs": {
+      "longueur": "25–55 mm",
+      "tete": "Trompette phosphatée"
+    }
   }
 ]
