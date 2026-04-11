@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Layers, Sparkles, Droplets, Lightbulb, LayoutGrid } from 'lucide-react'
 
 const ICONS = [Layers, Sparkles, Droplets, Lightbulb, LayoutGrid]
+const DELAY_CLASSES = ['delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6']
 
 const GRADIENTS = [
   'from-brand-700/40 to-brand-900/60',
@@ -87,15 +88,15 @@ export default function GuideSection() {
         {/* ── Desktop: grid ── */}
         <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
           {items.map((item, i) => {
-            const Icon = ICONS[i]
+            const Icon = ICONS[i] ?? Layers
             return (
               <div
                 key={i}
-                className={`reveal delay-${Math.min(i + 1, 6)} group relative rounded-2xl border border-white/8 bg-gradient-to-br ${GRADIENTS[i]} p-6 flex flex-col gap-5 hover:border-white/15 hover:-translate-y-1 transition-all duration-300`}
+                className={`reveal ${DELAY_CLASSES[Math.min(i, 5)]} group relative rounded-2xl border border-white/8 bg-gradient-to-br ${GRADIENTS[i] ?? GRADIENTS[0]} p-6 flex flex-col gap-5 hover:border-white/15 hover:-translate-y-1 transition-all duration-300`}
               >
                 <div className="flex items-start justify-between">
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className={`w-5 h-5 ${ICON_COLORS[i]}`} strokeWidth={1.5} />
+                    <Icon className={`w-5 h-5 ${ICON_COLORS[i] ?? ICON_COLORS[0]}`} strokeWidth={1.5} />
                   </div>
                   <span className="font-display text-white/10 text-3xl leading-none tabular-nums group-hover:text-white/20 transition-colors duration-300">
                     {String(i + 1).padStart(2, '0')}
