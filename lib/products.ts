@@ -14,7 +14,7 @@ export interface Product {
 }
 
 export function getProducts(): Product[] {
-  return productsData as Product[]
+  return productsData as unknown as Product[]
 }
 
 export function getProductBySlug(slug: string): Product | null {
