@@ -1,5 +1,6 @@
 // components/WhatsAppButton.tsx
 import { useLocale } from 'next-intl'
+import { WHATSAPP_HREF } from '@/lib/config'
 
 export default function WhatsAppButton() {
   const locale = useLocale()
@@ -8,7 +9,7 @@ export default function WhatsAppButton() {
     <div className="fixed bottom-4 end-4 md:bottom-6 md:end-6 z-50 group scale-90 md:scale-100 origin-bottom-right">
       <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-[ping_3s_ease-in-out_infinite]"></div>
       <a
-        href="https://wa.me/212665652991"
+        href={WHATSAPP_HREF}
         target="_blank"
         rel="noopener noreferrer"
         className="relative bg-gradient-to-br from-whatsapp to-whatsapp-dark text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-[1.05] hover:-translate-y-1 block border border-white/20"
