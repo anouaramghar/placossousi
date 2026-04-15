@@ -5,11 +5,21 @@ import AboutSection from '@/components/sections/AboutSection'
 import ProductsSection from '@/components/sections/ProductsSection'
 
 // Dynamically load heavy client components below the fold
-const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'))
-const GuideSection = dynamic(() => import('@/components/sections/GuideSection'))
-const BranchesSection = dynamic(() => import('@/components/sections/BranchesSection'))
-const TeamSection = dynamic(() => import('@/components/sections/TeamSection'))
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection'))
+const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
+const GuideSection = dynamic(() => import('@/components/sections/GuideSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
+const BranchesSection = dynamic(() => import('@/components/sections/BranchesSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
+const TeamSection = dynamic(() => import('@/components/sections/TeamSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'ar' }]

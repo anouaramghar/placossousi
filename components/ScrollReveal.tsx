@@ -1,7 +1,4 @@
 'use client'
-// components/ScrollReveal.tsx
-// Lightweight Intersection Observer that adds .visible to .reveal elements
-// Re-scans on route changes via usePathname()
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
@@ -9,6 +6,11 @@ export default function ScrollReveal() {
   const pathname = usePathname()
 
   useEffect(() => {
+    // Reset all reveal elements so they can animate on this route
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
+      el.classList.remove('visible')
+    })
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -24,7 +26,7 @@ export default function ScrollReveal() {
     targets.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
-  }, [pathname]) // Re-run observer when route changes
+  }, [pathname])
 
   return null
 }
