@@ -13,7 +13,8 @@
     "title": "Maîtres du Plâtre et de la Finition",
     "subtitle": "Qualité professionnelle · Conseil expert · Livraison sur chantier",
     "cta_products": "Nos Produits",
-    "cta_contact": "Nous contacter"
+    "cta_contact": "Nous contacter",
+    "scroll_hint": "Défiler"
   },
   "about": {
     "label": "À Propos",
@@ -92,7 +93,11 @@
   "branches": {
     "label": "Nos Agences",
     "title": "Proches de chez vous",
-    "region": "Région Orientale"
+    "region": "Région Orientale",
+    "region_oriental": "Oriental",
+    "region_casablanca": "Casablanca-Settat",
+    "coming_soon": "Bientôt",
+    "open_maps": "Voir sur Maps"
   },
   "contact": {
     "label": "Contact",
@@ -120,5 +125,13 @@
       "chef_chantier": "Chef de Chantier",
       "commercial": "Commercial"
     }
+  },
+  "not_found": {
+    "heading": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "back_home": "Retour à l'accueil"
+  },
+  "whatsapp": {
+    "aria_label": "Contacter sur WhatsApp"
   }
 }

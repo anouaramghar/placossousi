@@ -7,7 +7,7 @@ import heroBg from '@/public/images/hero_bg_wide.png'
 
 export default function HeroSection() {
   const t = useTranslations('hero')
-  const locale = useLocale()
+  const locale = useLocale() // still needed for href locale-prefix
 
   return (
     <section
@@ -92,7 +92,7 @@ export default function HeroSection() {
         aria-hidden="true"
       >
         <span className="font-sans text-brand-200/40 text-[10px] tracking-[0.2em] uppercase">
-          {locale === 'ar' ? 'اكتشف' : 'Défiler'}
+          {t('scroll_hint')}
         </span>
         <svg
           className="w-4 h-4 text-brand-300/40 animate-bounce"

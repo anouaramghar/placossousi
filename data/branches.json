@@ -33,7 +33,8 @@
     "addressAr": "قريباً",
     "phone": "-",
     "region": "oriental",
-    "mapUrl": "#"
+    "mapUrl": "",
+    "comingSoon": true
   },
   {
     "city": "Berrechid",

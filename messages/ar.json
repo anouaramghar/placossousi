@@ -13,7 +13,8 @@
     "title": "خبراء الجبص والديكور",
     "subtitle": "جودة احترافية · نصيحة خبراء · توصيل للورشة",
     "cta_products": "منتجاتنا",
-    "cta_contact": "تواصل معنا"
+    "cta_contact": "تواصل معنا",
+    "scroll_hint": "اكتشف"
   },
   "about": {
     "label": "من نحن",
@@ -92,7 +93,11 @@
   "branches": {
     "label": "فروعنا",
     "title": "قريبون منكم",
-    "region": "الجهة الشرقية"
+    "region": "الجهة الشرقية",
+    "region_oriental": "الشرق",
+    "region_casablanca": "الدار البيضاء سطات",
+    "coming_soon": "قريباً",
+    "open_maps": "فتح في الخريطة"
   },
   "contact": {
     "label": "اتصل بنا",
@@ -120,5 +125,13 @@
       "chef_chantier": "رئيس الورشة",
       "commercial": "مستشار مبيعات"
     }
+  },
+  "not_found": {
+    "heading": "الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "back_home": "العودة إلى الرئيسية"
+  },
+  "whatsapp": {
+    "aria_label": "تواصل عبر واتساب"
   }
 }

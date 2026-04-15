@@ -1,11 +1,11 @@
 // app/[locale]/not-found.tsx
 'use client'
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 export default function NotFound() {
   const locale = useLocale()
-  const isAr = locale === 'ar'
+  const t = useTranslations('not_found')
 
   return (
     <main id="main-content" className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative z-10">
@@ -15,18 +15,16 @@ export default function NotFound() {
         404
       </p>
       <h1 className="font-sans text-white/80 text-xl md:text-2xl font-medium mb-3 tracking-[-0.02em]">
-        {isAr ? 'الصفحة غير موجودة' : 'Page introuvable'}
+        {t('heading')}
       </h1>
       <p className="font-sans text-brand-300/50 text-sm mb-10 max-w-md leading-relaxed">
-        {isAr
-          ? 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.'
-          : "La page que vous cherchez n\u0027existe pas ou a été déplacée."}
+        {t('description')}
       </p>
       <Link
         href={`/${locale}`}
         className="btn-primary px-8 py-3.5 text-sm font-semibold tracking-[-0.01em]"
       >
-        {isAr ? 'العودة إلى الرئيسية' : "Retour à l\u0027accueil"}
+        {t('back_home')}
       </Link>
     </main>
   )

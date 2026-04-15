@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import type { Product } from '@/lib/products'
 
 export default function ProductCard({ product }: { product: Product }) {
-  const locale = useLocale()
+  const locale = useLocale() // needed for href locale-prefix and display name
   const t = useTranslations('products')
   const name = locale === 'ar' ? product.nameAr : product.name
   const description = locale === 'ar' ? product.descriptionAr : product.description
@@ -45,7 +45,7 @@ export default function ProductCard({ product }: { product: Product }) {
         {/* CTA */}
         <div className="mt-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-300">
           <span className="font-sans text-brand-300 text-xs font-semibold tracking-[0.04em]">{t('view_product')}</span>
-          <span className="text-brand-400 text-xs">{locale === 'ar' ? '←' : '→'}</span>
+          <span className="text-brand-400 text-xs inline-block rtl:scale-x-[-1]">→</span>
         </div>
       </div>
     </Link>

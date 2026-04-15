@@ -22,6 +22,7 @@ export default function ProductGrid({ products }: Props) {
         {CATEGORIES.map(cat => (
           <button
             key={cat}
+            type="button"
             onClick={() => setActive(cat)}
             aria-pressed={active === cat}
             className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${active === cat
