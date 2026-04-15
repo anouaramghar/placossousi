@@ -1,22 +1,18 @@
 [
   {
     "id": "pose-platre",
-    "icon": "Hammer",
-    "titleKey": "services.items.0"
+    "icon": "Hammer"
   },
   {
     "id": "decoration",
-    "icon": "Palette",
-    "titleKey": "services.items.1"
+    "icon": "Palette"
   },
   {
     "id": "peinture",
-    "icon": "Paintbrush",
-    "titleKey": "services.items.2"
+    "icon": "Paintbrush"
   },
   {
     "id": "vente",
-    "icon": "Package",
-    "titleKey": "services.items.3"
+    "icon": "Package"
   }
 ]

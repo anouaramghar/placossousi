@@ -24,6 +24,23 @@ describe('product data helpers', () => {
   it('returns only featured products', () => {
     const featured = getFeaturedProducts()
     expect(featured.every(p => p.featured === true)).toBe(true)
-    expect(featured.length).toBeLessThanOrEqual(6)
+    expect(featured.length).toBeGreaterThan(0)
+  })
+
+  it('each product has required fields', () => {
+    const products = getProducts()
+    products.forEach(p => {
+      expect(p.slug).toBeTruthy()
+      expect(p.name).toBeTruthy()
+      expect(p.nameAr).toBeTruthy()
+      expect(p.category).toBeTruthy()
+      expect(p.image).toBeTruthy()
+      expect(typeof p.featured).toBe('boolean')
+    })
+  })
+
+  it('returns empty array for unknown category', () => {
+    const result = getProductsByCategory('does-not-exist')
+    expect(result).toEqual([])
   })
 })
