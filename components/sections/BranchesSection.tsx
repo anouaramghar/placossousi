@@ -175,8 +175,6 @@ export default function BranchesSection() {
   // scaleY (0→1) instead of height (0%→100%) — transform is GPU-composited, height is not
   const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
-  const regionOrder = Array.from(new Set(branches.map(b => b.region)))
-
   return (
     <section id="branches" className="relative py-10 md:py-24 px-6 z-10" ref={ref}>
       {/* Ambient glow */}

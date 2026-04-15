@@ -8,6 +8,7 @@ export default function MagneticButton({ children, className }: { children: Reac
   const [isTouch, setIsTouch] = useState(true)
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsTouch(window.matchMedia('(hover: none)').matches)
   }, [])
 
