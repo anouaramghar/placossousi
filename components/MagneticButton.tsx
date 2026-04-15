@@ -1,13 +1,13 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useLayoutEffect } from 'react'
 
 export default function MagneticButton({ children, className }: { children: React.ReactNode, className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isTouch, setIsTouch] = useState(true)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsTouch(window.matchMedia('(hover: none)').matches)
   }, [])
 
