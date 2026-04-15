@@ -231,7 +231,7 @@ export default function BranchesSection() {
                   </div>
                 )}
 
-                <div className={`reveal delay-${Math.min((i % 4) + 1, 4)} relative ${i < branches.length - 1 ? 'mb-10 md:mb-12' : ''}`}>
+                <div className={`reveal delay-${Math.min((i % 4) + 1, 4)} relative${i < branches.length - 1 ? ' mb-10 md:mb-12' : ''}`}>
                   <div className="flex items-center relative z-10">
                     {/* Left slot */}
                     <div className="flex-1 flex justify-end pe-9">
