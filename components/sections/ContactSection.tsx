@@ -3,7 +3,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import type { useTranslations as UseTranslations } from 'next-intl'
 import { useState, useRef, FormEvent } from 'react'
 import { Phone, Check, Loader2, Send, ChevronDown } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { WHATSAPP_HREF, PHONE_NUMBER } from '@/lib/config'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
@@ -26,16 +26,21 @@ function useSubmitForm() {
       setTimeout(() => setStatus('idle'), 5000)
       return
     }
-    const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-      method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' },
-    })
-    if (res.ok) {
-      setStatus('success')
-      form.reset()
-      setTimeout(() => setStatus('idle'), 3000)
-    } else {
+    try {
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+        setTimeout(() => setStatus('idle'), 3000)
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 5000)
+      }
+    } catch {
       setStatus('error')
       setTimeout(() => setStatus('idle'), 5000)
     }
@@ -280,6 +285,8 @@ function MobileContact({
 
       {/* ── Form toggle ── */}
       <button
+        type="button"
+        aria-expanded={formOpen}
         onClick={() => setFormOpen(v => !v)}
         className="w-full flex items-center gap-3 py-4 group"
       >
