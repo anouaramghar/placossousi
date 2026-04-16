@@ -252,7 +252,7 @@ function MobileContact({
           <p className="text-white font-bold text-[1.05rem] leading-tight">
             {isAr ? 'تواصل عبر واتساب' : 'Contacter sur WhatsApp'}
           </p>
-          <p className="text-whatsapp/70 text-[11px] tracking-wide">{PHONE_NUMBER}</p>
+          <p dir="ltr" className="text-whatsapp/70 text-[11px] tracking-wide">{PHONE_NUMBER}</p>
         </div>
       </motion.a>
 
@@ -264,7 +264,7 @@ function MobileContact({
           className="flex items-center justify-center gap-2.5 h-12 rounded-xl border border-white/8 bg-white/[0.025] hover:border-brand-400/30 hover:bg-white/[0.04] transition-all duration-200"
         >
           <Phone className="w-4 h-4 text-brand-300/70 flex-shrink-0" strokeWidth={2} />
-          <span className="font-semibold text-white/80 text-sm tracking-wide">{PHONE_NUMBER}</span>
+          <span dir="ltr" className="font-semibold text-white/80 text-sm tracking-wide">{PHONE_NUMBER}</span>
         </a>
 
         {/* Instagram */}
@@ -385,7 +385,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-brand-300 text-sm mb-1 uppercase tracking-widest font-semibold">{t('phone_label')}</p>
-                <p className="text-white font-bold text-[1.3rem] tracking-tight">{PHONE_NUMBER}</p>
+                <p dir="ltr" className="text-white font-bold text-[1.3rem] tracking-tight">{PHONE_NUMBER}</p>
               </div>
             </motion.a>
 
@@ -407,7 +407,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-whatsapp/80 text-sm mb-1 uppercase tracking-widest font-semibold">{t('whatsapp_label')}</p>
-                <p className="text-white font-bold text-[1.3rem] tracking-tight">{PHONE_NUMBER}</p>
+                <p dir="ltr" className="text-white font-bold text-[1.3rem] tracking-tight">{PHONE_NUMBER}</p>
               </div>
             </motion.a>
 
