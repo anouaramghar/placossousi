@@ -1,8 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getProducts } from '@/lib/products'
-
-const BASE_URL = 'https://placosousi.ma'
-const LOCALES = ['fr', 'ar'] as const
+import { BASE_URL, LOCALES } from '@/lib/config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const products = getProducts()

@@ -1,11 +1,15 @@
 // app/[locale]/not-found.tsx
-'use client'
 import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
+import { getLocale, getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
 
-export default function NotFound() {
-  const locale = useLocale()
-  const t = useTranslations('not_found')
+export const metadata: Metadata = {
+  robots: { index: false },
+}
+
+export default async function NotFound() {
+  const locale = await getLocale()
+  const t = await getTranslations('not_found')
 
   return (
     <main id="main-content" className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative z-10">

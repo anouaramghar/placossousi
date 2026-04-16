@@ -423,6 +423,7 @@ body::before {
 /* ════════════════════════════════════════════════════
    LEGACY animate-fade-in-up (keep compatibility)
 ══════════════════════════════════════════════════════ */
+.animate-fade-in    { animation: var(--animate-fade-in); }
 .animate-fade-in-up { animation: var(--animate-fade-in-up); }
 .animate-float      { animation: var(--animate-float); }
 .animate-pulse-slow { animation: var(--animate-pulse-slow); }

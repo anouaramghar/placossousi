@@ -119,6 +119,7 @@
   "team": {
     "label": "فريقنا",
     "title": "الخبراء خلف نجاحنا",
+    "member_label": "عضو الفريق {idx}",
     "roles": {
       "responsable_administratif": "مسؤول إداري",
       "responsable_commercial": "مسؤول تجاري",

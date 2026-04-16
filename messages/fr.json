@@ -119,6 +119,7 @@
   "team": {
     "label": "Notre Équipe",
     "title": "Les experts derrière notre succès",
+    "member_label": "Membre {idx}",
     "roles": {
       "responsable_administratif": "Responsable Administratif",
       "responsable_commercial": "Responsable Commercial",

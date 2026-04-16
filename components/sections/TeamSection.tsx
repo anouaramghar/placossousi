@@ -165,7 +165,7 @@ function MobileTeamCarousel({ members, t }: { members: TeamMember[]; t: TTeamT }
               setCurrent(idx)
               setAutoKey(k => k + 1)
             }}
-            aria-label={locale === 'ar' ? `عضو الفريق ${idx + 1}` : `Membre ${idx + 1}`}
+            aria-label={t('member_label', { idx: idx + 1 })}
             className={`h-[5px] rounded-full transition-all duration-300 ease-out ${
               idx === current ? 'w-6 bg-brand-400' : 'w-[5px] bg-white/20 hover:bg-white/40'
             }`}
