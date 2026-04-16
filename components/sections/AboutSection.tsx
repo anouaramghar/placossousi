@@ -114,13 +114,13 @@ export default function AboutSection() {
                 <p className="font-display text-5xl md:text-6xl text-white tracking-normal mb-2 group-hover:text-brand-300 transition-colors duration-500">
                   <AnimatedCounter to={10} />+
                 </p>
-                <p className="font-sans text-brand-300/70 text-xs md:text-sm uppercase tracking-[0.18em] font-semibold">{t('stat_years')}</p>
+                <p className="font-sans text-brand-300/80 text-xs md:text-sm uppercase tracking-[0.18em] font-semibold">{t('stat_years')}</p>
               </div>
               <div className="reveal delay-3 group">
                 <p className="font-display text-5xl md:text-6xl text-white tracking-normal mb-2 group-hover:text-brand-300 transition-colors duration-500">
                   <AnimatedCounter to={6} />
                 </p>
-                <p className="font-sans text-brand-300/70 text-xs md:text-sm uppercase tracking-[0.18em] font-semibold">{t('stat_cities')}</p>
+                <p className="font-sans text-brand-300/80 text-xs md:text-sm uppercase tracking-[0.18em] font-semibold">{t('stat_cities')}</p>
               </div>
             </div>
           </div>
@@ -154,10 +154,10 @@ export default function AboutSection() {
             </div>
 
             <p className="font-display text-white text-3xl md:text-4xl tracking-normal mb-1">{t('founder')}</p>
-            <p className="font-sans text-brand-300/70 text-xs tracking-[0.25em] uppercase font-semibold mb-3">{t('founder_title')}</p>
+            <p className="font-sans text-brand-300/80 text-xs tracking-[0.25em] uppercase font-semibold mb-3">{t('founder_title')}</p>
 
             {/* Signature Element */}
-            <div className="font-display italic text-brand-400/50 text-[2.5rem] leading-none opacity-80 -rotate-3 select-none tracking-[-0.02em] mt-2">
+            <div className="font-display italic text-brand-300 text-[2.5rem] leading-none opacity-80 -rotate-3 select-none tracking-[-0.02em] mt-2">
               {t('founder_signature')}
             </div>
           </div>
