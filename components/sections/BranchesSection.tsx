@@ -206,6 +206,7 @@ export default function BranchesSection() {
           />
           {/* Animated fill line — scaleY grows from top, GPU-composited */}
           <motion.div
+            suppressHydrationWarning
             style={{ scaleY: lineScaleY, transformOrigin: 'top' }}
             className="absolute ltr:left-1/2 ltr:-translate-x-1/2 rtl:right-1/2 rtl:translate-x-1/2 top-1 bottom-1 w-px pointer-events-none bg-gradient-to-b from-brand-400 via-brand-500 to-brand-300 shadow-[0_0_15px_rgba(37,99,235,0.8)] z-0"
           />
