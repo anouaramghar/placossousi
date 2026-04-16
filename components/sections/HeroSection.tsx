@@ -26,6 +26,7 @@ export default function HeroSection() {
           fill
           priority
           placeholder="blur"
+          quality={65}
           sizes="100vw"
           className="object-cover"
         />

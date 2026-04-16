@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import { useRef, useState, useLayoutEffect } from 'react'
 
 export default function MagneticButton({ children, className }: { children: React.ReactNode, className?: string }) {
@@ -27,15 +26,18 @@ export default function MagneticButton({ children, className }: { children: Reac
   }
 
   return (
-    <motion.div
-      className={className || "inline-block"}
+    <div
       ref={ref}
+      className={className || "inline-block"}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      style={{
+        transform: `translate(${position.x}px, ${position.y}px)`,
+        transition: 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
+        willChange: 'transform',
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

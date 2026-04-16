@@ -1,10 +1,12 @@
 import { setRequestLocale } from 'next-intl/server'
 import dynamic from 'next/dynamic'
 import HeroSection from '@/components/sections/HeroSection'
-import AboutSection from '@/components/sections/AboutSection'
 import ProductsSection from '@/components/sections/ProductsSection'
 
 // Dynamically load heavy client components below the fold
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
 const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
   loading: () => <div className="py-24" aria-hidden="true" />,
 })
