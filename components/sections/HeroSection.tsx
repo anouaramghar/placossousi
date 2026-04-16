@@ -3,7 +3,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
 import MagneticButton from '@/components/MagneticButton'
-import heroBg from '@/public/images/hero_bg_wide.png'
+import heroBg from '@/public/images/hero_bg_wide.webp'
 
 export default function HeroSection() {
   const t = useTranslations('hero')

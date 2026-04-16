@@ -48,11 +48,13 @@ export async function generateMetadata({
       type: 'website',
       locale: locale === 'ar' ? 'ar_MA' : 'fr_FR',
       siteName: 'Placo Sousi',
+      images: [{ url: 'https://placosousi.ma/images/og-image.jpg', width: 1200, height: 630, alt: 'Placo Sousi' }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['https://placosousi.ma/images/og-image.jpg'],
     },
     alternates: {
       languages: {
