@@ -14,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params
   const product = getProductBySlug(slug)
-  if (!product) return {}
+  if (!product) return { robots: { index: false } }
   return {
     title: `${locale === 'ar' ? product.nameAr : product.name} — Placo Sousi`,
   }

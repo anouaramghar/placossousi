@@ -1,9 +1,10 @@
 import type { Config } from 'jest'
 
 const config: Config = {
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transform: { '^.+\\.tsx?$': 'ts-jest' },
   moduleNameMapper: { '^@/(.*)$': '<rootDir>/$1' },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 }
 
 export default config

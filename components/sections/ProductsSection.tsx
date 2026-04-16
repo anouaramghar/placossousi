@@ -4,6 +4,8 @@ import Link from 'next/link'
 import ProductCard from '@/components/products/ProductCard'
 import { getFeaturedProducts } from '@/lib/products'
 
+const DELAY_CLASSES = ['delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6']
+
 export default function ProductsSection() {
   const t = useTranslations('products')
   const locale = useLocale()
@@ -40,14 +42,15 @@ export default function ProductsSection() {
           {featured.map((product, i) => (
             <div
               key={product.slug}
-              className={`snap-start flex-shrink-0 w-[280px] md:w-[340px] reveal delay-${Math.min(i + 1, 6)} h-full`}
+              className={`snap-start flex-shrink-0 w-[280px] md:w-[340px] reveal ${DELAY_CLASSES[Math.min(i, 5)]} h-full`}
             >
               <ProductCard product={product} />
             </div>
           ))}
         </div>
-        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-brand-900 to-transparent pointer-events-none z-10" />
-        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-brand-900 to-transparent pointer-events-none z-10" />
+        {/* Fade edges — direction swapped for RTL so the "start" edge is always covered */}
+        <div className={`absolute top-0 ${isAr ? 'right-0' : 'left-0'} w-20 h-full ${isAr ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-brand-900 to-transparent pointer-events-none z-10`} />
+        <div className={`absolute top-0 ${isAr ? 'left-0' : 'right-0'} w-20 h-full ${isAr ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-brand-900 to-transparent pointer-events-none z-10`} />
       </div>
 
       {/* ── Desktop: 3-column grid ── */}
@@ -56,7 +59,7 @@ export default function ProductsSection() {
           {featured.map((product, i) => (
             <div
               key={product.slug}
-              className={`reveal delay-${Math.min(i + 1, 6)} h-full`}
+              className={`reveal ${DELAY_CLASSES[Math.min(i, 5)]} h-full`}
             >
               <ProductCard product={product} />
             </div>

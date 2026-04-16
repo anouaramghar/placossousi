@@ -3,10 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import type { Product } from '@/lib/products'
+import { WHATSAPP_HREF } from '@/lib/config'
 
 export default function ProductDetail({ product }: { product: Product }) {
   const locale = useLocale()
-  const t = useTranslations()
+  const t = useTranslations('products')
   const name = locale === 'ar' ? product.nameAr : product.name
   const description = locale === 'ar' ? product.descriptionAr : product.description
 
@@ -21,10 +22,8 @@ export default function ProductDetail({ product }: { product: Product }) {
           href={`/${locale}/products`}
           className="inline-flex items-center gap-2 text-brand-300 hover:text-white text-sm md:text-base font-semibold transition-colors mb-12 animate-fade-in-up group"
         >
-          <span className={`transition-transform duration-300 ${locale === 'ar' ? 'group-hover:translate-x-2' : 'group-hover:-translate-x-2'}`}>
-            {locale === 'ar' ? '→' : '←'}
-          </span>
-          {t('products.label')}
+          <span className="transition-transform duration-300 inline-block ltr:group-hover:-translate-x-2 rtl:group-hover:translate-x-2 rtl:scale-x-[-1]">→</span>
+          {t('label')}
         </Link>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -48,7 +47,7 @@ export default function ProductDetail({ product }: { product: Product }) {
             <h1 className="text-transparent bg-clip-text bg-gradient-to-b from-white to-brand-300 text-4xl md:text-5xl lg:text-7xl font-black mb-6 leading-[1.1] drop-shadow-sm tracking-tight">{name}</h1>
             <p className="text-brand-100 text-lg md:text-xl leading-[1.8] font-light mb-12">{description}</p>
             <a
-              href="https://wa.me/212665652991"
+              href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-whatsapp-dark shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.5)] text-white font-bold px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 w-fit group"

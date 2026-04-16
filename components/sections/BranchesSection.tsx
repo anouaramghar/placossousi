@@ -5,11 +5,6 @@ import branches from '@/data/branches.json'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 
-const regionLabels: Record<string, { fr: string; ar: string }> = {
-  oriental:   { fr: "Oriental",              ar: 'الشرق' },
-  casablanca: { fr: 'Casablanca-Settat',     ar: 'الدار البيضاء سطات' },
-}
-
 const tabContentVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? '22%' : '-22%', opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -41,11 +36,11 @@ function MobileBranches({ locale }: { locale: string }) {
       {/* Region tabs */}
       <div className="relative flex gap-1.5 mb-6 p-1 rounded-full bg-white/[0.04] border border-white/[0.06]">
         {regionOrder.map((key, idx) => {
-          const label = regionLabels[key]
-          const text  = label ? (locale === 'ar' ? label.ar : label.fr) : key
+          const text  = t(`region_${key}` as Parameters<typeof t>[0])
           const isActive = idx === activeIdx
           return (
             <button
+              type="button"
               key={key}
               onClick={() => switchTab(idx)}
               className="relative flex-1 py-2.5 px-3 text-xs font-semibold text-center z-10 transition-colors duration-200 rounded-full"
@@ -80,7 +75,7 @@ function MobileBranches({ locale }: { locale: string }) {
             {regionBranches.map((branch, i) => {
               const cityName = locale === 'ar' ? branch.cityAr : branch.city
               const address  = locale === 'ar' ? branch.addressAr : branch.address
-              const isSoon   = branch.mapUrl === '#'
+              const isSoon   = !!branch.comingSoon
               const isExpanded = expandedCity === branch.city
 
               return (
@@ -90,6 +85,7 @@ function MobileBranches({ locale }: { locale: string }) {
                 >
                   {/* Row — always visible */}
                   <button
+                    type="button"
                     onClick={() => !isSoon && setExpandedCity(isExpanded ? null : branch.city)}
                     disabled={isSoon}
                     className="w-full flex items-center justify-between py-4 text-left"
@@ -103,7 +99,7 @@ function MobileBranches({ locale }: { locale: string }) {
                       {isSoon && (
                         <span className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-bold tracking-wider uppercase text-white/35 border border-white/10 rounded px-1.5 py-0.5">
                           <Clock className="w-2.5 h-2.5" />
-                          {locale === 'ar' ? 'قريباً' : 'Bientôt'}
+                          {t('coming_soon')}
                         </span>
                       )}
                     </div>
@@ -152,7 +148,7 @@ function MobileBranches({ locale }: { locale: string }) {
                             className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.12em] uppercase text-brand-400 border border-brand-400/20 rounded-full px-4 py-2 hover:bg-brand-400/10 transition-colors duration-200"
                           >
                             <ExternalLink className="w-3 h-3" strokeWidth={2.5} />
-                            {locale === 'ar' ? 'فتح في الخريطة' : 'Voir sur Maps'}
+                            {t('open_maps')}
                           </a>
                         </div>
                       </div>
@@ -178,8 +174,6 @@ export default function BranchesSection() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start center', 'end center'] })
   // scaleY (0→1) instead of height (0%→100%) — transform is GPU-composited, height is not
   const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
-
-  const regionOrder = Array.from(new Set(branches.map(b => b.region)))
 
   return (
     <section id="branches" className="relative py-10 md:py-24 px-6 z-10" ref={ref}>
@@ -220,12 +214,9 @@ export default function BranchesSection() {
             const isLeft    = i % 2 === 0
             const cityName  = locale === 'ar' ? branch.cityAr : branch.city
             const address   = locale === 'ar' ? branch.addressAr : branch.address
-            const isSoon    = branch.mapUrl === '#'
+            const isSoon    = !!branch.comingSoon
             const isFirstInRegion = branches.findIndex(b => b.region === branch.region) === i
-            const regionLabel = regionLabels[branch.region]
-            const regionTitle = regionLabel
-              ? (locale === 'ar' ? regionLabel.ar : regionLabel.fr)
-              : branch.region
+            const regionTitle = t(`region_${branch.region}` as Parameters<typeof t>[0])
 
             return (
               <div key={branch.city}>
@@ -240,14 +231,14 @@ export default function BranchesSection() {
                   </div>
                 )}
 
-                <div className={`reveal delay-${Math.min((i % 4) + 1, 4)} relative ${i < branches.length - 1 ? 'mb-10 md:mb-12' : ''}`}>
+                <div className={`reveal delay-${Math.min((i % 4) + 1, 4)} relative${i < branches.length - 1 ? ' mb-10 md:mb-12' : ''}`}>
                   <div className="flex items-center relative z-10">
                     {/* Left slot */}
                     <div className="flex-1 flex justify-end pe-9">
                       {isLeft ? (
                         <div className="w-full max-w-[22rem]">
                           <CardWrapper isSoon={isSoon} branch={branch}>
-                            <RouteCard cityName={cityName} address={address} phone={branch.phone} index={i} isSoon={isSoon} locale={locale} />
+                            <RouteCard cityName={cityName} address={address} phone={branch.phone} index={i} isSoon={isSoon} />
                           </CardWrapper>
                         </div>
                       ) : (
@@ -266,7 +257,7 @@ export default function BranchesSection() {
                       {!isLeft ? (
                         <div className="w-full max-w-[22rem]">
                           <CardWrapper isSoon={isSoon} branch={branch}>
-                            <RouteCard cityName={cityName} address={address} phone={branch.phone} index={i} isSoon={isSoon} locale={locale} />
+                            <RouteCard cityName={cityName} address={address} phone={branch.phone} index={i} isSoon={isSoon} />
                           </CardWrapper>
                         </div>
                       ) : (
@@ -328,9 +319,10 @@ function CardWrapper({ isSoon, branch, children }: { isSoon?: boolean; branch?: 
   )
 }
 
-function RouteCard({ cityName, address, phone, index, isSoon, locale }: {
-  cityName: string; address: string; phone: string; index: number; isSoon?: boolean; locale?: string
+function RouteCard({ cityName, address, phone, index, isSoon }: {
+  cityName: string; address: string; phone: string; index: number; isSoon?: boolean
 }) {
+  const t = useTranslations('branches')
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
@@ -340,7 +332,7 @@ function RouteCard({ cityName, address, phone, index, isSoon, locale }: {
         {isSoon ? (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-[10px] font-bold tracking-wider text-white/50 uppercase">
             <Clock className="w-3 h-3" strokeWidth={2} />
-            {locale === 'ar' ? 'قريباً' : 'Bientôt'}
+            {t('coming_soon')}
           </span>
         ) : (
           <ExternalLink className="w-4 h-4 text-brand-400/0 -translate-y-2 translate-x-2 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-brand-400/80 transition-all duration-300" strokeWidth={2} />

@@ -7,7 +7,7 @@ import heroBg from '@/public/images/hero_bg_wide.png'
 
 export default function HeroSection() {
   const t = useTranslations('hero')
-  const locale = useLocale()
+  const locale = useLocale() // still needed for href locale-prefix
 
   return (
     <section
@@ -27,7 +27,7 @@ export default function HeroSection() {
           priority
           placeholder="blur"
           sizes="100vw"
-          className="object-cover scale-105 animate-pulse-slow"
+          className="object-cover"
         />
       </div>
       {/* Atmospheric orbs */}
@@ -83,6 +83,26 @@ export default function HeroSection() {
         </div>
 
 
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-fade-in pointer-events-none"
+        style={{ animationDelay: '1s' }}
+        aria-hidden="true"
+      >
+        <span className="font-sans text-brand-200/40 text-[10px] tracking-[0.2em] uppercase">
+          {t('scroll_hint')}
+        </span>
+        <svg
+          className="w-4 h-4 text-brand-300/40 animate-bounce"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </section>
   )

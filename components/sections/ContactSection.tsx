@@ -1,10 +1,53 @@
 'use client'
 import { useTranslations, useLocale } from 'next-intl'
+import type { useTranslations as UseTranslations } from 'next-intl'
 import { useState, useRef, FormEvent } from 'react'
 import { Phone, Check, Loader2, Send, ChevronDown } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { WHATSAPP_HREF, PHONE_NUMBER } from '@/lib/config'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
+type TFn = ReturnType<typeof UseTranslations<'contact'>>
+
+// ─── Shared submit logic ──────────────────────────────────────────────────────
+
+function useSubmitForm() {
+  const [status, setStatus] = useState<Status>('idle')
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = e.currentTarget
+    setStatus('sending')
+    const formData = new FormData(form)
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID
+    if (!formspreeId) {
+      if (process.env.NODE_ENV === 'development') console.error('[ContactSection] NEXT_PUBLIC_FORMSPREE_ID is not set.')
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 5000)
+      return
+    }
+    try {
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+        setTimeout(() => setStatus('idle'), 3000)
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 5000)
+      }
+    } catch {
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 5000)
+    }
+  }
+
+  return { status, handleSubmit }
+}
 
 // ─── Shared form fields ──────────────────────────────────────────────────────
 
@@ -21,7 +64,7 @@ function ContactForm({
   isHovered,
   spotlight = false,
 }: {
-  t: any
+  t: TFn
   locale: string
   status: Status
   onSubmit: (e: FormEvent<HTMLFormElement>) => void
@@ -108,7 +151,7 @@ function ContactForm({
         >
           <span>{t('form_error')}</span>
           <a
-            href="https://wa.me/212665652991"
+            href={WHATSAPP_HREF}
             target="_blank"
             rel="noopener noreferrer"
             className="text-whatsapp hover:text-green-400 font-bold transition-colors underline underline-offset-2"
@@ -174,11 +217,14 @@ function FloatingTextarea({ id, name, label, required }: { id: string; name: str
 // ─── Mobile layout ───────────────────────────────────────────────────────────
 
 function MobileContact({
-  t, locale, status, onSubmit,
+  t,
+  locale,
 }: {
-  t: any; locale: string; status: Status; onSubmit: (e: FormEvent<HTMLFormElement>) => void
+  t: TFn
+  locale: string
 }) {
   const [formOpen, setFormOpen] = useState(false)
+  const { status, handleSubmit } = useSubmitForm()
   const isAr = locale === 'ar'
 
   return (
@@ -186,7 +232,7 @@ function MobileContact({
 
       {/* ── WhatsApp hero CTA ── */}
       <motion.a
-        href="https://wa.me/212665652991"
+        href={WHATSAPP_HREF}
         target="_blank"
         rel="noopener noreferrer"
         whileTap={{ scale: 0.97 }}
@@ -206,9 +252,7 @@ function MobileContact({
           <p className="text-white font-bold text-[1.05rem] leading-tight">
             {isAr ? 'تواصل عبر واتساب' : 'Contacter sur WhatsApp'}
           </p>
-          <p className="text-whatsapp/70 text-[11px] tracking-wide">
-            {isAr ? '0665 652 991' : '0665 652 991'}
-          </p>
+          <p className="text-whatsapp/70 text-[11px] tracking-wide">{PHONE_NUMBER}</p>
         </div>
       </motion.a>
 
@@ -216,11 +260,11 @@ function MobileContact({
       <div className="grid grid-cols-2 gap-3">
         {/* Phone */}
         <a
-          href="tel:0665652991"
+          href={`tel:${PHONE_NUMBER}`}
           className="flex items-center justify-center gap-2.5 h-12 rounded-xl border border-white/8 bg-white/[0.025] hover:border-brand-400/30 hover:bg-white/[0.04] transition-all duration-200"
         >
           <Phone className="w-4 h-4 text-brand-300/70 flex-shrink-0" strokeWidth={2} />
-          <span className="font-semibold text-white/80 text-sm tracking-wide">0665 652 991</span>
+          <span className="font-semibold text-white/80 text-sm tracking-wide">{PHONE_NUMBER}</span>
         </a>
 
         {/* Instagram */}
@@ -241,6 +285,8 @@ function MobileContact({
 
       {/* ── Form toggle ── */}
       <button
+        type="button"
+        aria-expanded={formOpen}
         onClick={() => setFormOpen(v => !v)}
         className="w-full flex items-center gap-3 py-4 group"
       >
@@ -268,7 +314,7 @@ function MobileContact({
       >
         <div className="min-h-0 overflow-hidden">
           <div style={{ opacity: formOpen ? 1 : 0, transition: 'opacity 0.25s ease' }}>
-            <ContactForm t={t} locale={locale} status={status} onSubmit={onSubmit} />
+            <ContactForm t={t} locale={locale} status={status} onSubmit={handleSubmit} />
           </div>
         </div>
       </div>
@@ -281,8 +327,8 @@ function MobileContact({
 export default function ContactSection() {
   const t = useTranslations('contact')
   const locale = useLocale()
-  const [status, setStatus] = useState<Status>('idle')
 
+  const { status: desktopStatus, handleSubmit: desktopSubmit } = useSubmitForm()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
@@ -291,33 +337,6 @@ export default function ContactSection() {
     if (!formRef.current) return
     const rect = formRef.current.getBoundingClientRect()
     setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })
-  }
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    const form = e.currentTarget
-    setStatus('sending')
-    const formData = new FormData(form)
-    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID
-    if (!formspreeId) {
-      if (process.env.NODE_ENV === 'development') console.error('[ContactSection] NEXT_PUBLIC_FORMSPREE_ID is not set.')
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 5000)
-      return
-    }
-    const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-      method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' },
-    })
-    if (res.ok) {
-      setStatus('success')
-      form.reset()
-      setTimeout(() => setStatus('idle'), 3000)
-    } else {
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 5000)
-    }
   }
 
   const containerVariants = {
@@ -349,7 +368,7 @@ export default function ContactSection() {
         </motion.div>
 
         {/* ── Mobile layout ── */}
-        <MobileContact t={t} locale={locale} status={status} onSubmit={handleSubmit} />
+        <MobileContact t={t} locale={locale} />
 
         {/* ── Desktop layout ── */}
         <div className="hidden md:grid md:grid-cols-5 gap-10 lg:gap-12 items-start">
@@ -358,7 +377,7 @@ export default function ContactSection() {
           <div className="md:col-span-2 space-y-6">
             <motion.a
               variants={itemVariants}
-              href="tel:0665652991"
+              href={`tel:${PHONE_NUMBER}`}
               className="glass-card flex items-center gap-6 rounded-3xl p-6 border border-white/5 hover:border-brand-400/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(30,79,163,0.2)] transition-all duration-300 group bg-gradient-to-r from-white/[0.02] to-transparent relative overflow-hidden"
             >
               <div className="w-16 h-16 rounded-2xl bg-brand-800/80 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-400/20 transition-colors">
@@ -366,13 +385,13 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-brand-300 text-sm mb-1 uppercase tracking-widest font-semibold">{t('phone_label')}</p>
-                <p className="text-white font-bold text-[1.3rem] tracking-tight">0665 652 991</p>
+                <p className="text-white font-bold text-[1.3rem] tracking-tight">{PHONE_NUMBER}</p>
               </div>
             </motion.a>
 
             <motion.a
               variants={itemVariants}
-              href="https://wa.me/212665652991"
+              href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card flex items-center gap-6 rounded-3xl p-6 border border-whatsapp/30 hover:border-whatsapp/60 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(37,211,102,0.15)] transition-all duration-300 group bg-gradient-to-r from-whatsapp/[0.05] to-transparent relative overflow-hidden"
@@ -388,7 +407,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-whatsapp/80 text-sm mb-1 uppercase tracking-widest font-semibold">{t('whatsapp_label')}</p>
-                <p className="text-white font-bold text-[1.3rem] tracking-tight">0665 652 991</p>
+                <p className="text-white font-bold text-[1.3rem] tracking-tight">{PHONE_NUMBER}</p>
               </div>
             </motion.a>
 
@@ -420,8 +439,8 @@ export default function ContactSection() {
             <ContactForm
               t={t}
               locale={locale}
-              status={status}
-              onSubmit={handleSubmit}
+              status={desktopStatus}
+              onSubmit={desktopSubmit}
               formRef={formRef}
               onMouseMove={handleMouseMove}
               onMouseEnter={() => setIsHovered(true)}

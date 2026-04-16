@@ -1,5 +1,7 @@
 'use client'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import type { useTranslations as UseTranslations } from 'next-intl'
+type TTeamT = ReturnType<typeof UseTranslations<'team'>>
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useCallback } from 'react'
@@ -67,7 +69,8 @@ const slideVariants = {
 const AUTO_DELAY = 3600 // ms between slides
 
 // Mobile-only auto-playing carousel for the team members
-function MobileTeamCarousel({ members, t }: { members: TeamMember[]; t: any }) {
+function MobileTeamCarousel({ members, t }: { members: TeamMember[]; t: TTeamT }) {
+  const locale = useLocale()
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(1)
   // Incrementing this key resets the auto-play interval (used after user interaction)
@@ -155,13 +158,14 @@ function MobileTeamCarousel({ members, t }: { members: TeamMember[]; t: any }) {
         {members.map((_, idx) => (
           <button
             key={idx}
+            type="button"
             onClick={() => {
               if (idx === current) return
               setDirection(idx > current ? 1 : -1)
               setCurrent(idx)
               setAutoKey(k => k + 1)
             }}
-            aria-label={`Go to team member ${idx + 1}`}
+            aria-label={t('member_label', { idx: idx + 1 })}
             className={`h-[5px] rounded-full transition-all duration-300 ease-out ${
               idx === current ? 'w-6 bg-brand-400' : 'w-[5px] bg-white/20 hover:bg-white/40'
             }`}
@@ -181,7 +185,7 @@ function TeamMemberCard({
 }: {
   member: TeamMember
   idx: number
-  t: any
+  t: TTeamT
   isTop?: boolean
 }) {
   return (

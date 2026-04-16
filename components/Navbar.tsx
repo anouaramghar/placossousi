@@ -82,11 +82,12 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-3">
           <Link
             href={switchPath}
-            className="font-sans text-brand-200/70 text-sm font-medium px-4 py-2.5 min-h-[44px] rounded-full border border-transparent bg-white/5 tracking-[0.08em]"
+            className="font-sans text-brand-200/70 text-sm font-medium px-4 py-2.5 min-h-[44px] rounded-full border border-transparent bg-white/5 tracking-[0.08em] hover:bg-white/10 hover:text-white transition-colors duration-200"
           >
             {otherLocale.toUpperCase()}
           </Link>
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-brand-200/70 hover:text-white p-3 transition-colors rounded-lg hover:bg-white/5"
             aria-label={t('menu_toggle')}

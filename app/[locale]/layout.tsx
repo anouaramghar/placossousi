@@ -56,8 +56,8 @@ export async function generateMetadata({
     },
     alternates: {
       languages: {
-        'fr': '/fr',
-        'ar': '/ar',
+        'fr': 'https://placosousi.ma/fr',
+        'ar': 'https://placosousi.ma/ar',
       },
     },
   }

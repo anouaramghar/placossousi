@@ -60,6 +60,7 @@ export default function ServicesSection() {
               return (
                 <button
                   key={i}
+                  type="button"
                   onMouseEnter={() => setActiveIndex(i)}
                   onClick={() => setActiveIndex(i)}
                   className={`w-full text-left border-b border-white/5 group transition-colors duration-300 relative ${isActive ? 'bg-white/[0.025]' : 'hover:bg-white/[0.01]'}`}
