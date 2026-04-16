@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useInView, animate } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
-import founderImg from '@/public/images/founder.png'
+import founderImg from '@/public/images/founder.webp'
 
 function AnimatedCounter({ from = 0, to, duration = 2.5 }: { from?: number, to: number, duration?: number }) {
   const count = useMotionValue(from)

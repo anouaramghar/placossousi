@@ -10,33 +10,33 @@ const teamMembers = [
   {
     name: 'AMGHAR Adil',
     roleKey: 'responsable_administratif',
-    image: '/images/team/amghar.png',
+    image: '/images/team/amghar.webp',
   },
   {
     name: 'AGUENCHICH Abd errazzak',
     roleKey: 'responsable_commercial',
-    image: '/images/team/abdrazak.png',
+    image: '/images/team/abdrazak.webp',
   },
   {
     name: 'AMECHTAL Said',
     roleKey: 'commercial',
-    image: '/images/team/said.png',
+    image: '/images/team/said.webp',
   },
   {
     name: 'AYOUBI Ahmed',
     roleKey: 'commercial',
-    image: '/images/team/ahmed.png',
+    image: '/images/team/ahmed.webp',
     imageClass: 'scale-[0.85] origin-bottom',
   },
   {
     name: 'NAJIH Ayoub',
     roleKey: 'commercial',
-    image: '/images/team/ayoub.png',
+    image: '/images/team/ayoub.webp',
   },
   {
     name: 'ZEROUAL Mohamed',
     roleKey: 'chef_chantier',
-    image: '/images/team/mohamed.png',
+    image: '/images/team/mohamed.webp',
   },
 ]
 

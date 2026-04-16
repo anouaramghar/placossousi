@@ -11,10 +11,10 @@ const ICONS: Record<string, React.ElementType> = {
 }
 
 const SERVICE_IMAGES = [
-  "/images/services/service_platre.png",
-  "/images/services/service_decoration.png",
-  "/images/services/service_peinture.png",
-  "/images/services/service_vente.png",
+  "/images/services/service_platre.webp",
+  "/images/services/service_decoration.webp",
+  "/images/services/service_peinture.webp",
+  "/images/services/service_vente.webp",
 ]
 
 export default function ServicesSection() {
