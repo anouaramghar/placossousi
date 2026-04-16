@@ -451,8 +451,10 @@ body::before {
 [dir="rtl"] .font-display { font-family: var(--font-family-arabic); }
 
 /* Letter-spacing reset — Arabic script is connected cursive; any tracking
-   value inserts gaps between joined letters and breaks the letterforms */
-[dir="rtl"] * { letter-spacing: 0; }
+   value inserts gaps between joined letters and breaks the letterforms.
+   .section-label is excluded: it uses intentional 0.22em tracking for
+   Latin-script uppercase labels and must not be reset in RTL contexts. */
+[dir="rtl"] *:not(.section-label) { letter-spacing: 0; }
 
 /* ════════════════════════════════════════════════════
    FOCUS VISIBLE — keyboard navigation
