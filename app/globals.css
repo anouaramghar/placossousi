@@ -445,6 +445,15 @@ body::before {
   transform: translateX(0);
 }
 
+/* Font override — font-sans/font-display utility classes override body rule;
+   re-apply Tajawal so Arabic text never falls back to Inter or DM Serif */
+[dir="rtl"] .font-sans    { font-family: var(--font-family-arabic); }
+[dir="rtl"] .font-display { font-family: var(--font-family-arabic); }
+
+/* Letter-spacing reset — Arabic script is connected cursive; any tracking
+   value inserts gaps between joined letters and breaks the letterforms */
+[dir="rtl"] * { letter-spacing: 0; }
+
 /* ════════════════════════════════════════════════════
    FOCUS VISIBLE — keyboard navigation
 ══════════════════════════════════════════════════════ */
