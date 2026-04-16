@@ -137,7 +137,7 @@ function MobileBranches({ locale }: { locale: string }) {
                         {/* Phone */}
                         <div className="flex items-center gap-2.5">
                           <Phone className="w-3.5 h-3.5 text-brand-400/45 flex-shrink-0" strokeWidth={2} />
-                          <span className="font-sans text-sm text-brand-300/65 font-semibold tracking-widest">{branch.phone}</span>
+                          <span dir="ltr" className="font-sans text-sm text-brand-300/65 font-semibold tracking-widest">{branch.phone}</span>
                         </div>
                         {/* Maps CTA */}
                         <div className="pt-1">
@@ -350,7 +350,7 @@ function RouteCard({ cityName, address, phone, index, isSoon }: {
       {!isSoon && (
         <div className="flex items-center gap-2.5 pt-4 border-t border-white/5">
           <Phone className="w-3.5 h-3.5 text-brand-400/50 flex-shrink-0" strokeWidth={2} />
-          <span className="font-sans text-brand-300/65 text-sm font-semibold tracking-widest group-hover:text-brand-200/80 transition-colors duration-300">{phone}</span>
+          <span dir="ltr" className="font-sans text-brand-300/65 text-sm font-semibold tracking-widest group-hover:text-brand-200/80 transition-colors duration-300">{phone}</span>
         </div>
       )}
     </div>
