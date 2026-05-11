@@ -3,11 +3,13 @@ import { Inter, DM_Serif_Display } from 'next/font/google'
 import { Tajawal } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, setRequestLocale } from 'next-intl/server'
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import ScrollReveal from '@/components/ScrollReveal'
+import StructuredData from '@/components/StructuredData'
+import { BASE_URL } from '@/lib/config'
 import '../globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -48,18 +50,20 @@ export async function generateMetadata({
       type: 'website',
       locale: locale === 'ar' ? 'ar_MA' : 'fr_FR',
       siteName: 'Placo Sousi',
-      images: [{ url: 'https://placosousi.ma/images/og-image.jpg', width: 1200, height: 630, alt: 'Placo Sousi' }],
+      images: [{ url: `${BASE_URL}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Placo Sousi' }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://placosousi.ma/images/og-image.jpg'],
+      images: [`${BASE_URL}/images/og-image.jpg`],
     },
     alternates: {
+      canonical: `${BASE_URL}/${locale}`,
       languages: {
-        'fr': 'https://placosousi.ma/fr',
-        'ar': 'https://placosousi.ma/ar',
+        'fr': `${BASE_URL}/fr`,
+        'ar': `${BASE_URL}/ar`,
+        'x-default': `${BASE_URL}/fr`,
       },
     },
   }
@@ -81,6 +85,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale)
 
   const messages = await getMessages()
+  const t = await getTranslations('a11y')
 
   return (
     <html
@@ -89,9 +94,10 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${dmSerif.variable} ${tajawal.variable}`}
     >
       <body>
+        <StructuredData locale={locale} />
         <NextIntlClientProvider messages={messages}>
           <a href="#main-content" className="skip-link">
-            {locale === 'ar' ? 'انتقل إلى المحتوى' : 'Aller au contenu'}
+            {t('skip_to_content')}
           </a>
           <ScrollReveal />
           <Navbar />
