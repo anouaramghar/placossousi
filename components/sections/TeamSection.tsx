@@ -18,18 +18,13 @@ const teamMembers = [
     image: '/images/team/abdrazak.webp',
   },
   {
-    name: 'AMECHTAL Said',
-    roleKey: 'commercial',
-    image: '/images/team/said.webp',
-  },
-  {
     name: 'AYOUBI Ahmed',
     roleKey: 'commercial',
     image: '/images/team/ahmed.webp',
     imageClass: 'scale-[0.85] origin-bottom',
   },
   {
-    name: 'NAJIH Ayoub',
+    name: 'RAHIMI Ayoub',
     roleKey: 'commercial',
     image: '/images/team/ayoub.webp',
   },
@@ -38,6 +33,12 @@ const teamMembers = [
     roleKey: 'chef_chantier',
     image: '/images/team/mohamed.webp',
   },
+  {
+    name: 'MOURTAJI Hamid',
+    roleKey: 'chef_staffeur',
+    image: '/images/team/hamid.png',
+  },
+
 ]
 
 interface TeamMember {
@@ -166,9 +167,8 @@ function MobileTeamCarousel({ members, t }: { members: TeamMember[]; t: TTeamT }
               setAutoKey(k => k + 1)
             }}
             aria-label={t('member_label', { idx: idx + 1 })}
-            className={`h-[5px] rounded-full transition-all duration-300 ease-out ${
-              idx === current ? 'w-6 bg-brand-400' : 'w-[5px] bg-white/20 hover:bg-white/40'
-            }`}
+            className={`h-[5px] rounded-full transition-all duration-300 ease-out ${idx === current ? 'w-6 bg-brand-400' : 'w-[5px] bg-white/20 hover:bg-white/40'
+              }`}
           />
         ))}
       </div>
@@ -194,21 +194,18 @@ function TeamMemberCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={`group flex flex-col items-center text-center shrink-0 ${
-        isTop ? 'w-[155px] sm:w-[260px] md:w-[300px]' : 'w-[170px] md:w-[220px]'
-      }`}
+      className={`group flex flex-col items-center text-center shrink-0 ${isTop ? 'w-[155px] sm:w-[260px] md:w-[300px]' : 'w-[170px] md:w-[220px]'
+        }`}
     >
       <div
-        className={`relative mb-5 transition-colors duration-500 ${
-          isTop
+        className={`relative mb-5 transition-colors duration-500 ${isTop
             ? 'w-[145px] h-[195px] sm:w-[240px] sm:h-[320px] md:w-[280px] md:h-[380px]'
             : 'w-[155px] h-[205px] md:w-[200px] md:h-[260px]'
-        }`}
+          }`}
       >
         <div
-          className={`relative w-full h-full overflow-hidden flex items-center justify-center ${
-            !member.image ? 'bg-brand-900/30 border border-white/5 rounded-2xl group-hover:border-brand-400/20' : ''
-          }`}
+          className={`relative w-full h-full overflow-hidden flex items-center justify-center ${!member.image ? 'bg-brand-900/30 border border-white/5 rounded-2xl group-hover:border-brand-400/20' : ''
+            }`}
         >
           {member.image ? (
             <Image
@@ -227,9 +224,8 @@ function TeamMemberCard({
         </div>
       </div>
       <h3
-        className={`font-display text-white tracking-normal leading-snug mb-1 group-hover:text-brand-300 transition-colors duration-300 w-full ${
-          isTop ? 'text-[1.15rem] sm:text-2xl md:text-3xl' : 'text-lg md:text-xl'
-        }`}
+        className={`font-display text-white tracking-normal leading-snug mb-1 group-hover:text-brand-300 transition-colors duration-300 w-full ${isTop ? 'text-[1.15rem] sm:text-2xl md:text-3xl' : 'text-lg md:text-xl'
+          }`}
       >
         {member.name}
       </h3>

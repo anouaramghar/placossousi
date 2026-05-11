@@ -1,5 +1,37 @@
 @AGENTS.md
 
+## Tech Stack
+
+- **Next.js 16.2.1** (App Router) — see AGENTS.md for breaking changes
+- **React 19**, **TypeScript 5**, **Tailwind CSS 4**
+- **next-intl 4.8.3** — i18n via `i18n.ts` using `requestLocale` API (not `locale`)
+- **Framer Motion 12** — animations
+- **Jest 30** + Testing Library — tests in `__tests__/`
+
+## Project Structure
+
+```
+app/
+  [locale]/          # locale-scoped routes (fr | ar)
+  globals.css
+  manifest.ts / robots.ts / sitemap.ts
+components/
+  sections/          # page sections: Hero, About, Products, Services, Branches, Guide, Contact, Team
+  products/          # ProductCard, ProductGrid, ProductDetail
+  Navbar, Footer, WhatsAppButton, MagneticButton, ScrollReveal
+data/
+  products.json      # product catalog
+  branches.json      # store locations
+  services.json      # service offerings
+messages/
+  fr.json / ar.json  # all UI strings — add new copy here, never hardcode
+i18n.ts              # next-intl config
+```
+
+## i18n
+
+Two locales: `fr` (default) and `ar` (RTL). All strings live in `messages/`. The `[locale]` segment drives locale resolution. RTL layouts must be designed natively — not just mirrored.
+
 ## Design Context
 
 ### Users

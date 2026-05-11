@@ -124,6 +124,7 @@
       "responsable_administratif": "مسؤول إداري",
       "responsable_commercial": "مسؤول تجاري",
       "chef_chantier": "رئيس الورشة",
+      "chef_staffeur": "رئيس الستافور",
       "commercial": "مستشار مبيعات"
     }
   },
@@ -134,5 +135,8 @@
   },
   "whatsapp": {
     "aria_label": "تواصل عبر واتساب"
+  },
+  "a11y": {
+    "skip_to_content": "انتقل إلى المحتوى"
   }
 }
