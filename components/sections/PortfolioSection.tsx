@@ -284,21 +284,7 @@ export default function PortfolioSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mt-12"
-        >
-          <a
-            href="#contact"
-            className="btn-magic btn-primary inline-flex gap-2.5 px-8 py-4 rounded-full text-sm font-semibold"
-          >
-            {t('cta')}
-          </a>
-        </motion.div>
+
       </div>
 
       {/* Lightbox */}
