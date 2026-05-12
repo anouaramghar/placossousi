@@ -10,6 +10,9 @@ const AboutSection = dynamic(() => import('@/components/sections/AboutSection'),
 const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
   loading: () => <div className="py-24" aria-hidden="true" />,
 })
+const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection'), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+})
 const GuideSection = dynamic(() => import('@/components/sections/GuideSection'), {
   loading: () => <div className="py-24" aria-hidden="true" />,
 })
@@ -40,6 +43,7 @@ export default async function HomePage({
       <AboutSection />
       <ProductsSection />
       <ServicesSection />
+      <PortfolioSection />
       <GuideSection />
       <TeamSection />
       <BranchesSection />
