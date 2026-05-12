@@ -181,7 +181,7 @@ function ProjectCard({
       aria-label={t(project.titleKey as Parameters<typeof t>[0])}
     >
       {/* Thumbnail */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div className="relative w-full aspect-video sm:aspect-[4/3] overflow-hidden">
         <Image
           src={project.image}
           alt={t(project.titleKey as Parameters<typeof t>[0])}
@@ -303,7 +303,7 @@ export default function PortfolioSection() {
         <AnimatePresence mode="popLayout">
           <motion.div
             key={activeCategory}
-            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 md:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
           >
             {filtered.map((project, index) => (
               <ProjectCard
