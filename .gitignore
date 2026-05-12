@@ -44,3 +44,15 @@ next-env.d.ts
 .superpowers/
 .env.local
 .worktrees/
+
+# lighthouse reports (dev artifacts — never commit)
+lighthouse-*.json
+
+# binary / office files
+*.pptx
+*.ppt
+*.docx
+*.xlsx
+
+# stray scratch files
+*.txt
