@@ -2,10 +2,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
+import { LOCALES, BASE_URL } from '@/lib/config'
 import { getProductBySlug, getProducts } from '@/lib/products'
 import ProductDetail from '@/components/products/ProductDetail'
-
-const LOCALES = ['fr', 'ar']
 
 export async function generateMetadata({
   params,
@@ -21,7 +20,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return LOCALES.flatMap(locale =>
+  return (LOCALES as readonly string[]).flatMap(locale =>
     getProducts().map(p => ({ locale, slug: p.slug }))
   )
 }

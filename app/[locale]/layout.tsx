@@ -9,7 +9,7 @@ import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import ScrollReveal from '@/components/ScrollReveal'
 import StructuredData from '@/components/StructuredData'
-import { BASE_URL } from '@/lib/config'
+import { BASE_URL, LOCALES } from '@/lib/config'
 import '../globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -69,8 +69,6 @@ export async function generateMetadata({
   }
 }
 
-const locales = ['fr', 'ar']
-
 export default async function LocaleLayout({
   children,
   params,
@@ -80,7 +78,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!locales.includes(locale)) notFound()
+  if (!(LOCALES as readonly string[]).includes(locale)) notFound()
 
   setRequestLocale(locale)
 
