@@ -1,6 +1,7 @@
 // app/[locale]/products/page.tsx
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { BASE_URL } from '@/lib/config'
 import { getProducts } from '@/lib/products'
 import ProductGrid from '@/components/products/ProductGrid'
 
@@ -10,10 +11,32 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const title = locale === 'ar'
+    ? 'المنتجات — بلاكو سوسي'
+    : 'Produits — Placo Sousi'
+  const description = locale === 'ar'
+    ? 'تصفح كامل منتجاتنا: جبص، صباغة، باستا، أرمسترونغ، LED ومزيد.'
+    : 'Parcourez notre gamme complète : plâtre, peinture, pasta, Armstrong, LED et plus.'
+
   return {
-    title: locale === 'ar'
-      ? 'المنتجات — بلاكو سوسي'
-      : 'Produits — Placo Sousi',
+    title,
+    description,
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/products`,
+      languages: {
+        fr: `${BASE_URL}/fr/products`,
+        ar: `${BASE_URL}/ar/products`,
+        'x-default': `${BASE_URL}/fr/products`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale === 'ar' ? 'ar_MA' : 'fr_FR',
+      siteName: 'Placo Sousi',
+      images: [{ url: `${BASE_URL}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Placo Sousi' }],
+    },
   }
 }
 

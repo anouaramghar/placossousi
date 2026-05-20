@@ -14,8 +14,32 @@ export async function generateMetadata({
   const { locale, slug } = await params
   const product = getProductBySlug(slug)
   if (!product) return { robots: { index: false } }
+
+  const name = locale === 'ar' ? product.nameAr : product.name
+  const description = locale === 'ar' ? product.descriptionAr : product.description
+  const imageUrl = product.image.startsWith('/')
+    ? `${BASE_URL}${product.image}`
+    : product.image
+
   return {
-    title: `${locale === 'ar' ? product.nameAr : product.name} — Placo Sousi`,
+    title: `${name} — Placo Sousi`,
+    description,
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/products/${slug}`,
+      languages: {
+        fr: `${BASE_URL}/fr/products/${slug}`,
+        ar: `${BASE_URL}/ar/products/${slug}`,
+        'x-default': `${BASE_URL}/fr/products/${slug}`,
+      },
+    },
+    openGraph: {
+      title: `${name} — Placo Sousi`,
+      description,
+      type: 'website',
+      locale: locale === 'ar' ? 'ar_MA' : 'fr_FR',
+      siteName: 'Placo Sousi',
+      images: [{ url: imageUrl, width: 800, height: 600, alt: name }],
+    },
   }
 }
 
