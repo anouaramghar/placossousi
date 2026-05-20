@@ -1,17 +1,19 @@
 // components/products/ProductGrid.tsx
 'use client'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useTranslations } from 'next-intl'
 import ProductCard from './ProductCard'
 import type { Product } from '@/lib/products'
-
-const CATEGORIES = ['all', 'platre', 'peinture', 'pasta', 'armstrong', 'led', 'visserie'] as const
 
 interface Props { products: Product[] }
 
 export default function ProductGrid({ products }: Props) {
   const t = useTranslations('products.categories')
   const [active, setActive] = useState<string>('all')
+  const categories = useMemo(
+    () => ['all', ...Array.from(new Set(products.map(p => p.category)))],
+    [products]
+  )
 
   const filtered = active === 'all' ? products : products.filter(p => p.category === active)
 
@@ -19,7 +21,7 @@ export default function ProductGrid({ products }: Props) {
     <div>
       {/* Category filter tabs */}
       <div className="flex flex-wrap gap-3 mb-12 justify-center lg:justify-start pt-4">
-        {CATEGORIES.map(cat => (
+        {categories.map(cat => (
           <button
             key={cat}
             type="button"
