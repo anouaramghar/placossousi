@@ -105,6 +105,16 @@ function ContactForm({
         <FloatingTextarea id="contact-message" name="message" label={t('form_message')} required />
       </div>
 
+      {/* Honeypot — invisible to users, filled by bots; Formspree rejects filled submissions */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ display: 'none' }}
+      />
+
       {/* Submit button */}
       <div className="relative z-10 w-full h-14">
         <motion.button
