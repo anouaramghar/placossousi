@@ -166,7 +166,7 @@ function ContactForm({
             rel="noopener noreferrer"
             className="text-whatsapp hover:text-green-400 font-bold transition-colors underline underline-offset-2"
           >
-            {locale === 'ar' ? 'واتساب ←' : '→ WhatsApp'}
+            {t('whatsapp_error_link')}
           </a>
         </motion.div>
       )}
@@ -235,7 +235,6 @@ function MobileContact({
 }) {
   const [formOpen, setFormOpen] = useState(false)
   const { status, handleSubmit } = useSubmitForm()
-  const isAr = locale === 'ar'
 
   return (
     <div className="md:hidden space-y-3">
@@ -260,7 +259,7 @@ function MobileContact({
 
         <div className="relative z-10">
           <p className="text-white font-bold text-[1.05rem] leading-tight">
-            {isAr ? 'تواصل عبر واتساب' : 'Contacter sur WhatsApp'}
+            {t('mobile_whatsapp_cta')}
           </p>
           <p dir="ltr" className="text-whatsapp/70 text-[11px] tracking-wide">{PHONE_NUMBER}</p>
         </div>
@@ -302,7 +301,7 @@ function MobileContact({
       >
         <div className="flex-1 h-px bg-white/8" />
         <span className="font-sans text-brand-300/50 text-[11px] tracking-[0.15em] uppercase font-semibold whitespace-nowrap group-hover:text-brand-300/70 transition-colors duration-200">
-          {isAr ? 'أو أرسل رسالة' : 'ou envoyez un message'}
+          {t('mobile_form_toggle')}
         </span>
         <motion.div
           animate={{ rotate: formOpen ? 180 : 0 }}

@@ -110,7 +110,10 @@
     "form_message": "رسالتك",
     "form_submit": "إرسال",
     "form_success": "تم الإرسال! سنرد عليك قريباً.",
-    "form_error": "لم يتم الإرسال — تواصل معنا مباشرة على واتساب"
+    "form_error": "لم يتم الإرسال — تواصل معنا مباشرة على واتساب",
+    "whatsapp_error_link": "واتساب ←",
+    "mobile_whatsapp_cta": "تواصل عبر واتساب",
+    "mobile_form_toggle": "أو أرسل رسالة"
   },
   "footer": {
     "brand_name": "بلاكو سوسي",

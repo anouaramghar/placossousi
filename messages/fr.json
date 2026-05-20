@@ -110,7 +110,10 @@
     "form_message": "Votre message",
     "form_submit": "Envoyer le message",
     "form_success": "Message envoyé ! Nous vous répondrons bientôt.",
-    "form_error": "Erreur d'envoi — contactez-nous directement sur WhatsApp"
+    "form_error": "Erreur d'envoi — contactez-nous directement sur WhatsApp",
+    "whatsapp_error_link": "→ WhatsApp",
+    "mobile_whatsapp_cta": "Contacter sur WhatsApp",
+    "mobile_form_toggle": "ou envoyez un message"
   },
   "footer": {
     "brand_name": "Placo Sousi",
