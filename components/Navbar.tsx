@@ -14,7 +14,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   const otherLocale = locale === 'fr' ? 'ar' : 'fr'
-  const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`)
+  const switchPath = pathname.startsWith(`/${locale}`)
+    ? `/${otherLocale}${pathname.slice(`/${locale}`.length)}`
+    : `/${otherLocale}`
 
   useEffect(() => {
     let rafId: number
