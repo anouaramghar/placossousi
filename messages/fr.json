@@ -167,5 +167,12 @@
   },
   "a11y": {
     "skip_to_content": "Aller au contenu"
+  },
+  "error": {
+    "label": "Erreur",
+    "heading": "Quelque chose s'est mal passé",
+    "description": "Une erreur inattendue est survenue. Réessayez ou revenez à l'accueil.",
+    "retry": "Réessayer",
+    "back_home": "Retour à l'accueil"
   }
 }
