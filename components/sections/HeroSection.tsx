@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brand-900 to-transparent z-20 pointer-events-none"></div>
         <Image
           src={heroBg}
-          alt="Hero Background"
+          alt=""
           fill
           priority
           placeholder="blur"
