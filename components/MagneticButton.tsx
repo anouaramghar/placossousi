@@ -34,7 +34,7 @@ export default function MagneticButton({ children, className }: { children: Reac
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
         transition: 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
-        willChange: 'transform',
+        willChange: (position.x !== 0 || position.y !== 0) ? 'transform' : 'auto',
       }}
     >
       {children}

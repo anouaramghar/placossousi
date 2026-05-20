@@ -1,7 +1,7 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 import { MapPin, X } from 'lucide-react'
 
@@ -80,6 +80,7 @@ function Lightbox({
   const closeRef = useRef<HTMLButtonElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
   const onCloseRef = useRef(onClose)
+  const prefersReduced = useReducedMotion()
 
   // Keep the ref current without re-running the stable effect
   useEffect(() => {
@@ -136,7 +137,7 @@ function Lightbox({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.22 }}
+      transition={{ duration: prefersReduced ? 0.01 : 0.22 }}
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-6 bg-black/75 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -145,10 +146,13 @@ function Lightbox({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        initial={{ y: '100%', opacity: 0 }}
+        initial={prefersReduced ? { opacity: 0 } : { y: '100%', opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: '100%', opacity: 0 }}
-        transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+        exit={prefersReduced ? { opacity: 0 } : { y: '100%', opacity: 0 }}
+        transition={prefersReduced
+          ? { duration: 0.01 }
+          : { duration: 0.38, ease: [0.16, 1, 0.3, 1] }
+        }
         className="relative w-full sm:max-w-2xl bg-brand-850 sm:rounded-3xl rounded-t-3xl overflow-hidden border border-white/8 shadow-[0_-8px_48px_rgba(0,0,0,0.6)] sm:shadow-[0_32px_80px_rgba(0,0,0,0.7)]"
         style={{ background: 'var(--color-brand-850)' }}
         onClick={e => e.stopPropagation()}
