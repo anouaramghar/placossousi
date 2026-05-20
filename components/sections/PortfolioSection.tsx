@@ -79,22 +79,57 @@ function Lightbox({
 }) {
   const closeRef = useRef<HTMLButtonElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
+  const onCloseRef = useRef(onClose)
 
+  // Keep the ref current without re-running the stable effect
+  useEffect(() => {
+    onCloseRef.current = onClose
+  })
+
+  const titleId = `lightbox-title-${project.id}`
+  const modalId = `lightbox-modal-${project.id}`
+
+  // Stable effect — runs once on mount, cleans up on unmount only
   useEffect(() => {
     previousFocusRef.current = document.activeElement as HTMLElement
     closeRef.current?.focus()
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') {
+        onCloseRef.current()
+        return
+      }
+      if (e.key === 'Tab') {
+        const modal = document.getElementById(modalId)
+        if (!modal) return
+        const focusable = Array.from(
+          modal.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter(el => !el.hasAttribute('disabled'))
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault()
+            last.focus()
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault()
+            first.focus()
+          }
+        }
+      }
     }
+
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       previousFocusRef.current?.focus()
     }
-  }, [onClose])
-
-  const titleId = `lightbox-title-${project.id}`
+  }, [modalId])
 
   return (
     <motion.div
@@ -106,6 +141,7 @@ function Lightbox({
       onClick={onClose}
     >
       <motion.div
+        id={modalId}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
@@ -117,12 +153,10 @@ function Lightbox({
         style={{ background: 'var(--color-brand-850)' }}
         onClick={e => e.stopPropagation()}
       >
-        {/* Drag handle (mobile only) */}
         <div className="sm:hidden flex justify-center pt-3 pb-1">
           <div className="w-10 h-1 rounded-full bg-white/15" />
         </div>
 
-        {/* Image */}
         <div className="relative w-full aspect-video">
           <Image
             src={project.image}
@@ -139,7 +173,6 @@ function Lightbox({
           </span>
         </div>
 
-        {/* Info */}
         <div className="p-5 sm:p-7">
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="flex-1 min-w-0">
@@ -168,7 +201,6 @@ function Lightbox({
           </div>
         </div>
 
-        {/* Close */}
         <button
           ref={closeRef}
           onClick={onClose}
