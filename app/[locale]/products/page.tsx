@@ -1,7 +1,7 @@
 // app/[locale]/products/page.tsx
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { BASE_URL } from '@/lib/config'
+import { BASE_URL, LOCALES } from '@/lib/config'
 import { getProducts } from '@/lib/products'
 import ProductGrid from '@/components/products/ProductGrid'
 
@@ -41,7 +41,7 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'fr' }, { locale: 'ar' }]
+  return (LOCALES as readonly string[]).map(locale => ({ locale }))
 }
 
 export default async function ProductsPage({
