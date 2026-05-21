@@ -86,7 +86,7 @@ export default function HeroSection() {
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-glow">
             {t('title_prefix')}{' '}
           </span>
-          <span className="text-brand-400" aria-hidden="true">
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-glow" aria-hidden="true">
             {displayed}
             <span className="animate-blink ms-0.5">|</span>
           </span>
