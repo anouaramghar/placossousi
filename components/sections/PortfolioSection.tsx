@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { MapPin, X } from 'lucide-react'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -294,6 +295,9 @@ export default function PortfolioSection() {
   const t = useTranslations('portfolio')
   const [activeCategory, setActiveCategory] = useState<string>('all')
   const [lightboxProject, setLightboxProject] = useState<(typeof projects)[0] | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   const filtered =
     activeCategory === 'all' ? projects : projects.filter(p => p.categoryKey === activeCategory)
@@ -370,16 +374,19 @@ export default function PortfolioSection() {
 
       </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxProject && (
-          <Lightbox
-            project={lightboxProject}
-            onClose={() => setLightboxProject(null)}
-            t={t}
-          />
-        )}
-      </AnimatePresence>
+      {/* Lightbox — portal escapes section's overflow-hidden and stacking context */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {lightboxProject && (
+            <Lightbox
+              project={lightboxProject}
+              onClose={() => setLightboxProject(null)}
+              t={t}
+            />
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   )
 }
