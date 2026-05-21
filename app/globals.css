@@ -605,20 +605,21 @@ select:focus-visible {
    LEAFLET MAP — dark theme overrides
 ══════════════════════════════════════════════════════ */
 .leaflet-popup-content-wrapper {
-  background: #060e1f;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
-  padding: 0;
-  color: inherit;
+  background: #060e1f !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7) !important;
+  padding: 0 !important;
+  color: white !important;
 }
 .leaflet-popup-content {
-  margin: 0;
-  padding: 14px 16px;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  line-height: 1.5 !important;
 }
 .leaflet-popup-tip-container .leaflet-popup-tip {
-  background: #060e1f;
-  box-shadow: none;
+  background: #060e1f !important;
+  box-shadow: none !important;
 }
 .leaflet-popup-close-button {
   color: rgba(255, 255, 255, 0.35) !important;
