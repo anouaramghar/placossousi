@@ -17,23 +17,21 @@ interface Branch {
   comingSoon?: boolean
 }
 
-function markerIcon(active: boolean) {
+function makeIcon(active: boolean) {
   const ring = active ? 'rgba(96,165,250,0.35)' : 'rgba(37,99,235,0.25)'
   const fill = active ? '#60a5fa' : '#2563eb'
   return L.divIcon({
-    html: `<span style="
-      display:block;width:16px;height:16px;
-      background:${fill};
-      border:2px solid rgba(255,255,255,0.7);
-      border-radius:50%;
-      box-shadow:0 0 0 5px ${ring},0 4px 14px rgba(0,0,0,0.5);
-    "></span>`,
+    html: `<span style="display:block;width:16px;height:16px;background:${fill};border:2px solid rgba(255,255,255,0.7);border-radius:50%;box-shadow:0 0 0 5px ${ring},0 4px 14px rgba(0,0,0,0.5);"></span>`,
     className: '',
     iconSize: [16, 16],
     iconAnchor: [8, 8],
     popupAnchor: [0, -12],
   })
 }
+
+// Created once at module load (client-only module via ssr:false dynamic import)
+const ICON_NORMAL = makeIcon(false)
+const ICON_ACTIVE = makeIcon(true)
 
 function MapController({
   branches,
@@ -100,7 +98,7 @@ export default function BranchesMap({
         <Marker
           key={branch.city}
           position={[branch.lat!, branch.lng!]}
-          icon={markerIcon(branch.city === activeCity)}
+          icon={branch.city === activeCity ? ICON_ACTIVE : ICON_NORMAL}
         >
           <Popup>
             <div className="branch-popup" dir={locale === 'ar' ? 'rtl' : 'ltr'}>

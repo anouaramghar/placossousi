@@ -162,7 +162,8 @@ export default function BranchesSection() {
   const t      = useTranslations('branches')
   const locale = useLocale()
 
-  const activeBranches = branches.filter(b => !b.comingSoon)
+  const activeBranches    = branches.filter(b => !b.comingSoon)
+  const comingSoonBranch  = branches.find(b => !!b.comingSoon) ?? null
   const [activeCity, setActiveCity] = useState<string | null>(null)
 
   return (
@@ -236,27 +237,28 @@ export default function BranchesSection() {
                     <span className="font-sans text-xs text-brand-100/50 leading-relaxed">{address}</span>
                   </div>
 
-                  {/* Active indicator */}
                   {isActive && (
-                    <div className="mt-3 pt-3 border-t border-brand-400/15 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
-                      <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-brand-400/60">
-                        {t('open_maps')}
-                      </span>
+                    <div className="mt-3 pt-3 border-t border-brand-400/15 flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-400/50 animate-pulse flex-shrink-0" style={{ animationDelay: '0.2s' }} />
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-400/25 animate-pulse flex-shrink-0" style={{ animationDelay: '0.4s' }} />
                     </div>
                   )}
                 </button>
               )
             })}
 
-            {/* Coming soon badge */}
-            <div className="flex items-center gap-3 px-5 py-4 rounded-2xl border-2 border-dashed border-white/8 bg-white/[0.01]">
-              <Clock className="w-4 h-4 text-white/25 shrink-0" strokeWidth={1.5} />
-              <div>
-                <p className="font-sans text-white/50 text-sm font-medium">Al Hoceima Ajdir</p>
-                <p className="font-sans text-white/25 text-xs mt-0.5">{t('coming_soon')}</p>
+            {comingSoonBranch && (
+              <div className="flex items-center gap-3 px-5 py-4 rounded-2xl border-2 border-dashed border-white/8 bg-white/[0.01]">
+                <Clock className="w-4 h-4 text-white/25 shrink-0" strokeWidth={1.5} />
+                <div>
+                  <p className="font-sans text-white/50 text-sm font-medium">
+                    {locale === 'ar' ? comingSoonBranch.cityAr : comingSoonBranch.city}
+                  </p>
+                  <p className="font-sans text-white/25 text-xs mt-0.5">{t('coming_soon')}</p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Right — sticky map */}
