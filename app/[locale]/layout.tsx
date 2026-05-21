@@ -1,3 +1,4 @@
+import 'leaflet/dist/leaflet.css'
 import type { Metadata, Viewport } from 'next'
 import { Inter, DM_Serif_Display } from 'next/font/google'
 import { Tajawal } from 'next/font/google'
