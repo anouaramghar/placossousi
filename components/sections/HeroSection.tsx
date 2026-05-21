@@ -79,16 +79,17 @@ export default function HeroSection() {
 
         {/* Display heading */}
         <h1
-          className="font-display text-[clamp(3rem,10vw,7.5rem)] leading-[1.1] tracking-normal mb-7 animate-fade-in-up text-balance"
+          className="font-display text-[clamp(3rem,10vw,7.5rem)] leading-[1.1] tracking-normal mb-7 animate-fade-in-up sm:whitespace-nowrap"
           style={{ animationDelay: '0.12s' }}
           aria-label={`${t('title_prefix')} ${words[0]}`}
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-glow">
-            {t('title_prefix')}{' '}
+            {t('title_prefix')}
           </span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-glow" aria-hidden="true">
+          {' '}<br className="sm:hidden" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-glow whitespace-nowrap" aria-hidden="true">
             {displayed}
-            <span className="animate-blink ms-0.5">|</span>
+            <span className="animate-blink ms-0.5 text-white">|</span>
           </span>
         </h1>
 
