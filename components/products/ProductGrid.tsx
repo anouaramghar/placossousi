@@ -1,6 +1,6 @@
 // components/products/ProductGrid.tsx
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import ProductCard from './ProductCard'
 import type { Product } from '@/lib/products'
@@ -14,6 +14,10 @@ export default function ProductGrid({ products }: Props) {
     () => ['all', ...Array.from(new Set(products.map(p => p.category)))],
     [products]
   )
+
+  useEffect(() => {
+    if (!categories.includes(active)) setActive('all')
+  }, [categories, active])
 
   const filtered = active === 'all' ? products : products.filter(p => p.category === active)
 
@@ -32,7 +36,7 @@ export default function ProductGrid({ products }: Props) {
                 : 'bg-white/[0.03] text-brand-300 hover:text-white hover:bg-white/[0.08] border border-white/10 hover:border-brand-400/40 backdrop-blur-md'
               }`}
           >
-            {t(cat)}
+            {t(cat as Parameters<typeof t>[0])}
           </button>
         ))}
       </div>
