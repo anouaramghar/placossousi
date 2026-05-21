@@ -483,6 +483,16 @@ body::before {
 .animate-pulse-slow { animation: var(--animate-pulse-slow); }
 .animate-glow       { animation: var(--animate-glow); }
 .animate-shimmer    { animation: var(--animate-shimmer); }
+.animate-blink      { animation: blink 1s step-end infinite; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink { animation: none; opacity: 0; }
+}
 
 /* ════════════════════════════════════════════════════
    RTL

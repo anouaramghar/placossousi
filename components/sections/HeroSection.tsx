@@ -1,13 +1,48 @@
-// components/sections/HeroSection.tsx
+'use client'
 import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import MagneticButton from '@/components/MagneticButton'
 import heroBg from '@/public/images/hero_bg_wide.webp'
 
+const WORDS: Record<string, string[]> = {
+  fr: ["du Plâtre", "de la Peinture", "du Pasta", "de l'Armstrong", "du LED"],
+  ar: ["الجبص", "الصباغة", "الباستا", "آرمسترونغ", "LED"],
+}
+
+function useTypewriter(words: string[]) {
+  const [index, setIndex] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const word = words[index]
+    let timer: ReturnType<typeof setTimeout>
+
+    if (!deleting && displayed === word) {
+      timer = setTimeout(() => setDeleting(true), 1800)
+    } else if (deleting && displayed === '') {
+      setDeleting(false)
+      setIndex(i => (i + 1) % words.length)
+    } else {
+      timer = setTimeout(
+        () => setDisplayed(d => deleting ? d.slice(0, -1) : word.slice(0, d.length + 1)),
+        deleting ? 50 : 100
+      )
+    }
+
+    return () => clearTimeout(timer)
+  }, [displayed, deleting, index, words])
+
+  return displayed
+}
+
 export default function HeroSection() {
   const t = useTranslations('hero')
-  const locale = useLocale() // still needed for href locale-prefix
+  const locale = useLocale()
+  const words = WORDS[locale] ?? WORDS.fr
+  const displayed = useTypewriter(words)
 
   return (
     <section
@@ -16,9 +51,7 @@ export default function HeroSection() {
     >
       {/* Background Image */}
       <div className="absolute inset-0 -z-20 bg-brand-900">
-        {/* Extremely soft gradient just to ensure the white text pops slightly, and to transition smoothly down */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-10 pointer-events-none"></div>
-        {/* Extra steep fade at the very bottom strictly to eliminate any hard lines for the next section */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brand-900 to-transparent z-20 pointer-events-none"></div>
         <Image
           src={heroBg}
@@ -44,12 +77,19 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Display heading — DM Serif */}
+        {/* Display heading */}
         <h1
-          className="font-display text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-[clamp(3rem,10vw,7.5rem)] leading-[1.1] tracking-normal mb-7 animate-fade-in-up text-glow text-balance"
+          className="font-display text-[clamp(3rem,10vw,7.5rem)] leading-[1.1] tracking-normal mb-7 animate-fade-in-up text-balance"
           style={{ animationDelay: '0.12s' }}
+          aria-label={`${t('title_prefix')} ${words[0]}`}
         >
-          {t('title')}
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-brand-200/50 text-glow">
+            {t('title_prefix')}{' '}
+          </span>
+          <span className="text-brand-400" aria-hidden="true">
+            {displayed}
+            <span className="animate-blink ms-0.5">|</span>
+          </span>
         </h1>
 
         {/* Subtitle */}
@@ -82,8 +122,6 @@ export default function HeroSection() {
             </Link>
           </MagneticButton>
         </div>
-
-
       </div>
 
       {/* Scroll indicator */}
