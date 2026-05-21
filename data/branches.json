@@ -6,6 +6,8 @@
     "addressAr": "حي المحيط، شارع 100، الناظور",
     "phone": "0665 652 991",
     "region": "oriental",
+    "lat": 35.1545763,
+    "lng": -2.9342351,
     "mapUrl": "https://www.google.com/maps/place/Placo+sousi,+arrid,+Quartier+al+mouhit,+Rue+100%D8%8C+Nador+62000"
   },
   {
@@ -15,6 +17,8 @@
     "addressAr": "بني أنصار",
     "phone": "0665 652 991",
     "region": "oriental",
+    "lat": 35.244121,
+    "lng": -2.935034,
     "mapUrl": "https://www.google.com/maps?q=35.244121,-2.935034"
   },
   {
@@ -24,6 +28,8 @@
     "addressAr": "العمران، سلوان",
     "phone": "0665 652 991",
     "region": "oriental",
+    "lat": 35.0585562,
+    "lng": -2.9106099,
     "mapUrl": "https://www.google.com/maps?q=35.0585562,-2.9106099&z=17&hl=en"
   },
   {
@@ -43,6 +49,8 @@
     "addressAr": "باشوية الدروة، برشيد",
     "phone": "0665 652 991",
     "region": "casablanca",
+    "lat": 33.2591689,
+    "lng": -7.5719347,
     "mapUrl": "https://www.google.com/maps/search/Pachalik+de+Deroua,+Berrechid"
   },
   {
@@ -52,6 +60,8 @@
     "addressAr": "الدروة، الدار البيضاء",
     "phone": "0665 652 991",
     "region": "casablanca",
+    "lat": 33.3904091,
+    "lng": -7.5347197,
     "mapUrl": "https://www.google.com/maps/place/P3+MILTU+TRAV,+Deroua+pachalik+de+deroua,+Deroua+26202"
   }
 ]
