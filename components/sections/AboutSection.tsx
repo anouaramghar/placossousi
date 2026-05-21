@@ -93,7 +93,7 @@ export default function AboutSection() {
         {/* Section header */}
         <div className="reveal mb-10 md:mb-12">
           <span className="section-label">{t('label')}</span>
-          <h2 className="font-display text-white text-[clamp(2.5rem,6vw,5.5rem)] tracking-normal leading-[1.1] mt-5 max-w-2xl text-glow-soft">
+          <h2 className="font-display text-white text-[clamp(2.5rem,6vw,5.5rem)] tracking-normal leading-[1.1] mt-5 text-glow-soft">
             {t('title')}
           </h2>
         </div>
